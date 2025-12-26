@@ -1,0 +1,257 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 14%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 174 72% 56%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 222 47% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 25%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 174 72% 56%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 72% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 160 84% 39%;
+    --warning: 38 92% 50%;
+
+    --border: 222 30% 22%;
+    --input: 222 30% 22%;
+    --ring: 174 72% 56%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 14%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 174 72% 56%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 222 47% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 30% 25%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 174 72% 56%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 72% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 30% 22%;
+    --input: 222 30% 22%;
+    --ring: 174 72% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: "DM Sans", "Inter", sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.4);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* PRODUCTS NAV – sticky + responsive hamburger */
+
+.products-nav-wrapper {
+  position: sticky;
+  top: 80px;
+  z-index: 20;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 10px;
+}
+
+/* header row for mobile */
+.products-nav-header {
+  display: none;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.products-nav-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.products-nav-hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* desktop / default: horizontal row, scrollable */
+.products-nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+}
+
+.products-nav-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.products-nav-link {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #58595b;
+  padding-bottom: 0.25rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.products-nav-link:hover {
+  color: #2b8a8a;
+}
+
+.products-nav-link-active {
+  color: #2b8a8a;
+  border-bottom-color: #2b8a8a;
+  font-weight: 600;
+}
+
+/* scroll-to targets for sticky nav */
+.product-block {
+  scroll-margin-top: 120px;
+}
+
+/* mobile / tablet behaviour */
+@media (max-width: 768px) {
+  .products-nav-header {
+    display: flex;
+  }
+
+  .products-nav-hamburger {
+    display: block;
+  }
+
+  .products-nav-inner {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0;
+    padding-bottom: 0.75rem;
+  }
+
+  .products-nav-inner.products-nav-inner-open {
+    display: flex;
+  }
+
+  .products-nav-link {
+    width: 100%;
+    text-align: left;
+    padding: 0.35rem 0;
+  }
+
+  .products-nav-wrapper {
+    border-bottom-width: 0;
+  }
+}
+
+/* FEATURES DETAIL spacing */
+.features-detail.product-section {
+  padding: 2rem 0;
+}
+
+section.features-detail.product-section {
+  padding: 2rem 0 !important;
+}
+
+/* Optional: feature-visual tweaks (keeps card centered and responsive) */
+.feature-visual {
+  background: #ffffff;
+  border-radius: 12px;
+  text-align: center;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 1024px) {
+  .feature-visual {
+    padding: 1.5rem;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .feature-visual {
+    padding: 1.25rem;
+    max-width: 100%;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* caret fix (if used inside feature-visual) */
+.product-section .feature-visual .w-0\.5.h-4 {
+  height: 14px !important;
+}
