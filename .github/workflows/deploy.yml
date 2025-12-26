@@ -17,9 +17,9 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v3  # 👈 MISSING THIS
         with:
-          path: ./frontend/dist
+          path: ./frontend/dist                 # 👈 CORRECT PATH
   deploy:
     needs: build
     runs-on: ubuntu-latest
