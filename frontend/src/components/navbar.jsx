@@ -25,7 +25,7 @@ export default function Navbar() {
       <ul className={`nav-links ${isOpen ? "open" : ""}`}>
         
         <li><a href="#products">Products</a></li>
-        <li><a href="#platform">Services</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#comparison">Why Us</a></li>
         {/* <li><a href="#security">Security</a></li> */}
         <li><a href="#resources">Resources</a></li>

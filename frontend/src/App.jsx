@@ -11,6 +11,7 @@ import Security from "./components/security";
 import CTA from "./components/cta";
 import Footer from "./components/footer";
 import { WaitlistButton } from "./components/waitlist";
+import Services from "./components/services";
 import'./marketing.css';
 import './index.css';
 
@@ -20,6 +21,7 @@ export default function App() {
     <>
       <Navbar />
       <Hero />
+      <Services />
       <Products />
       {/* <Features /> */}
       <Index />
