@@ -25,12 +25,12 @@ const insights = [
     description:
       "Cash runway extended to 18 months with improved collections. DSO reduced from 45 to 32 days.",
   },
-  {
-    type: "insight",
-    title: "Product Mix Shift",
-    description:
-      "Premium tier now represents 42% of revenue, up from 28% last year. Focus on upselling is working.",
-  },
+  // {
+  //   type: "insight",
+  //   title: "Product Mix Shift",
+  //   description:
+  //     "Premium tier now represents 42% of revenue, up from 28% last year. Focus on upselling is working.",
+  // },
 ];
 
 const getIcon = (type) => {

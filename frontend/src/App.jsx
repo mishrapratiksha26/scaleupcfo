@@ -10,6 +10,7 @@ import Pricing from "./components/pricing";
 import Security from "./components/security";
 import CTA from "./components/cta";
 import Footer from "./components/footer";
+import { WaitlistButton } from "./components/waitlist";
 import'./marketing.css';
 import './index.css';
 
@@ -22,6 +23,7 @@ export default function App() {
       <Products />
       {/* <Features /> */}
       <Index />
+      <WaitlistButton />
       <Comparison />
       <Testimonials />
       <Pricing />

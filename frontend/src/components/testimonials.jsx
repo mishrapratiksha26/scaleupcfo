@@ -20,7 +20,7 @@ export default function Testimonials() {
     },
     {
       quote:
-        "ScaleUp CFO led investor day efforts engaging PE, VC, and family offices, driving content strategy and storytelling to showcase 3ev's strengths with clarity and impact.",
+        "ScaleUpAI CFO led investor day efforts engaging PE, VC, and family offices, driving content strategy and storytelling to showcase 3ev's strengths with clarity and impact.",
       author: "Karan Kadaba",
       title: "President, 3ev Industries",
       image: karanImg,

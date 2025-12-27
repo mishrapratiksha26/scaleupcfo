@@ -100,7 +100,7 @@ export default function Pricing() {
              <button
   className="btn-primary"
 >
-  {plan.buttonText || "Start Free Trial"}
+  {plan.buttonText || "Book Demo"}
 </button>
 
             </div>

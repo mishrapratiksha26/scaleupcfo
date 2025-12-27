@@ -8,7 +8,6 @@ const navItems = [
   { id: "product-treasury", label: "Treasury" },
   { id: "product-sales-to-cash", label: "Sales to Cash" },
   { id: "product-tds", label: "TDS" },
-  { id: "product-forecasting", label: "Forecasting" },
 ];
 
 export default function ProductsNav() {

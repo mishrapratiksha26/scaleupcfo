@@ -10,7 +10,7 @@ export default function Navbar() {
       {/* Logo */}
       <div className="logo">
         <img src={logo} alt="ScaleupCFO logo" className="logo-image" />
-        <span>ScaleupCFO</span>
+        <span>ScaleupCFOAI</span>
       </div>
 
       {/* Hamburger button (visible on mobile) */}
@@ -23,8 +23,9 @@ export default function Navbar() {
       </button>
 
       <ul className={`nav-links ${isOpen ? "open" : ""}`}>
-        <li><a href="#platform">Platform</a></li>
+        
         <li><a href="#products">Products</a></li>
+        <li><a href="#platform">Services</a></li>
         <li><a href="#comparison">Why Us</a></li>
         {/* <li><a href="#security">Security</a></li> */}
         <li><a href="#resources">Resources</a></li>

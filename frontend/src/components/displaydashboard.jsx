@@ -44,10 +44,10 @@ const Index = () => {
   };
 
   return (
-    <section className="dashboard-showcase">
+    <section className="dashboard-showcase" style={{paddingBottom: "2rem" }}>
       <div className="container">
         <div className="section-header">
-          <h2>AI Dashboard Showcase</h2>
+          <h2>AI CFO DASHBOARD</h2>
           <p>Real-time visibility and predictive insights for CFOs.</p>
         </div>
 
@@ -104,10 +104,10 @@ const Index = () => {
                 </div>
 
                 {/* Charts Row 1 */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
+                {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
                   <RevenueChart />
                   <UnitEconomicsChart />
-                </div>
+                </div> */}
 
                 {/* Charts Row 2 */}
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 md:gap-4">
@@ -132,7 +132,7 @@ const Index = () => {
             </SelectionOverlay>
 
             {/* Analysis Panel */}
-            <div className="w-full lg:w-80 border-t lg:border-t-0 lg:border-l border-border/50 p-4 overflow-y-auto max-h-64 lg:max-h-none">
+            <div className="w-full lg:w-80 border-t lg:border-t-0 lg:border-l border-border/50 p-4 overflow-y-auto max-h-64 lg:max-h-none paddingbottom:0">
               <AnalysisPanel />
             </div>
           </div>

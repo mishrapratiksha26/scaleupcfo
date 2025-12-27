@@ -16,7 +16,7 @@ export default function Comparison() {
     <section className="comparison" id="comparison">
       <div className="container">
         <div className="section-header">
-          <h2>Why ScaleupCFO Wins</h2>
+          <h2>Why ScaleupCFOAI Wins</h2>
           <p>Built for modern CFOs who demand AI + human expertise + enterprise compliance.</p>
         </div>
         <div className="comparison-table">
@@ -24,7 +24,7 @@ export default function Comparison() {
             <thead>
               <tr>
                 <th>Capability</th>
-                <th>ScaleupCFO</th>
+                <th>ScaleupCFOAI</th>
                 <th>Legacy ERP + Plugin</th>
                 <th>Competitor A</th>
               </tr>

@@ -88,7 +88,7 @@ export default function Product() {
   ];
 
   return (
-    <section className="features-detail product-section" id="platform">
+    <section className="features-detail product-section" id="products">
       <div className="container">
         <div className="section-header">
           <h2>AI-Powered CFO Modules</h2>
@@ -111,7 +111,7 @@ export default function Product() {
               id={f.id}
             >
 
-              <div className="feature-visual">
+              <div>
 
                   {IconComponent ? <IconComponent /> : <span className="product-icon">{f.icon}</span>}
                 </div>
