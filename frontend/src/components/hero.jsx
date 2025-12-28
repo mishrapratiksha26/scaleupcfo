@@ -1,5 +1,5 @@
 const GMEET_BOOKING_URL = "https://calendar.app.google/68pzDLFzNKqkoAgUA";
-
+const { trackExploreClick } = require("../utils/analytics");
 export default function Hero() {
     return (
     <section className="hero">
