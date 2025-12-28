@@ -7,14 +7,15 @@ export default function Hero() {
         <p className="hero-subtitle">Leave manual busywork in the past. All automated.<br/>AI agents + certified accountants = strategic finance at scale.</p>
         <p className="hero-meta">Trusted by 20+ CEOs/Founders across India, UAE, US & Europe</p>
         <div className="cta-buttons">
-            <a 
-                href={GMEET_BOOKING_URL} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn-primary"
+            <button
+            className="btn-primary"
+            onClick={() =>
+                trackExploreClick("Get started free", GMEET_BOOKING_URL)
+            }
             >
-                Get Started Free →
-            </a>
+            Get Started Free →
+            </button>
+
            <button className="btn-secondary">Watch Demo (5 min)</button>
         </div>
         

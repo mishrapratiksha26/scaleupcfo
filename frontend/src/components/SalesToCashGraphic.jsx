@@ -56,7 +56,7 @@ export function SalesToCashGraphic() {
       </div>
 
       {/* Current Payment Being Processed */}
-      <div className="bg-slate-50 rounded-2xl p-4 mb-4 border-2 border-slate-200">
+      <div className="bg-slate-50 rounded-2xl p-4 mb-0 border-2 border-slate-200;">
         <div className="flex items-center justify-between mb-3">
           <div>
             <div className="text-xs text-slate-600 mb-1">Processing Payment</div>

@@ -1,3 +1,6 @@
+import { trackExploreClick } from "../utils/analytics";
+
+const GMEET_BOOKING_URL = "https://calendar.app.google/68pzDLFzNKqkoAgUA";
 export default function Pricing() {
   const plans = [
     {
@@ -66,7 +69,6 @@ export default function Pricing() {
         "Custom integrations",
         "Quarterly business reviews",
       ],
-      buttonText: "Book Demo",
     },
   ];
 
@@ -98,10 +100,10 @@ export default function Pricing() {
               <div className="pricing-description">{plan.description}</div>
               
              <button
-  className="btn-primary"
->
-  {plan.buttonText || "Book Demo"}
-</button>
+              className="btn-primary"
+              onClick={() => trackExploreClick("Pricing", GMEET_BOOKING_URL, plan.name)}>
+              Book Demo
+            </button>
 
             </div>
           ))}

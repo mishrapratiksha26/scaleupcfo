@@ -27,7 +27,7 @@ export const MixDonutChart = ({ title, data, delay = 0 }) => {
             </Pie>
             <Tooltip
               contentStyle={{
-                backgroundColor: "hsl(222, 47%, 14%)",
+                backgroundColor: "hsla(222, 22%, 46%, 1.00)",
                 border: "1px solid hsl(222, 30%, 22%)",
                 borderRadius: "8px",
                 color: "hsl(210, 40%, 98%)",

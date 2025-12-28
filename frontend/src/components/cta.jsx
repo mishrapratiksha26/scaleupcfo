@@ -1,4 +1,6 @@
-const GMEET_BOOKING_URL = "https://calendly.com/scaleupcfo/20min";
+const GMEET_BOOKING_URL = "https://calendar.app.google/68pzDLFzNKqkoAgUA";
+import { trackExploreClick } from "../utils/analytics";
+
 export default function CTA() {
   return (
     <section className="cta-final">
@@ -8,7 +10,7 @@ export default function CTA() {
         <button
           className="btn-primary"
           style={{ width: "100%", maxWidth: "300px" }}
-          onClick={() => window.open(GMEET_BOOKING_URL, "_blank")}
+          onClick={() => trackExploreClick("", GMEET_BOOKING_URL)}
         >
           Schedule Demo →
         </button>

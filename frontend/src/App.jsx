@@ -1,38 +1,22 @@
-import Navbar from "./components/navbar";
-import Hero from "./components/hero";
-import Products from "./components/product";
-import Features from "./components/features";
-import ClientsLogos from "./components/clients";
-import Index from "./components/displaydashboard";
-import Comparison from "./components/comparison";
-import Testimonials from "./components/testimonials";
-import Pricing from "./components/pricing";
-import Security from "./components/security";
-import CTA from "./components/cta";
-import Footer from "./components/footer";
-import { WaitlistButton } from "./components/waitlist";
-import Services from "./components/services";
-import'./marketing.css';
-import './index.css';
-
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import Home from "./pages/home";
+import ServicesPage from "./pages/services";
+import { initTallyFormTracking } from "./utils/analytics"; // import your helper
 
 export default function App() {
+  useEffect(() => {
+    // set up the listener once when App mounts
+    const cleanup = initTallyFormTracking();
+    return cleanup; // remove listener when App unmounts
+  }, []);
+
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <Services />
-      <Products />
-      {/* <Features /> */}
-      <Index />
-      <WaitlistButton />
-      <Comparison />
-      <Testimonials />
-      <Pricing />
-      <ClientsLogos/>
-      {/* <Security /> */}
-      <CTA />
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<ServicesPage />} />
+      </Routes>
+    </Router>
   );
 }

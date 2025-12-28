@@ -1,9 +1,10 @@
-import ProductsNav from "./ProductsNav"; // Adjust path
+import ProductsNav from "./ProductsNav";
 import { LiveDashboardGraphic } from "./DashboardGraphic";
 import {ARAPGraphic} from "./ARAPGraphic";
 import {TreasuryGraphic} from "./TreasuryGraphic";
 import { SalesToCashGraphic } from "./SalesToCashGraphic";
 import { TDSGraphic } from "./TDSGraphic";
+import { trackExploreClick } from "../utils/analytics";
 
 const GMEET_BOOKING_URL = "https://calendar.app.google/68pzDLFzNKqkoAgUA";
 
@@ -25,20 +26,20 @@ export default function Product() {
       cta: "Explore Dashboard →",
     },
     {
-
       id: "product-ar-ap",
       icon: ARAPGraphic,
-      title: "AR/AP: Zero-Touch Operations",
+      title: "AI AR/AP: Autonomous Cash Operations",
       description:
-        "Invoice ingestion → GL coding → accounting entry. Zero humans needed. Learn from your GL history, coding patterns, and exception rules to improve over time.",
+        "No manual follow-ups needed. AI learns from customer and vendor behavior, payment cycles, and historical actions to automate collections, payables, and closures end to end.",
       points: [
-        "Smart ingestion: OCR + AI for vendor data extraction",
-        "GL learning: 92% accuracy after first 1000 invoices",
-        "Exception management: Escalate only four exceptions (2–3x/vendor)",
-        "Early-discount capture: Auto-flag payment opportunities",
-        "Multi-entity support: Consolidate across 100+ entities"
+        "Autonomous AR tracking: Monitor open invoices, pending cash, and aging in real time",
+        "Behavior-based reminders: Auto-trigger follow-ups based on learned payment patterns",
+        "Zero-touch collections: Resolve routine AR without human intervention",
+        "PO-matched AP processing: Match invoices against PO, GRN, and contract terms",
+        "One-click vendor payments: Bulk approve and pay all compliant invoices",
+        "Multi-entity support: Operate AR/AP seamlessly across 100+ entities"
       ],
-      cta: "Explore AR/AP →",
+      cta: "Explore AI AR/AP →",
     },
     {
       id: "product-treasury",
@@ -58,32 +59,31 @@ export default function Product() {
     {
       id: "product-sales-to-cash",
       icon: SalesToCashGraphic,
-      title: "Sales-to-Cash: 80% Faster Collections",
+      title: "AI Sales-to-Cash Reconciliation",
       description:
-        "From order creation to cash receipt, fully automated. AI resolves customer payments in seconds, flags disputed cash? Flexed and unarmed collections.",
+        "Our Sales-to-Cash Reconciliation module resolves Partial receipts, timing gaps, references mismatches before month-end, enabling same-day closure.",
       points: [
-        "Order-to-invoice: 10-second automation cycle",
-        "Smart matching: Customer name variations, partial payments, credits",
-        "Unapplied cash discovery: 60% faster than manual methods",
-        "DSO optimization: 20-40% reduction in Days Sales Outstanding",
-        "AR follow-up: Auto-trigger dunning sequences, escalations",
+        "Real-time reconciliation : Continuous matching of invoices, credit notes, and bank credits throughout the month",
+        "Intelligent matching engine : Handles customer name variations, partial payments, split receipts, advances, and adjustments",
+        "Exception-first workflow : Only unresolved items surface for review; clean transactions auto-close",
+        "Audit-ready trail : Every match, override, and exception logged with full traceability",
       ],
-      cta: "Explore S2C →",
+      cta: "Explore Sales-to-Cash Reconciliation →",
     },
     {
       id: "product-tds",
       icon: TDSGraphic,
-      title: "TDS Reconciliation: India Compliance Made Easy",
+      title: "AI TDS Reconciliation",
       description:
-        "TDS reconciliation shouldn't consume 3 weeks of your time. Auto-match 26AS certificates. Flag mismatches. Auto-correct within allowed tolerances. Zero manual spreadsheets.",
+        "Tax and withholding reconciliation shouldn’t slow down your close.",
       points: [
-        "26AS matching: AI sync all TDS transactions vs government records",
-        "Auto-correction: Minimizes tolerance with claimant follow-up",
-        "GST integration: 10x on GSTR/2A/2B/3B reconciliation",
-        "Compliance calendar: All TDS due dates, quarterly schedules",
-        "Deductor communication: Auto-email templates for mismatches"
+        "Automated authority alignment: Reconcile tax and withholding data against filed returns",
+        "Intelligent variance handling: Detect, explain, and resolve timing and rounding differences",
+        "Indirect tax coverage: Unified view across sales tax and related filings",
+        "Compliance calendar: All filing deadlines, payments, and review checkpoints in one place",
+        "Stakeholder follow-ups: Auto-generated requests for missing or inconsistent tax details"
       ],
-      cta: "Explore TDS →",
+      cta: "Explore Tax Reconciliation →",
     }
   ];
 
@@ -125,14 +125,13 @@ export default function Product() {
                     <li key={j}>{p}</li>
                   ))}
                 </ul>
-                <a
-                  href={GMEET_BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
                   className="learn-more"
+                  onClick={() => trackExploreClick(f.cta, GMEET_BOOKING_URL)}
                 >
                   {f.cta}
-                </a>
+                </button>
+
               </div>
             </div>
           );

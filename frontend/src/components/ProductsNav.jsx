@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useActiveProductSection } from "../hooks/useActiveProductSection";
 
 const navItems = [
-  { id: "product-dashboard", label: "Dashboard" },
-  { id: "product-ar-ap", label: "AR / AP" },
-  { id: "product-treasury", label: "Treasury" },
-  { id: "product-sales-to-cash", label: "Sales to Cash" },
-  { id: "product-tds", label: "TDS" },
+  { id: "product-dashboard", label: "AI CFO Dashboard" },
+  { id: "product-ar-ap", label: "AI AR/AP Module" },
+  { id: "product-treasury", label: "AI Treasury Module" },
+  { id: "product-sales-to-cash", label: "AI Sales to Cash Reconcilation" },
+  { id: "product-tds", label: "AI TDS Reconcilation" },
 ];
 
 export default function ProductsNav() {
@@ -16,7 +16,7 @@ export default function ProductsNav() {
 
   const handleClick = (id) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "nearest" });
     setIsOpen(false); // close menu on mobile after click
   };
 
