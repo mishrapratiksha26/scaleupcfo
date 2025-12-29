@@ -5,12 +5,37 @@ import ServicesPage from "./pages/services";
 import { initTallyFormTracking } from "./utils/analytics"; // import your helper
 
 export default function App() {
-  useEffect(() => {
-    // set up the listener once when App mounts
-    const cleanup = initTallyFormTracking();
-    return cleanup; // remove listener when App unmounts
-  }, []);
+useEffect(() => {
+  const handleTallyEvent = (e) => {
+    let data = e.data;
 
+    // If it's a string, try to parse it
+    if (typeof data === "string") {
+      try {
+        data = JSON.parse(data);
+      } catch {
+        // not JSON, ignore
+      }
+    }
+
+    console.log("Listener caught:", data);
+
+    if (data?.event === "Tally.FormSubmitted") {
+      console.log("Dispatching GA4 form_completed event");
+      if (typeof gtag === "function") {
+        gtag("event", "form_completed", {
+          module_name: data.payload.formName,
+          page_url: window.location.href,
+          respondent_id: data.payload.respondentId,
+          created_at: data.payload.createdAt,
+        });
+      }
+    }
+  };
+
+  window.addEventListener("message", handleTallyEvent);
+  return () => window.removeEventListener("message", handleTallyEvent);
+}, []);
   return (
     <Router>
       <Routes>

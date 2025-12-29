@@ -22,7 +22,10 @@ export const trackExploreClick = (moduleName, bookingUrl, planName) => {
 // / NEW: listen for Tally form submission events
 export const initTallyFormTracking = () => {
   const handleTallyEvent = (e) => {
+    console.log("Message received:", e.data);
     if (e.data?.event === "Tally.FormSubmitted") {
+      console.log("Dispatching GA4 form_completed event");
+
       if (typeof gtag === "function") {
         gtag("event", "form_completed", {
           module_name: "Join the waitlist",
