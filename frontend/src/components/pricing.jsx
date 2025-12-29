@@ -100,7 +100,7 @@ export default function Pricing() {
               
               <CalBookingButton
               title="Book Demo"
-              paramName={plan.name}
+              module_name={plan.name}
               className="btn-primary"
               />
 

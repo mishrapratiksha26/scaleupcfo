@@ -16,7 +16,7 @@ export default function Hero() {
         <CalBookingButton
           title="Get Started Free"
           className="btn-primary"
-          paramName="Hero Section CTA" 
+          module_name="Hero Section CTA" 
         />
 
         <button className="btn-secondary">Watch Demo (5 min)</button>

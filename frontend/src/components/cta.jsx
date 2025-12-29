@@ -12,7 +12,7 @@ export default function CTA() {
 
         <CalBookingButton
           title="Schedule Demo →"
-          paramName="CTA Final Section"
+          module_name="CTA Final Section"
           className="btn-primary"
           style={{ width: "100%", maxWidth: "300px" }}
         />

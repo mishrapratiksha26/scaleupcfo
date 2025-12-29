@@ -46,7 +46,7 @@ export default function Navbar() {
       <div className="nav-ctas">
         <CalBookingButton
         title="Schedule Demo"
-        paramName="Navbar scheduleDemo"
+        module_name="Navbar scheduleDemo"
         className="btn-primary-nav"/>
       </div>
     </nav>

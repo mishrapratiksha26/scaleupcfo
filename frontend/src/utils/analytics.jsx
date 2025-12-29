@@ -8,10 +8,10 @@ let bookingFireCount = 0;
 
 /**
  * Track a CTA click (button pressed before opening booking).
- * Deduplicates per unique (paramName + planName + bookingUrl) combo.
+ * Deduplicates per unique (module_name + planName + bookingUrl) combo.
  */
-export const trackExploreClick = (paramName, bookingUrl, planName) => {
-  const key = `${paramName}|${planName || ""}|${bookingUrl}`;
+export const trackExploreClick = (module_name, bookingUrl, planName) => {
+  const key = `${module_name}|${planName || ""}|${bookingUrl}`;
 
   // Increment counter for visibility
   clickFireCount++;
@@ -26,7 +26,7 @@ export const trackExploreClick = (paramName, bookingUrl, planName) => {
   if (typeof gtag === "function") {
     const eventData = {
       // carry section context
-      param_name: paramName,
+      module_name: module_name,
       page_url: window.location.href,
       timestamp: Date.now(),
     };
@@ -41,13 +41,13 @@ export const trackExploreClick = (paramName, bookingUrl, planName) => {
  * Track a successful booking (Cal.com bookingSuccessful payload).
  * Deduplicates by booking_id (payload.uid).
  */
-export const trackDemoBooked = (paramName, payload, planName) => {
+export const trackDemoBooked = (module_name, payload, planName) => {
   const bookingId = payload?.uid || `no-uid-${Date.now()}`;
 
   // Increment counter for visibility
   bookingFireCount++;
   console.log(
-    `[Demo Booked Attempt] Count=${bookingFireCount}, BookingID=${bookingId}, Param=${paramName}`
+    `[Demo Booked Attempt] Count=${bookingFireCount}, BookingID=${bookingId}, Param=${module_name}`
   );
 
   if (seenBookings.has(bookingId)) {
@@ -59,7 +59,7 @@ export const trackDemoBooked = (paramName, payload, planName) => {
   if (typeof gtag === "function") {
     const eventData = {
       // carry section context
-      param_name: paramName,
+      module_name: module_name,
       page_url: window.location.href,
       scheduled_at: payload?.startTime,
       booking_id: bookingId,

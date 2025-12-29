@@ -8,7 +8,7 @@ let bookingListenerAttached = false;
 
 export default function CalBookingButton({
   title,             // text shown on the button
-  paramName,         // GA4 context: which section/product this button belongs to
+  module_name,         // GA4 context: which section/product this button belongs to
   planName,          // optional GA4 context: plan name
   className = "btn-primary",
   namespace = "30min",
@@ -30,17 +30,17 @@ export default function CalBookingButton({
           action: "bookingSuccessful",
           callback: (payload) => {
             // ✅ Only here do we log and send GA4
-            console.log("[Booking Successful Event Fired]", payload);
-            trackDemoBooked(paramName || title, payload, planName);
+            // console.log("[Booking Successful Event Fired]", payload);
+            trackDemoBooked(module_name || title, payload, planName);
           },
         });
         bookingListenerAttached = true;
-        console.log(`[Listener Attached] (waiting for bookingSuccessful events, namespace=${namespace})`);
+        // console.log(`[Listener Attached] (waiting for bookingSuccessful events, namespace=${namespace})`);
       } else {
         console.log("[Listener Already Attached] bookingSuccessful — skipped re‑attach");
       }
     })();
-  }, [namespace, paramName, planName, title]);
+  }, [namespace, module_name, planName, title]);
 
   return (
     <button
@@ -49,9 +49,9 @@ export default function CalBookingButton({
       data-cal-link={link}
       data-cal-config='{"layout":"month_view"}'
       onClick={() => {
-        console.log("[Click Event Triggered]", { paramName, planName, link });
+        console.log("[Click Event Triggered]", { module_name, planName, link });
         // ✅ Click event goes to GA4
-        trackExploreClick(paramName || title, link, planName);
+        trackExploreClick(module_name || title, link, planName);
       }}
     >
       {title}
