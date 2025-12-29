@@ -8,31 +8,46 @@ export default function CalBookingButton({
   namespace = "30min",
   link = "ashish-jadhao-5s0pjh/30min",
 }) {
-  useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({ namespace });
+  // Stable callback function
+  const handleBooking = (payload) => {
+    console.log("Booking confirmed:", payload);
+    if (typeof gtag === "function") {
+      gtag("event", "demo_booked", {
+        module_name: title,
+        page_url: window.location.href,
+        scheduled_at: payload?.startTime,
+        booking_id: payload?.uid,
+      });
+    }
+  };
 
-      cal("ui", {
+  useEffect(() => {
+    let calInstance;
+
+    (async function () {
+      calInstance = await getCalApi({ namespace });
+
+      calInstance("ui", {
         hideEventTypeDetails: false,
         layout: "month_view",
       });
 
-      // Booking confirmed → GA4 event
-      cal("on", {
+      // Register listener once
+      calInstance("on", {
         action: "bookingSuccessful",
-        callback: (payload) => {
-          console.log("Booking confirmed:", payload);
-          if (typeof gtag === "function") {
-            gtag("event", "demo_booked", {
-              module_name: title,
-              page_url: window.location.href,
-              scheduled_at: payload?.startTime,
-              booking_id: payload?.uid,
-            });
-          }
-        },
+        callback: handleBooking,
       });
     })();
+
+    // ✅ Cleanup: remove listener when component unmounts
+    return () => {
+      if (calInstance) {
+        calInstance("off", {
+          action: "bookingSuccessful",
+          callback: handleBooking,
+        });
+      }
+    };
   }, [namespace, title]);
 
   return (
