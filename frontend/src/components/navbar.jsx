@@ -1,8 +1,8 @@
 import { useState } from "react";
 import logo from "../assets/cfologo.png"
-const GMEET_BOOKING_URL = "https://calendar.app.google/68pzDLFzNKqkoAgUA";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import CalBookingButton from "./DemoBookingButton";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,14 +44,9 @@ export default function Navbar() {
 
       {/* CTA - Always visible */}
       <div className="nav-ctas">
-        <a 
-          href={GMEET_BOOKING_URL} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="btn-secondary-nav"
-        >
-          Schedule Demo
-        </a>
+        <CalBookingButton
+        title="Schedule Demo"
+        className="btn-secondary-nav"/>
       </div>
     </nav>
   );

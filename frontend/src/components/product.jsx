@@ -4,9 +4,7 @@ import {ARAPGraphic} from "./ARAPGraphic";
 import {TreasuryGraphic} from "./TreasuryGraphic";
 import { SalesToCashGraphic } from "./SalesToCashGraphic";
 import { TDSGraphic } from "./TDSGraphic";
-import { trackExploreClick } from "../utils/analytics";
-
-const GMEET_BOOKING_URL = "https://calendar.app.google/68pzDLFzNKqkoAgUA";
+import CalBookingButton from "./DemoBookingButton";
 
 export default function Product() {
   const features = [
@@ -111,13 +109,12 @@ export default function Product() {
               id={f.id}
             >
 
-              <div>
-
+              <div style={{ margin: "0 12px" }}>
                   {IconComponent ? <IconComponent /> : <span className="product-icon">{f.icon}</span>}
                 </div>
 
 
-              <div className="feature-content">
+              <div className="feature-content" style={{ margin: "10px 20px" }}>
                 <h3>{f.title}</h3>
                 <p>{f.description}</p>
                 <ul className="feature-list">
@@ -125,12 +122,9 @@ export default function Product() {
                     <li key={j}>{p}</li>
                   ))}
                 </ul>
-                <button
-                  className="learn-more"
-                  onClick={() => trackExploreClick(f.cta, GMEET_BOOKING_URL)}
-                >
-                  {f.cta}
-                </button>
+                <CalBookingButton
+                title={f.cta}
+                className="btn-primary"/>
 
               </div>
             </div>

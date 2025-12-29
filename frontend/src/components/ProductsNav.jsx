@@ -21,7 +21,7 @@ export default function ProductsNav() {
   };
 
   return (
-    <nav className="products-nav-wrapper">
+    <nav className="products-nav-wrapper" style={{marginBottom:0}}>
       {/* Mobile header + hamburger */}
       <div className="products-nav-header">
         <span className="products-nav-title">Products</span>

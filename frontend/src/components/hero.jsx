@@ -1,5 +1,4 @@
-const GMEET_BOOKING_URL = "https://calendar.app.google/68pzDLFzNKqkoAgUA";
-import { trackExploreClick } from "../utils/analytics";
+import CalBookingButton from "./DemoBookingButton";
 export default function Hero() {
     return (
     <section className="hero">
@@ -7,14 +6,10 @@ export default function Hero() {
         <p className="hero-subtitle">Leave manual busywork in the past. All automated.<br/>AI agents + certified accountants = strategic finance at scale.</p>
         <p className="hero-meta">Trusted by 20+ CEOs/Founders across India, UAE, US & Europe</p>
         <div className="cta-buttons">
-            <button
+            <CalBookingButton
+            title="Get Started Free "
             className="btn-primary"
-            onClick={() =>
-                trackExploreClick("Get started free", GMEET_BOOKING_URL)
-            }
-            >
-            Get Started Free →
-            </button>
+            />
 
            <button className="btn-secondary">Watch Demo (5 min)</button>
         </div>
