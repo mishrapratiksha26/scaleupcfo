@@ -100,6 +100,7 @@ export default function Pricing() {
               
               <CalBookingButton
               title="Book Demo"
+              paramName={plan.name}
               className="btn-primary"
               />
 

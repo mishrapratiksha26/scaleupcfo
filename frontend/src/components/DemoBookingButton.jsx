@@ -1,54 +1,46 @@
 // src/components/CalBookingButton.jsx
 import { useEffect } from "react";
 import { getCalApi } from "@calcom/embed-react";
+import { trackExploreClick, trackDemoBooked } from "../utils/analytics";
+
+// Global guard so we only attach the bookingSuccessful listener once
+let bookingListenerAttached = false;
 
 export default function CalBookingButton({
-  title,
+  title,             // text shown on the button
+  paramName,         // GA4 context: which section/product this button belongs to
+  planName,          // optional GA4 context: plan name
   className = "btn-primary",
   namespace = "30min",
   link = "ashish-jadhao-5s0pjh/30min",
 }) {
-  // Stable callback function
-  const handleBooking = (payload) => {
-    console.log("Booking confirmed:", payload);
-    if (typeof gtag === "function") {
-      gtag("event", "demo_booked", {
-        module_name: title,
-        page_url: window.location.href,
-        scheduled_at: payload?.startTime,
-        booking_id: payload?.uid,
-      });
-    }
-  };
-
   useEffect(() => {
-    let calInstance;
-
     (async function () {
-      calInstance = await getCalApi({ namespace });
+      const cal = await getCalApi({ namespace });
 
-      calInstance("ui", {
+      // Configure Cal.com UI
+      cal("ui", {
         hideEventTypeDetails: false,
         layout: "month_view",
       });
 
-      // Register listener once
-      calInstance("on", {
-        action: "bookingSuccessful",
-        callback: handleBooking,
-      });
-    })();
-
-    // ✅ Cleanup: remove listener when component unmounts
-    return () => {
-      if (calInstance) {
-        calInstance("off", {
+      // Attach bookingSuccessful listener only once
+      if (!bookingListenerAttached) {
+        cal("on", {
           action: "bookingSuccessful",
-          callback: handleBooking,
+          callback: (payload) => {
+            // ✅ Only here do we log and send GA4
+            console.log("[Booking Successful Event Fired]", payload);
+            trackDemoBooked(paramName || title, payload, planName);
+          },
         });
+        bookingListenerAttached = true;
+        console.log(`[Listener Attached] (waiting for bookingSuccessful events, namespace=${namespace})`);
+      } else {
+        console.log("[Listener Already Attached] bookingSuccessful — skipped re‑attach");
       }
-    };
-  }, [namespace, title]);
+    })();
+  }, [namespace, paramName, planName, title]);
 
   return (
     <button
@@ -57,13 +49,9 @@ export default function CalBookingButton({
       data-cal-link={link}
       data-cal-config='{"layout":"month_view"}'
       onClick={() => {
-        if (typeof gtag === "function") {
-          gtag("event", "explore_module_click", {
-            module_name: title,
-            page_url: window.location.href,
-            timestamp: Date.now(),
-          });
-        }
+        console.log("[Click Event Triggered]", { paramName, planName, link });
+        // ✅ Click event goes to GA4
+        trackExploreClick(paramName || title, link, planName);
       }}
     >
       {title}

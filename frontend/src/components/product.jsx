@@ -124,6 +124,7 @@ export default function Product() {
                 </ul>
                 <CalBookingButton
                 title={f.cta}
+                paramName={f.title}
                 className="btn-primary"/>
 
               </div>
