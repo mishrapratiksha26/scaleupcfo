@@ -45,23 +45,27 @@ export default function ProductsNav() {
       {/* Links row */}
       <div
   className={`products-nav-inner ${isOpen ? "products-nav-inner-open" : ""}`}
-  style={{
-    display: isOpen ? "flex" : "none",
-    flexDirection: "column",
-    gap: "0.75rem",
-    padding: "1rem",
-    position: "absolute",
-    top: "100%",
-    left: 0,
-    right: 0,
-    background: "rgba(0,0,0,0.9)", // ← transparent black background
-    color: "white",                // ← white text
-    borderTop: "none",
-    boxShadow: "none",
-    zIndex: 10,
-    backdropFilter: "blur(12px)",       // optional depth effect
-    WebkitBackdropFilter: "blur(12px)", // Safari support
-  }}
+  style={
+    isOpen
+      ? {
+          // Only apply these when open (mobile)
+          flexDirection: "column",
+          gap: "0.75rem",
+          padding: "1rem",
+          position: "absolute",
+          top: "100%",
+          left: 0,
+          right: 0,
+          background: "rgba(0,0,0,0.9)",
+          color: "white",
+          borderTop: "none",
+          boxShadow: "none",
+          zIndex: 10,
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+        }
+      : undefined
+  }
 >
   {navItems.map((item) => {
     const isActive = active === item.id;
