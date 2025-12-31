@@ -2,7 +2,7 @@
   "name": "react-starter",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://mishrapratiksha26.github.io/scaleupcfo/",
+  "homepage": ".",
   "type": "module",
   "scripts": {
     "start": "react-scripts start",
