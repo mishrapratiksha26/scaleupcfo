@@ -12,8 +12,7 @@ export default function Product() {
       id: "product-dashboard",
       icon: LiveDashboardGraphic,
       title: "AI Dashboard: CFO Control Center",
-      description:
-        "Your single source of truth. Real-time cash position, AR aging, AP maturity, treasury positions, compliance status—all at a glance. AI reasoning explains the \"why\" behind every number.",
+      description: "Your single source of truth...",
       points: [
         "Multi-agent orchestration: Dashboard agent pulls data from 5+ systems",
         "Reasoning engine: AI explains cash changes, trend anomalies",
@@ -27,15 +26,14 @@ export default function Product() {
       id: "product-ar-ap",
       icon: ARAPGraphic,
       title: "AI AR/AP: Autonomous Cash Operations",
-      description:
-        "No manual follow-ups needed. AI learns from customer and vendor behavior, payment cycles, and historical actions to automate collections, payables, and closures end to end.",
+      description: "No manual follow-ups needed...",
       points: [
-        "Autonomous AR tracking: Monitor open invoices, pending cash, and aging in real time",
-        "Behavior-based reminders: Auto-trigger follow-ups based on learned payment patterns",
-        "Zero-touch collections: Resolve routine AR without human intervention",
-        "PO-matched AP processing: Match invoices against PO, GRN, and contract terms",
-        "One-click vendor payments: Bulk approve and pay all compliant invoices",
-        "Multi-entity support: Operate AR/AP seamlessly across 100+ entities",
+        "Autonomous AR tracking...",
+        "Behavior-based reminders...",
+        "Zero-touch collections...",
+        "PO-matched AP processing...",
+        "One-click vendor payments...",
+        "Multi-entity support...",
       ],
       cta: "Explore AI AR/AP →",
     },
@@ -43,14 +41,13 @@ export default function Product() {
       id: "product-treasury",
       icon: TreasuryGraphic,
       title: "Treasury: Liquidity at Your Fingertips",
-      description:
-        "Multi-bank, multi-currency cash orchestration. Predict tomorrow's positions. Alert if scenarios hit repos, acquisitions, or market shocks. Never miss a liquidity opportunity.",
+      description: "Multi-bank, multi-currency cash orchestration...",
       points: [
-        "100+ bank integrations: Real-time balance feeds",
-        "FX automation: Spot/forward rate optimization",
-        "Forecasting engine: 30-90 day projections with ±85% accuracy",
-        "Scenario builder: Test acquisition, IPO, or market impacts",
-        "Compliance tracking: Covenant monitoring, hedge accounting",
+        "100+ bank integrations...",
+        "FX automation...",
+        "Forecasting engine...",
+        "Scenario builder...",
+        "Compliance tracking...",
       ],
       cta: "Explore Treasury →",
     },
@@ -58,13 +55,12 @@ export default function Product() {
       id: "product-sales-to-cash",
       icon: SalesToCashGraphic,
       title: "AI Sales-to-Cash Reconciliation",
-      description:
-        "Our Sales-to-Cash Reconciliation module resolves Partial receipts, timing gaps, references mismatches before month-end, enabling same-day closure.",
+      description: "Resolves partial receipts, timing gaps...",
       points: [
-        "Real-time reconciliation: Continuous matching of invoices, credit notes, and bank credits throughout the month",
-        "Intelligent matching engine: Handles customer name variations, partial payments, split receipts, advances, and adjustments",
-        "Exception-first workflow: Only unresolved items surface for review; clean transactions auto-close",
-        "Audit-ready trail: Every match, override, and exception logged with full traceability",
+        "Real-time reconciliation...",
+        "Intelligent matching engine...",
+        "Exception-first workflow...",
+        "Audit-ready trail...",
       ],
       cta: "Explore Sales-to-Cash Reconciliation →",
     },
@@ -72,14 +68,13 @@ export default function Product() {
       id: "product-tds",
       icon: TDSGraphic,
       title: "AI TDS Reconciliation",
-      description:
-        "Tax and withholding reconciliation shouldn’t slow down your close.",
+      description: "Tax and withholding reconciliation shouldn’t slow down your close.",
       points: [
-        "Automated authority alignment: Reconcile tax and withholding data against filed returns",
-        "Intelligent variance handling: Detect, explain, and resolve timing and rounding differences",
-        "Indirect tax coverage: Unified view across sales tax and related filings",
-        "Compliance calendar: All filing deadlines, payments, and review checkpoints in one place",
-        "Stakeholder follow-ups: Auto-generated requests for missing or inconsistent tax details",
+        "Automated authority alignment...",
+        "Intelligent variance handling...",
+        "Indirect tax coverage...",
+        "Compliance calendar...",
+        "Stakeholder follow-ups...",
       ],
       cta: "Explore Tax Reconciliation →",
     },
@@ -107,19 +102,16 @@ export default function Product() {
 
             return (
               <div
-                key={f.id ?? i}
-                id={f.id}
-                className={`flex flex-col lg:flex-row items-center gap-10 bg-white/15 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-md hover:shadow-amber-500/20 transition-all ${
+                key={f.id}
+                id={f.id}   
+                className={`flex flex-col bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl lg:flex-row items-center gap-10 bg-white/15 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-md hover:shadow-[#34D399]/20 transition-all ${
                   isEven ? "" : "lg:flex-row-reverse"
                 }`}
               >
                 {/* Icon */}
                 <div className="w-full lg:w-1/2">
-                  {IconComponent ? (
-                    <IconComponent />
-                  ) : (
-                    <span className="product-icon">{f.icon}</span>
-                  )}
+                  {IconComponent ? <IconComponent /> : <span className="product-icon">{f.icon}</span>}
                 </div>
 
                 {/* Content */}

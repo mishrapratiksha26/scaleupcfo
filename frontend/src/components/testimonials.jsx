@@ -29,7 +29,7 @@ export default function Testimonials() {
 return (
     <section className="relative py-20 overflow-hidden text-white">
       {/* Solid black top + gradient fade */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black to-black/60 z-[-1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-black z-[-1]" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         {/* Header - Changed to green gradient */}
@@ -45,37 +45,41 @@ return (
 
         {/* Testimonials grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="group bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:bg-black/50 hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
-            >
-              {/* Image + Name */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-xl overflow-hidden border-2 border-white/20 shadow-md">
-                  <img
-                    src={t.image}
-                    alt={t.author}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="text-[#34D399] font-semibold text-lg group-hover:text-[#4ADE80] transition-colors"> {/* Brighter green */}
-                    {t.author}
-                  </h4>
-                  <p className="text-gray-400 text-sm font-medium">
-                    {t.title}
-                  </p>
-                </div>
-              </div>
+  {testimonials.map((t, i) => (
+ <div
+  key={i}
+  className="group relative flex flex-col 
+             bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl border-t border-b border-white/10 
+             border-l-4 border-r-4 border-[#34D399] 
+             rounded-2xl p-6 shadow-md 
+             hover:shadow-[#34D399]/30 hover:border-[#34D399]/60 
+             transition-all duration-500 hover:-translate-y-2"
+>
+  {/* Image + Name */}
+  <div className="flex items-center gap-4 mb-6">
+    <div className="w-14 h-14 rounded-xl overflow-hidden border-2 border-white/20 shadow-md">
+      <img
+        src={t.image}
+        alt={t.author}
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <div>
+      <h4 className="text-[#34D399] font-semibold text-lg group-hover:text-[#4ADE80] transition-colors">
+        {t.author}
+      </h4>
+      <p className="text-gray-400 text-sm font-medium">{t.title}</p>
+    </div>
+  </div>
 
-              {/* Quote */}
-              <p className="text-gray-200 text-base leading-relaxed italic">
-                "{t.quote}"
-              </p>
-            </div>
-          ))}
-        </div>
+  {/* Quote */}
+  <p className="text-gray-200 text-base leading-relaxed italic text-center">
+    "{t.quote}"
+  </p>
+</div>
+  ))}
+</div>
       </div>
     </section>
   );

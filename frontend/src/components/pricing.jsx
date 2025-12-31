@@ -51,25 +51,44 @@ export default function Pricing() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 lg:gap-10">
-          {sortedPlans.map((plan, i) => (
-            <div
-              key={plan.name}
-              className="flex flex-col justify-between bg-white/15 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-md hover:shadow-amber-500/20 transition-all h-full"
-            >
-              <div className="text-center">
-                <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
-                <p className="text-gray-300">{plan.description}</p>
-              </div>
-              <div className="mt-6 text-center">
-                <CalBookingButton
-                  title="Book Demo"
-                  module_name={plan.name}
-                  className="px-5 py-3 bg-[#34D399] text-black font-semibold rounded-md hover:brightness-125 hover:shadow-lg hover:scale-105 transition-all duration-300"
-                />
-              </div>
-            </div>
-          ))}
+  {sortedPlans.map((plan, i) => {
+    const isLast = i === sortedPlans.length - 1;
+    return (
+      <div
+  key={plan.name}
+  className="relative flex flex-col justify-between 
+             bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl border-t border-b border-white/10 
+             border-l-4 border-r-4 border-[#34D399] 
+             rounded-xl p-4 sm:p-5 shadow-md 
+             hover:shadow-[#34D399]/30 hover:border-[#34D399]/60 
+             transition-all h-full"
+>
+        {/* Optional top tag */}
+
+
+        {/* Heading */}
+        <div className="text-center min-h-[48px] flex items-center justify-center">
+          <h3 className="text-lg font-semibold text-white">{plan.name}</h3>
         </div>
+
+        {/* Description */}
+        <div className="mt-2 text-center">
+          <p className="text-gray-300 text-sm">{plan.description}</p>
+        </div>
+
+        {/* Button */}
+        <div className="mt-6 text-center">
+          <CalBookingButton
+            title="Book Demo"
+            module_name={plan.name}
+            className="inline-block px-3 py-1.5 bg-[#34D399] text-black text-sm font-medium rounded-md hover:brightness-110 hover:shadow-md transition-all duration-300 max-w-[120px]"
+          />
+        </div>
+      </div>
+    );
+  })}
+</div>
       </div>
     </section>
   );

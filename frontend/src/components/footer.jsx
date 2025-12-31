@@ -1,7 +1,8 @@
 export default function Footer() {
   return (
     <footer>
-    <div className="footer-content">
+    <div className="bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-white">
         <div className="footer-section">
             <h4>Platform</h4>
             <ul>

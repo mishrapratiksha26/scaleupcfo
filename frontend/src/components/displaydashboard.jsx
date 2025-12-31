@@ -45,7 +45,8 @@ const Index = () => {
   return (
     <section className="relative py-20 text-white overflow-hidden">
       {/* Gradient background for the section */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-black z-[-1]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl bg-gradient-to-b from-black via-black/70 to-black z-[-1]" />
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         {/* Section header */}
