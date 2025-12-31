@@ -1,4 +1,4 @@
-export function WaitlistButton() {
+export function WaitlistButton({ className = "" }) {
   const openTallyForm = () => {
     if (typeof gtag === "function") {
       gtag("event", "explore_module_click", {
@@ -8,14 +8,13 @@ export function WaitlistButton() {
       });
     }
 
-    // Open Tally modal programmatically
     if (window.Tally) {
       window.Tally.openPopup("68eGbP", {
         layout: "modal",
         width: 500,
         emojiAnimation: "none",
         autoClose: 1000,
-        formEventsForwarding: true, // important!
+        formEventsForwarding: true,
       });
     }
   };
@@ -23,7 +22,7 @@ export function WaitlistButton() {
   return (
     <div className="flex justify-center mb-8">
       <button
-        className="btn-primary inline-flex items-center gap-2"
+        className={`inline-flex items-center gap-2 justify-center text-base font-semibold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-amber-500/30 ${className}`}
         style={{ width: "100%", maxWidth: "300px", textAlign: "center" }}
         onClick={openTallyForm}
       >

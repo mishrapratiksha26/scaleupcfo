@@ -15,27 +15,35 @@ const logos = [
   { src: metamorphLogo, alt: "MetaMorphosys Technologies" },
   { src: oyelaLogo, alt: "Oyela" },
 ];
+
 const scrollingLogos = [...logos, ...logos];
+
 export default function ClientsLogos() {
   return (
-    <section className="clients-strip">
-      <div className="container">
-        <p className="clients-heading">
-          Trusted us as their Financial Partner…
-        </p>
-        <div className="clients-marquee">
-          <div className="icon-track">
-            {scrollingLogos.map((logo, index) => (
-              <img
-                key={`${logo.alt}-${index}`}
-                src={logo.src}
-                alt={logo.alt}
-                className="client-logo-img"
-              />
-            ))}
-        </div>
+    <div className="max-w-6xl mx-auto py-8 px-6">
+{/* Changed: max-w-6xl + w-full + more padding */}
+      <div className="flex items-center justify-center gap-2 mb-3 text-sm text-gray-200">
+        <span className="h-px w-6 bg-white/30" />
+        <span className="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-[0.1em] text-white/95 drop-shadow-sm bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm">
+          Trusted by modern teams
+        </span>
+        <span className="h-px w-6 bg-white/30" />
       </div>
+
+        <div className="overflow-hidden relative">
+  <div className="flex w-max animate-marquee">
+    {[...scrollingLogos, ...scrollingLogos].map((logo, index) => (
+      <img
+        key={`${logo.alt}-${index}`}
+        src={logo.src}
+        alt={logo.alt}
+        className="h-12 md:h-16 mx-12 lg:mx-16 opacity-90 hover:opacity-100 transition-all duration-300 drop-shadow-2xl brightness-110 contrast-125 hover:brightness-120 hover:scale-110"
+      />
+    ))}
+  </div>
+
+
       </div>
-    </section>
+    </div>
   );
 }

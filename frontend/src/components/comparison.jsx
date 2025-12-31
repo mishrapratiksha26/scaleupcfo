@@ -13,29 +13,36 @@ export default function Comparison() {
   ];
 
   return (
-    <section className="comparison" id="comparison">
-      <div className="container">
-        <div className="section-header">
-          <h2>Why ScaleupCFO AI Wins</h2>
-          <p>Built for modern CFOs who demand AI + human expertise + enterprise compliance.</p>
+    <section className="relative py-20 text-white bg-black" id="comparison">
+      <div className="container mx-auto px-6 max-w-7xl">
+        {/* Section header */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[#34D399] via-white to-gray-300 bg-clip-text text-transparent mb-4">
+            Why ScaleupCFO AI Wins
+          </h2>
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Built for modern CFOs who demand AI + human expertise + enterprise compliance.
+          </p>
         </div>
-        <div className="comparison-table">
-          <table>
-            <thead>
+
+        {/* Comparison table */}
+        <div className="overflow-x-auto rounded-xl border border-white/10 backdrop-blur-xl bg-white/5 shadow-md">
+          <table className="min-w-full text-left text-sm text-gray-200">
+            <thead className="bg-white/10 text-gray-300">
               <tr>
-                <th>Capability</th>
-                <th>ScaleupCFO AI</th>
-                <th>Legacy ERP + Plugin</th>
-                <th>Competitor A</th>
+                <th className="px-6 py-4 font-semibold">Capability</th>
+                <th className="px-6 py-4 font-semibold text-[#34D399]">ScaleupCFO AI</th>
+                <th className="px-6 py-4 font-semibold">Legacy ERP + Plugin</th>
+                <th className="px-6 py-4 font-semibold">Competitor A</th>
               </tr>
             </thead>
             <tbody>
               {rows.map((row, i) => (
-                <tr key={i}>
-                  <td><strong>{row.feature}</strong></td>
-                  <td>{row.ours}</td>
-                  <td>{row.legacy}</td>
-                  <td>{row.competitor}</td>
+                <tr key={i} className="hover:bg-white/10 transition">
+                  <td className="px-6 py-4 font-medium text-white">{row.feature}</td>
+                  <td className="px-6 py-4 text-green-400">{row.ours}</td>
+                  <td className="px-6 py-4 text-red-400">{row.legacy}</td>
+                  <td className="px-6 py-4 text-red-400">{row.competitor}</td>
                 </tr>
               ))}
             </tbody>

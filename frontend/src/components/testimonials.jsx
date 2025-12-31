@@ -6,7 +6,7 @@ export default function Testimonials() {
   const testimonials = [
     {
       quote:
-        "Ashish brings strong financial leadership and analytical precision, consistently breaking down problems into actionable parts to resolve bottlenecks and deliver lasting value to 3eco.",
+        "Ashish brings strong financial leadership and analytical precision, consistently breaking down problems into actionable parts to resolve bottlenecks and deliver lasting value.",
       author: "Peter Volkner",
       title: "Managing Director, 3eco Systems",
       image: peterImg,
@@ -26,33 +26,53 @@ export default function Testimonials() {
       image: karanImg,
     },
   ];
+return (
+    <section className="relative py-20 overflow-hidden text-white">
+      {/* Solid black top + gradient fade */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black to-black/60 z-[-1]" />
 
-  return (
-    <section className="testimonials founder-testimonials">
-      <div className="container">
-        <div className="section-header">
-          <h2>Founder Confidence, In Their Words...</h2>
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+        {/* Header - Changed to green gradient */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-[#34D399] via-white to-gray-300 bg-clip-text text-transparent">
+  Why Founders Trust ScaleupCFO AI
+</h2>
+
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Strategic finance, real results — in their own words.
+          </p>
         </div>
 
-        <div className="testimonials-row">
+        {/* Testimonials grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {testimonials.map((t, i) => (
-            <div className="testimonial-card v2" key={i}>
-              <div className="testimonial-body">
-                <p className="testimonial-quote">“{t.quote}”</p>
-              </div>
-
-              <div className="testimonial-author v2">
-                <div
-                  className="avatar-photo"
-                  style={{
-                    backgroundImage: `url(${t.image})`,
-                  }}
-                />
+            <div
+              key={i}
+              className="group bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:bg-black/50 hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+            >
+              {/* Image + Name */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-xl overflow-hidden border-2 border-white/20 shadow-md">
+                  <img
+                    src={t.image}
+                    alt={t.author}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div>
-                  <div className="author-name">{t.author}</div>
-                  <div className="author-title">{t.title}</div>
+                  <h4 className="text-[#34D399] font-semibold text-lg group-hover:text-[#4ADE80] transition-colors"> {/* Brighter green */}
+                    {t.author}
+                  </h4>
+                  <p className="text-gray-400 text-sm font-medium">
+                    {t.title}
+                  </p>
                 </div>
               </div>
+
+              {/* Quote */}
+              <p className="text-gray-200 text-base leading-relaxed italic">
+                "{t.quote}"
+              </p>
             </div>
           ))}
         </div>
@@ -60,3 +80,4 @@ export default function Testimonials() {
     </section>
   );
 }
+ 

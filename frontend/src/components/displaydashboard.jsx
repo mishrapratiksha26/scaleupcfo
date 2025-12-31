@@ -1,4 +1,4 @@
-// src/components/IndexDashboardShowcase.jsx (or wherever Index lives)
+// src/components/IndexDashboardShowcase.jsx
 import {
   DollarSign,
   TrendingUp,
@@ -9,13 +9,12 @@ import {
 import { toast } from "sonner";
 import { Header } from "./dashboard/Header";
 import { KPICard } from "./dashboard/KPICard";
-import { RevenueChart } from "./dashboard/RevenueChart";
-import { UnitEconomicsChart } from "./dashboard/UnitEconomicsChart";
 import { CashConversionChart } from "./dashboard/CashConversionChart";
 import { MixDonutChart } from "./dashboard/MixDonutChart";
 import { AnalysisPanel } from "./dashboard/AnalysisPanel";
 import { ChatInput } from "./dashboard/ChatInput";
 import { SelectionOverlay } from "./dashboard/SelectionOverlay";
+import { WaitlistButton } from "./waitlist";
 
 const productMixData = [
   { name: "Premium", value: 42, color: "hsl(174, 72%, 56%)" },
@@ -44,15 +43,23 @@ const Index = () => {
   };
 
   return (
-    <section className="dashboard-showcase" style={{paddingBottom: "2rem" }}>
-      <div className="container">
-        <div className="section-header">
-          <h2>AI CFO DASHBOARD</h2>
-          <p>Real-time visibility and predictive insights for CFOs.</p>
+    <section className="relative py-20 text-white overflow-hidden">
+      {/* Gradient background for the section */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-black z-[-1]" />
+
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        {/* Section header */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-[#34D399] via-white to-gray-300 bg-clip-text text-transparent">
+            AI CFO Dashboard
+          </h2>
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Real-time visibility and predictive insights for CFOs.
+          </p>
         </div>
 
-        {/* Responsive dashboard app */}
-        <div className="min-h-[540px] max-h-[720px] md:max-h-none flex flex-col bg-background rounded-3xl overflow-hidden shadow-2xl">
+        {/* Dashboard container keeps its original background */}
+        <div className="min-h-[540px] max-h-[720px] md:max-h-none flex flex-col bg-background overflow-hidden shadow-2xl">
           <Header />
 
           <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
@@ -103,13 +110,7 @@ const Index = () => {
                   />
                 </div>
 
-                {/* Charts Row 1 */}
-                {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
-                  <RevenueChart />
-                  <UnitEconomicsChart />
-                </div> */}
-
-                {/* Charts Row 2 */}
+                {/* Charts Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 md:gap-4">
                   <CashConversionChart />
                   <MixDonutChart
@@ -132,18 +133,24 @@ const Index = () => {
             </SelectionOverlay>
 
             {/* Analysis Panel */}
-            <div className="w-full lg:w-80 border-t lg:border-t-0 lg:border-l border-border/50 p-4 overflow-y-auto max-h-64 lg:max-h-none paddingbottom:0">
+            <div className="w-full lg:w-80 border-t lg:border-t-0 lg:border-l border-border/50 p-4 overflow-y-auto max-h-64 lg:max-h-none">
               <AnalysisPanel />
             </div>
           </div>
 
-          {/* Chat Input */}
-          <div className="px-4 md:px-6 pb-4 pt-2 bg-background">
-            <ChatInput onSend={handleSendMessage} />
-          </div>
-        </div>
-      </div>
-    </section>
+         {/* Chat Input */}
+<div className="px-4 md:px-6 pb-4 pt-2 bg-background">
+  <ChatInput onSend={handleSendMessage} />
+</div>
+</div>
+
+{/* Waitlist CTA */}
+<div className="mt-12 flex justify-center">
+  <WaitlistButton className="px-5 py-3 bg-[#34D399] text-black font-semibold rounded-md hover:brightness-125 hover:shadow-lg hover:scale-105 transition-all duration-300" />
+
+</div>
+</div>
+</section>
   );
 };
 

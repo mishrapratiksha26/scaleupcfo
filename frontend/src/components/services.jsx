@@ -15,229 +15,215 @@ import dartIcon from "../assets/services_images/dart.d34b72c6d0983115804e.jpg";
 import irIcon from "../assets/services_images/IR.7333a6914134f6a19915.jpg";
 import pfIcon from "../assets/services_images/PF.b2193833143a2e7f2ac4.jpg";
 import fmIcon from "../assets/services_images/PF.b2193833143a2e7f2ac4.jpg";
+import { color } from "motion";
+
+// src/components/Services.jsx
+
+// const iconStyle = { filter: "brightness(0) invert(1)" };
 
 export default function Services() {
   return (
-    <section id="services" style={{paddingTop:0, paddingBottom:0}}>
+    <section
+      id="services"
+      style={{
+        background:
+          "linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0a0a0a 100%)",
+        color: "#ffffff",
+        paddingTop: "8rem",
+        paddingBottom: "4rem",
+      }}
+    >
       <div className="container">
-        {/* Block 1 – Pain points */}
-        <section className="why-choose-us-section" style={{paddingBottom:0, paddingTop:0}}>
-          <h1>Financial Complexities slowing you down?</h1>
+
+        {/* ================= Block 1 – Pain Points ================= */}
+        <section
+          className="why-choose-us-section"
+          style={{ position: "relative", minHeight: "300px" }}
+        >
+          <h1
+            style={{
+              color: "#ffffff",
+              fontSize: "3rem",
+              marginBottom: "2rem",
+              position: "relative",
+              zIndex: 2,
+            }}
+          >
+            Financial Complexities slowing you down?
+          </h1>
 
           <div className="why-choose-us-grid">
-            <section className="dual-thoughts-section" style={{paddingBottom:0, paddingTop:0}}>
+            <section className="dual-thoughts-section">
               <div className="person-container">
                 <img
                   src={confusedMan}
-                  alt="Doodle Man Thinking"
+                  alt="Confused Founder"
                   className="person-image"
+                  style={{
+                    maxWidth: "100%",
+                    opacity: 0.95,
+                  }}
                 />
               </div>
             </section>
 
-            <section className="why-choose-us" style={{paddingBottom:0, paddingTop:0}}>
+            <section className="why-choose-us" style={{paddingBottom:"0",paddingTop:"0"}}>
               <ul className="thought-list">
-                <li className="thought-item">
-                  <img src={cmIcon} alt="FM Icon" />
-                  <p>Growing Financial Complexities</p>
-                </li>
-                <li className="thought-item">
-                  <img src={tsmIcon} alt="FM Icon" />
-                  <p>Investors asking more than just numbers</p>
-                </li>
-                <li className="thought-item">
-                  <img src={bbfIcon} alt="FM Icon" />
-                  <p>Cash burn visibility not clear</p>
-                </li>
-                <li className="thought-item">
-                  <img src={abIcon} alt="FM Icon" />
-                  <p>Worried about fund raise &amp; valuation</p>
-                </li>
+                {[
+                  { img: cmIcon, text: "Growing Financial Complexities" },
+                  { img: tsmIcon, text: "Investors asking more than just numbers" },
+                  { img: bbfIcon, text: "Cash burn visibility not clear" },
+                  { img: abIcon, text: "Worried about fund raise & valuation" },
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="thought-item"
+                    style={{
+                      background: "rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      color: "white",
+                    }}
+                  >
+                    <img src={item.img} alt="" className="service-icon" />
+
+                    <p>{item.text}</p>
+                  </li>
+                ))}
               </ul>
             </section>
           </div>
         </section>
 
-        {/* Block 2 – Why you need us */}
-        <section className="why-need-us-section">
+        {/* ================= Block 2 ================= */}
+        <section
+          className="why-need-us-section"
+          style={{ position: "relative" }}
+        >
           <div className="why-need-us-grid">
-            <h3>
+            <h3 style={{ fontSize: "2.5rem", color: "white" }}>
               Your Startup <br />
               Needs More Than <br />
               Just a Numbers Person...
             </h3>
 
-            <section className="why-choose-finbook" style={{paddingBottom:0, paddingTop:0}}>
-              <h3>Strategic CFO Partner who can</h3>
+            <section className="why-choose-finbook" style={{paddingTop:"0"}}>
+              <h3 style={{ color: "#34D399", marginBottom: "2rem" }}>
+                Strategic CFO Partner who can
+              </h3>
+
               <ul className="reasons-list">
-                <li className="reason-item">
-                  <img src={bbfIcon} alt="FM Icon" />
-                  <p>
-                    Lead fund raise and
-                    <br />
-                    investor outreach
-                  </p>
-                </li>
-                <li className="reason-item">
-                  <img src={abIcon} alt="FM Icon" />
-                  <p>
-                    Build narratives
-                    <br />
-                    from numbers
-                  </p>
-                </li>
-                <li className="reason-item">
-                  <img src={cmIcon} alt="FM Icon" />
-                  <p>
-                    Optimize cash burn
-                    <br />
-                    for growth
-                  </p>
-                </li>
-                <li className="reason-item">
-                  <img src={tsmIcon} alt="FM Icon" />
-                  <p>
-                    Understand investor
-                    <br />
-                    expectations
-                  </p>
-                </li>
+                {[
+                  { img: bbfIcon, text: "Lead fund raise and investor outreach" },
+                  { img: abIcon, text: "Build narratives from numbers" },
+                  { img: cmIcon, text: "Optimize cash burn for growth" },
+                  { img: tsmIcon, text: "Understand investor expectations" },
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="reason-item"
+                    style={{
+                      background: "rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                    }}
+                  >
+                    <img src={item.img} alt="" className="service-icon" />
+
+                    <p>{item.text}</p>
+                  </li>
+                ))}
               </ul>
             </section>
           </div>
         </section>
 
-        {/* Block 3 – Process */}
-        <div className="process-container">
-          <h2>Our Process, Your Insights!</h2>
+        {/* ================= Block 3 – Process ================= */}
+        <section className="process-container">
+          <h2 style={{ fontSize: "2.5rem", marginBottom: "3rem", color: "white", marginTop: "0" }}>
+            Our Process, Your Insights!
+          </h2>
 
           <div className="process-grid">
-            <div className="process-step">
-              <img className="process-step-img1" src={step1Img} alt="step-1" />
-              <div className="process-step-content process-step-1">
-                <h3>Consultation &amp; Discovery</h3>
-                <p>
-                  Detailed discovery workshop to
-                  <br />
-                  understand your growth objective
-                  <br />
-                  and financial needs.
-                </p>
+            {[
+              {
+                img: step1Img,
+                title: "Consultation & Discovery",
+                text:
+                  "Detailed discovery workshop to understand your growth objectives and financial needs.",
+              },
+              {
+                img: step2Img,
+                title: "Financial Visibility Assessment",
+                text:
+                  "Identify inefficiencies, cash flow gaps and KPI tracking issues.",
+              },
+              {
+                img: step3Img,
+                title: "Real-time Insights & Weekly Sync-up",
+                text:
+                  "Custom KPI dashboards, investor-ready reports and pitch materials.",
+              },
+            ].map((step, i) => (
+              <div
+                key={i}
+                className="process-step"
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                }}
+              >
+                <img src={step.img} alt="" />
+                <div className="process-step-content">
+                  <h3 style={{ color: "#34D399" }}>{step.title}</h3>
+                  <p>{step.text}</p>
+                </div>
               </div>
-            </div>
-
-            <div className="process-step">
-              <img className="process-step-img2" src={step2Img} alt="step-2" />
-              <div className="process-step-content process-step-2">
-                <h3>Financial Visibility Assessment</h3>
-                <p>
-                  We identify current inefficiencies,
-                  <br />
-                  cash flow gaps and evaluate
-                  <br />
-                  current KPI tracking for visibility.
-                </p>
-              </div>
-            </div>
-
-            <div className="process-step">
-              <img className="process-step-img3" src={step3Img} alt="step-3" />
-              <div className="process-step-content process-step-3">
-                <h3>Real-time Insights &amp; Weekly Sync-up</h3>
-                <p>
-                  Custom KPI dashboards for tracking,
-                  <br />
-                  investor-ready financial reports, monthly
-                  <br />
-                  presentations and pitch materials.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
-        </div>
+        </section>
 
-        {/* Block 4 – CFO offerings */}
+        {/* ================= Block 4 – CFO Offerings ================= */}
         <section className="virtual-cfo-section">
           <h2 className="section-title">Our CFO Offerings...</h2>
 
           <div className="services-blocks-main">
-            <div className="services-blocks">
-              <div className="info-block">
-                <div className="icon">
-                  <img src={dartIcon} alt="Finance Advisory Icon" width={30} height={30} />
-                </div>
-                <h3>Financial Advisory in Decision Making</h3>
+            {[
+              [
+                { img: dartIcon, text: "Financial Advisory in Decision Making" },
+                { img: irIcon, text: "Investor Reporting & Relations" },
+                { img: cmIcon, text: "Cashflow Management & Forecasting" },
+                { img: abIcon, text: "Accounting & Bookkeeping" },
+              ],
+              [
+                { img: pfIcon, text: "Pitch Deck & Fundraising" },
+                { img: tsmIcon, text: "Term Sheet & SHA Management" },
+                { img: fmIcon, text: "Financial Modelling" },
+                { img: bbfIcon, text: "Business Budgeting & Forecasting" },
+              ],
+            ].map((group, i) => (
+              <div
+                key={i}
+                className="services-blocks"
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                }}
+              >
+                {group.map((item, j) => (
+                  <div key={j} className="info-block">
+                    <img src={item.img} alt="" className="service-icon" />
+                    <h3 style={{color:"#666666"}}>{item.text}</h3>
+                  </div>
+                ))}
               </div>
-
-              <div className="vertical-line" />
-
-              <div className="info-block">
-                <div className="icon">
-                  <img src={irIcon} alt="IR Icon" width={30} height={30} />
-                </div>
-                <h3>Investor Reporting and Investor Relations</h3>
-              </div>
-
-              <div className="vertical-line" />
-
-              <div className="info-block">
-                <div className="icon">
-                  <img src={cmIcon} alt="CM Icon" width={40} height={30} />
-                </div>
-                <h3>Cashflow Management and Forecasting</h3>
-              </div>
-
-              <div className="vertical-line" />
-
-              <div className="info-block">
-                <div className="icon">
-                  <img src={abIcon} alt="AB Icon" width={40} height={30} />
-                </div>
-                <h3>Accounting and Bookkeeping</h3>
-              </div>
-            </div>
-
-            <div className="services-blocks">
-              <div className="info-block">
-                <div className="icon">
-                  <img src={pfIcon} alt="PF Icon" width={30} height={30} />
-                </div>
-                <h3>Pitch Deck &amp; Fundraising</h3>
-              </div>
-
-              <div className="vertical-line" />
-
-              <div className="info-block">
-                <div className="icon">
-                  <img src={tsmIcon} alt="TSM Icon" width={30} height={30} />
-                </div>
-                <h3>Term Sheet and SHA Management</h3>
-              </div>
-
-              <div className="vertical-line" />
-
-              <div className="info-block">
-                <div className="icon">
-                  <img src={fmIcon} alt="FM Icon" width={40} height={30} />
-                </div>
-                <h3>Financial Modelling</h3>
-              </div>
-
-              <div className="vertical-line" />
-
-              <div className="info-block">
-                <div className="icon">
-                  <img src={bbfIcon} alt="BBF Icon" width={40} height={30} />
-                </div>
-                <h3>Business Budgeting and Forecasting</h3>
-              </div>
-            </div>
+            ))}
           </div>
 
           <p className="section-footer">
             Not just CFO Services, it's a{" "}
-            <span className="highlight">Sustainable System</span> to transform &amp;
-            optimize your finances and fuel your company's growth.
+            <span style={{ color: "#34D399", fontWeight: 700 }}>
+              Sustainable System
+            </span>{" "}
+            to transform & optimize your finances and fuel growth.
           </p>
         </section>
       </div>

@@ -17,13 +17,13 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <Testimonials />
       <Index />
-      <WaitlistButton />
+      {/* <WaitlistButton /> */}
       <Products /> 
       <Comparison />
-      <Testimonials />
+      
       <Pricing />
-      <ClientsLogos/>
       <CTA />
       <Footer />
     </>
