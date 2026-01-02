@@ -41,7 +41,6 @@ export default function CTA() {
           }}
           className="md:text-lg max-w-sm mx-auto"
         >
-          14 days free. All modules. No credit card. Your data or sample data—your choice.
         </p>
 
         <div style={{ marginBottom: '1rem' }}>

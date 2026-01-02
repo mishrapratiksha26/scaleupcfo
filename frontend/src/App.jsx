@@ -2,6 +2,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import Home from "./pages/home";
 import ServicesPage from "./pages/services";
+import About from "./pages/aboutus";
 import { initTallyFormTracking } from "./utils/analytics"; // import your helper
 
 export default function App() {
@@ -41,6 +42,7 @@ useEffect(() => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );

@@ -1,232 +1,165 @@
-// src/components/Services.jsx
-
-import confusedMan from "../assets/services_images/confusedman.ae6c3802f3cb6d28874e.png";
-
-import cmIcon from "../assets/services_images/CM.13b4e1c594aea26c025b.jpg";
-import tsmIcon from "../assets/services_images/TSM.cf8e6d94d66d4aed30db.jpg";
-import bbfIcon from "../assets/services_images/BBF.45d30127bf88be23c67c.jpg";
-import abIcon from "../assets/services_images/AB.f91b000fc8b9571a2ea3.jpg";
-
-import step1Img from "../assets/services_images/step-1.d50f6bb795fa3391c4da.jpg";
-import step2Img from "../assets/services_images/step-2.05071d4a3b4cccb0cf83.jpg";
-import step3Img from "../assets/services_images/step-3.f15334757068ed1af872.jpg";
-
-import dartIcon from "../assets/services_images/dart.d34b72c6d0983115804e.jpg";
-import irIcon from "../assets/services_images/IR.7333a6914134f6a19915.jpg";
-import pfIcon from "../assets/services_images/PF.b2193833143a2e7f2ac4.jpg";
-import fmIcon from "../assets/services_images/PF.b2193833143a2e7f2ac4.jpg";
-import { color } from "motion";
-
-// src/components/Services.jsx
-
-// const iconStyle = { filter: "brightness(0) invert(1)" };
-
 export default function Services() {
   return (
-    <section
-      id="services"
-      style={{
-        background:
-          "linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0a0a0a 100%)",
-        color: "#ffffff",
-        paddingTop: "8rem",
-        paddingBottom: "4rem",
-      }}
-    >
-      <div className="container">
+    <main className="bg-zinc-950 text-zinc-100">
 
-        {/* ================= Block 1 – Pain Points ================= */}
-        <section
-          className="why-choose-us-section"
-          style={{ position: "relative", minHeight: "300px" }}
-        >
-          <h1
-            style={{
-              color: "#ffffff",
-              fontSize: "3rem",
-              marginBottom: "2rem",
-              position: "relative",
-              zIndex: 2,
-            }}
-          >
-            Financial Complexities slowing you down?
+      {/* HERO */}
+      <section className="relative overflow-hidden px-6 py-24 text-center">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.15),_transparent_60%)]" />
+        <div className="relative mx-auto max-w-4xl">
+          <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
+            Start using finance operations as a{" "}
+            <span className="text-emerald-400">growth lever</span>, not another
+            compliance checklist.
           </h1>
+          <p className="mt-6 text-lg text-zinc-400">
+            Strategic financial partnership that drives growth, not just reporting.
+          </p>
 
-          <div className="why-choose-us-grid">
-            <section className="dual-thoughts-section">
-              <div className="person-container">
-                <img
-                  src={confusedMan}
-                  alt="Confused Founder"
-                  className="person-image"
-                  style={{
-                    maxWidth: "100%",
-                    opacity: 0.95,
-                  }}
-                />
-              </div>
-            </section>
-
-            <section className="why-choose-us" style={{paddingBottom:"0",paddingTop:"0"}}>
-              <ul className="thought-list">
-                {[
-                  { img: cmIcon, text: "Growing Financial Complexities" },
-                  { img: tsmIcon, text: "Investors asking more than just numbers" },
-                  { img: bbfIcon, text: "Cash burn visibility not clear" },
-                  { img: abIcon, text: "Worried about fund raise & valuation" },
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="thought-item"
-                    style={{
-                      background: "rgba(255,255,255,0.05)",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                      color: "white",
-                    }}
-                  >
-                    <img src={item.img} alt="" className="service-icon" />
-
-                    <p>{item.text}</p>
-                  </li>
-                ))}
-              </ul>
-            </section>
+          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+            <button className="rounded-lg bg-emerald-500 px-8 py-3 font-medium text-black hover:bg-emerald-400 transition">
+              Book Discovery Call
+            </button>
+            <button className="rounded-lg border border-zinc-700 px-8 py-3 font-medium text-zinc-200 hover:border-emerald-400 hover:text-emerald-400 transition">
+              Learn More
+            </button>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ================= Block 2 ================= */}
-        <section
-          className="why-need-us-section"
-          style={{ position: "relative" }}
-        >
-          <div className="why-need-us-grid">
-            <h3 style={{ fontSize: "2.5rem", color: "white" }}>
-              Your Startup <br />
-              Needs More Than <br />
-              Just a Numbers Person...
-            </h3>
-
-            <section className="why-choose-finbook" style={{paddingTop:"0"}}>
-              <h3 style={{ color: "#34D399", marginBottom: "2rem" }}>
-                Strategic CFO Partner who can
-              </h3>
-
-              <ul className="reasons-list">
-                {[
-                  { img: bbfIcon, text: "Lead fund raise and investor outreach" },
-                  { img: abIcon, text: "Build narratives from numbers" },
-                  { img: cmIcon, text: "Optimize cash burn for growth" },
-                  { img: tsmIcon, text: "Understand investor expectations" },
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="reason-item"
-                    style={{
-                      background: "rgba(255,255,255,0.05)",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                    }}
-                  >
-                    <img src={item.img} alt="" className="service-icon" />
-
-                    <p>{item.text}</p>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          </div>
-        </section>
-
-        {/* ================= Block 3 – Process ================= */}
-        <section className="process-container">
-          <h2 style={{ fontSize: "2.5rem", marginBottom: "3rem", color: "white", marginTop: "0" }}>
-            Our Process, Your Insights!
+      {/* SERVICES */}
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <span className="inline-block rounded-full border border-zinc-800 px-4 py-1 text-xs font-semibold tracking-wide text-emerald-400">
+            OUR OFFERINGS
+          </span>
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold">
+            ScaleUp CFO Services
           </h2>
 
-          <div className="process-grid">
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                img: step1Img,
-                title: "Consultation & Discovery",
-                text:
-                  "Detailed discovery workshop to understand your growth objectives and financial needs.",
+                icon: "💼",
+                title: "Fractional CFO",
+                desc: "Full-time CFO expertise on a fractional basis. Strategic guidance aligned with your growth goals.",
               },
               {
-                img: step2Img,
-                title: "Financial Visibility Assessment",
-                text:
-                  "Identify inefficiencies, cash flow gaps and KPI tracking issues.",
+                icon: "📊",
+                title: "Financial Consulting",
+                desc: "Deep-dive financial analysis and consulting to optimize unit economics and profitability.",
               },
               {
-                img: step3Img,
-                title: "Real-time Insights & Weekly Sync-up",
-                text:
-                  "Custom KPI dashboards, investor-ready reports and pitch materials.",
+                icon: "🤝",
+                title: "Investor Relations",
+                desc: "Investor communications, reporting, and strategic narrative building for fundraises.",
               },
-            ].map((step, i) => (
+              {
+                icon: "📈",
+                title: "Monthly Book Closure",
+                desc: "Timely and accurate month-end close with financial statements and compliance reporting.",
+              },
+              {
+                icon: "🎯",
+                title: "Financial Modelling",
+                desc: "Custom financial models for budgeting, forecasting, and scenario planning.",
+              },
+              {
+                icon: "🚀",
+                title: "Pitch Deck & Fundraise",
+                desc: "Financial narratives, pitch materials, and support for successful fundraising rounds.",
+              },
+            ].map((item, i) => (
               <div
                 key={i}
-                className="process-step"
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                }}
+                className="rounded-xl border border-zinc-800 bg-zinc-900 p-8 hover:border-emerald-500 hover:-translate-y-1 transition"
               >
-                <img src={step.img} alt="" />
-                <div className="process-step-content">
-                  <h3 style={{ color: "#34D399" }}>{step.title}</h3>
-                  <p>{step.text}</p>
+                <div className="text-4xl">{item.icon}</div>
+                <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
+                <p className="mt-2 text-sm text-zinc-400">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROBLEM */}
+      <section className="bg-zinc-900 px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <span className="inline-block rounded-full border border-zinc-800 px-4 py-1 text-xs font-semibold tracking-wide text-emerald-400">
+            THE CHALLENGE
+          </span>
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold">
+            Problem we are solving
+          </h2>
+
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["1", "Growing Financial Complexities", "Scaling increases financial complexity and time burden."],
+              ["2", "Investors Asking More", "Investors want insights, narratives, and strategic clarity."],
+              ["3", "Cash Burn Visibility", "Lack of visibility makes decisions risky."],
+              ["4", "Fundraise & Valuation", "Valuation concerns reduce fundraising confidence."],
+            ].map(([num, title, desc]) => (
+              <div
+                key={num}
+                className="rounded-xl border border-zinc-800 bg-zinc-950 p-6 hover:border-emerald-500 transition"
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500 font-semibold text-black">
+                  {num}
                 </div>
+                <h3 className="font-semibold">{title}</h3>
+                <p className="mt-2 text-sm text-zinc-400">{desc}</p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ================= Block 4 – CFO Offerings ================= */}
-        <section className="virtual-cfo-section">
-          <h2 className="section-title">Our CFO Offerings...</h2>
+      {/* VALUE */}
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <span className="inline-block rounded-full border border-zinc-800 px-4 py-1 text-xs font-semibold tracking-wide text-emerald-400">
+            WHAT WE DELIVER
+          </span>
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold">
+            Value we create for you
+          </h2>
 
-          <div className="services-blocks-main">
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              [
-                { img: dartIcon, text: "Financial Advisory in Decision Making" },
-                { img: irIcon, text: "Investor Reporting & Relations" },
-                { img: cmIcon, text: "Cashflow Management & Forecasting" },
-                { img: abIcon, text: "Accounting & Bookkeeping" },
-              ],
-              [
-                { img: pfIcon, text: "Pitch Deck & Fundraising" },
-                { img: tsmIcon, text: "Term Sheet & SHA Management" },
-                { img: fmIcon, text: "Financial Modelling" },
-                { img: bbfIcon, text: "Business Budgeting & Forecasting" },
-              ],
-            ].map((group, i) => (
+              ["5th", "Close financials by 5th of every month"],
+              ["100%", "Accurate, audit-ready records"],
+              ["Real-time", "Cash & runway visibility"],
+              ["Strategic", "Growth partner, not compliance"],
+            ].map(([num, label]) => (
               <div
-                key={i}
-                className="services-blocks"
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                }}
+                key={num}
+                className="rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center"
               >
-                {group.map((item, j) => (
-                  <div key={j} className="info-block">
-                    <img src={item.img} alt="" className="service-icon" />
-                    <h3 style={{color:"#666666"}}>{item.text}</h3>
-                  </div>
-                ))}
+                <div className="text-3xl font-semibold text-emerald-400">
+                  {num}
+                </div>
+                <p className="mt-2 text-sm text-zinc-400">{label}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <p className="section-footer">
-            Not just CFO Services, it's a{" "}
-            <span style={{ color: "#34D399", fontWeight: 700 }}>
-              Sustainable System
-            </span>{" "}
-            to transform & optimize your finances and fuel growth.
+      {/* CTA */}
+      <section className="px-6 py-24 text-center bg-gradient-to-b from-zinc-950 to-zinc-900">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-semibold">
+            Ready to transform your finances?
+          </h2>
+          <p className="mt-4 text-zinc-400">
+            Book a discovery call to diagnose your financial operations and identify growth opportunities.
           </p>
-        </section>
-      </div>
-    </section>
+
+          <button className="mt-8 rounded-lg bg-emerald-500 px-10 py-4 font-medium text-black hover:bg-emerald-400 transition">
+            Book Discovery Call
+          </button>
+        </div>
+      </section>
+    </main>
   );
 }

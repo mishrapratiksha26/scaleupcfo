@@ -22,10 +22,14 @@ export default function Navbar() {
           </button>
 
           {/* Logo */}
-          <div className="logo">
-            <img src={logo} alt="ScaleupCFO logo" />
-            <span>ScaleupCFO AI</span>
-          </div>
+
+
+<div className="logo">
+  <Link to="/" className="flex items-center gap-2">
+    <img src={logo} alt="ScaleupCFO logo" className="h-8 w-8" />
+    <span className="font-bold text-white">ScaleupCFO AI</span>
+  </Link>
+</div>
 
           {/* Desktop Navigation */}
           <ul className="nav-links-desktop">

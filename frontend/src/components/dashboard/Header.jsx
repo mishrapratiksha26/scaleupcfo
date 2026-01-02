@@ -12,10 +12,10 @@ export const Header = () => {
           </div>
           <div>
             <h1 className="text-lg font-semibold text-foreground">
-              Executive Dashboard
+              AI CFO Dashboard
             </h1>
             <p className="text-xs text-muted-foreground">
-              Financial Overview • Q4 2024
+              Financial Overview • Q1 FY26
             </p>
           </div>
         </div>

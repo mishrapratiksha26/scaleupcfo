@@ -43,7 +43,7 @@ const Index = () => {
   };
 
   return (
-    <section className="relative py-20 text-white overflow-hidden">
+    <section className="relative pt-20 pb-8 text-white overflow-hidden" style={{paddingBottom:"2rem"}}>
       {/* Gradient background for the section */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black 
              backdrop-blur-xl bg-gradient-to-b from-black via-black/70 to-black z-[-1]" />
@@ -134,9 +134,10 @@ const Index = () => {
             </SelectionOverlay>
 
             {/* Analysis Panel */}
-            <div className="w-full lg:w-80 border-t lg:border-t-0 lg:border-l border-border/50 p-4 overflow-y-auto max-h-64 lg:max-h-none">
-              <AnalysisPanel />
-            </div>
+<div className="w-full lg:w-80 border-t lg:border-t-0 lg:border-l border-border/50 p-4 overflow-y-auto 
+                max-h-116 sm:max-h-124 md:max-h-132">
+  <AnalysisPanel />
+</div>
           </div>
 
          {/* Chat Input */}

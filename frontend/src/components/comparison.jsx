@@ -20,9 +20,9 @@ export default function Comparison() {
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[#34D399] via-white to-gray-300 bg-clip-text text-transparent mb-4">
             Why ScaleupCFO AI Wins
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Built for modern CFOs who demand AI + human expertise + enterprise compliance.
-          </p>
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed whitespace-nowrap">
+  Built for modern CFOs who demand AI + human expertise + enterprise compliance.
+</p>
         </div>
 
         {/* Comparison table */}

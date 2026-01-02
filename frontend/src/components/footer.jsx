@@ -1,17 +1,17 @@
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer>
     <div className="bg-gradient-to-br from-black via-gray-900 to-black 
              backdrop-blur-xl p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-white">
         <div className="footer-section">
-            <h4>Platform</h4>
+            <h4>Modules</h4>
             <ul>
-                <li><a href="#">AI Dashboard</a></li>
-                <li><a href="#">AR/AP Optimization</a></li>
-                <li><a href="#">Treasury Management</a></li>
-                <li><a href="#">Sales-to-Cash</a></li>
-                <li><a href="#">TDS Reconciliation</a></li>
-                <li><a href="#">Financial Forecasting</a></li>
+                <li><a href="#">AI CFO Dashboard</a></li>
+                <li><a href="#">AI AR/AP Module</a></li>
+                <li><a href="#">AI Treasury</a></li>
+                <li><a href="#">AI Sales-to-Cash Reconciliation</a></li>
+                <li><a href="#">AI TDS Reconciliation</a></li>
             </ul>
         </div>
         <div className="footer-section">
@@ -39,7 +39,11 @@ export default function Footer() {
         <div className="footer-section">
             <h4>Company</h4>
             <ul>
-                <li><a href="https://scaleupcfo.in/#about">About Us</a></li>
+                <li>
+          {/* Use Link instead of <a> */}
+          <Link to="/about">About Us</Link>
+        </li>
+
                 <li><a href="https://scaleupcfo.in/">Leadership Team</a></li>
                 <li><a href="#">Careers</a></li>
                 <li><a href="#">News & Press</a></li>
