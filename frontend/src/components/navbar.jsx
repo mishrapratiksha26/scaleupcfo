@@ -45,6 +45,9 @@ export default function Navbar() {
             <li>
               <HashLink smooth to="/#resources">Resources</HashLink>
             </li>
+            <li><Link to="/about">About Us</Link></li>
+
+          
           </ul>
         </div>
 
@@ -80,6 +83,9 @@ export default function Navbar() {
             <HashLink smooth to="/#resources" onClick={() => setIsOpen(false)}>
               Resources
             </HashLink>
+            <Link to="/about" onClick={() => setIsOpen(false)}>
+              About Us
+            </Link>
           </li>
         </ul>
 

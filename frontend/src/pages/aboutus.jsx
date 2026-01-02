@@ -1,5 +1,6 @@
 import Nav from "../components/navbar";
 import founderimg from "../assets/ceoimg.jfif"
+import { HashLink } from "react-router-hash-link";
 import CalBookingButton from "../components/DemoBookingButton";
 export default function About() {
   return (
@@ -25,15 +26,19 @@ export default function About() {
                     namespace="discovery-call-cfo-services"
                     link="ashish-jadhao-5s0pjh/discovery-call-cfo-services"
                   />
-            <button className="rounded-lg border border-zinc-700 px-8 py-3 hover:border-emerald-400 transition">
-              Read Our Story
-            </button>
+            <HashLink
+  smooth
+  to="#story"
+  className="rounded-lg border border-zinc-700 px-8 py-3 hover:border-emerald-400 transition"
+>
+  Read Our Story
+</HashLink>
           </div>
         </div>
       </section>
 
       {/* OUR STORY */}
-      <section className="px-6 py-24 max-w-6xl mx-auto">
+      <section className="px-6 py-24 max-w-6xl mx-auto" id="story">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-20">
           Our Story
         </h2>

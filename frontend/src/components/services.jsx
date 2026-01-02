@@ -1,4 +1,5 @@
 import CalBookingButton from "./DemoBookingButton";
+import { HashLink } from "react-router-hash-link";
 export default function Services() {
   return (
     <main className="bg-zinc-950 text-zinc-100">
@@ -26,9 +27,15 @@ export default function Services() {
           />
 
 
-            <button className="rounded-lg border border-zinc-700 px-8 py-3 font-medium text-zinc-200 hover:border-emerald-400 hover:text-emerald-400 transition">
-              Learn More
-            </button>
+            
+
+<HashLink
+  smooth
+  to="/#products"
+  className="rounded-lg border border-zinc-700 px-8 py-3 font-medium text-zinc-200 hover:border-emerald-400 hover:text-emerald-400 transition"
+>
+  Learn More
+</HashLink>
           </div>
         </div>
       </section>
@@ -90,7 +97,7 @@ export default function Services() {
       </section>
 
       {/* PROBLEM */}
-      <section className="bg-zinc-900 px-6 py-24">
+      <section className="bg-zinc-900 px-6 py-24" id="problem">
         <div className="mx-auto max-w-6xl">
           <span className="inline-block rounded-full border border-zinc-800 px-4 py-1 text-xs font-semibold tracking-wide text-emerald-400">
             THE CHALLENGE
