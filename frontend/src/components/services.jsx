@@ -1,3 +1,4 @@
+import CalBookingButton from "./DemoBookingButton";
 export default function Services() {
   return (
     <main className="bg-zinc-950 text-zinc-100">
@@ -16,9 +17,15 @@ export default function Services() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-            <button className="rounded-lg bg-emerald-500 px-8 py-3 font-medium text-black hover:bg-emerald-400 transition">
-              Book Discovery Call
-            </button>
+            <CalBookingButton
+            title="Book Discovery Call"
+            module_name="services page"
+            className="rounded-lg bg-emerald-500 px-8 py-3 font-medium text-black hover:bg-emerald-400 transition"
+            namespace="discovery-call-cfo-services"
+            link="ashish-jadhao-5s0pjh/discovery-call-cfo-services"
+          />
+
+
             <button className="rounded-lg border border-zinc-700 px-8 py-3 font-medium text-zinc-200 hover:border-emerald-400 hover:text-emerald-400 transition">
               Learn More
             </button>
@@ -154,10 +161,13 @@ export default function Services() {
           <p className="mt-4 text-zinc-400">
             Book a discovery call to diagnose your financial operations and identify growth opportunities.
           </p>
-
-          <button className="mt-8 rounded-lg bg-emerald-500 px-10 py-4 font-medium text-black hover:bg-emerald-400 transition">
-            Book Discovery Call
-          </button>
+                  <CalBookingButton
+                  title="Book Discovery Call"
+                  module_name="services page"
+                  className="rounded-lg bg-emerald-500 px-8 py-3 font-medium text-black hover:bg-emerald-400 transition"
+                  namespace="discovery-call-cfo-services"
+                  link="ashish-jadhao-5s0pjh/discovery-call-cfo-services"
+                />
         </div>
       </section>
     </main>

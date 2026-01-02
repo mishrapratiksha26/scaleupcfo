@@ -1,4 +1,6 @@
 import Nav from "../components/navbar";
+import founderimg from "../assets/ceoimg.jfif"
+import CalBookingButton from "../components/DemoBookingButton";
 export default function About() {
   return (
     <main className="bg-zinc-950 text-zinc-100">
@@ -16,9 +18,13 @@ export default function About() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-            <button className="rounded-lg bg-emerald-500 px-8 py-3 font-medium text-black hover:bg-emerald-400 transition">
-              Explore Our Solution
-            </button>
+            <CalBookingButton
+                    title="Explore Our Solution"
+                    module_name="about page"
+                    className="rounded-lg bg-emerald-500 px-8 py-3 font-medium text-black hover:bg-emerald-400 transition"
+                    namespace="discovery-call-cfo-services"
+                    link="ashish-jadhao-5s0pjh/discovery-call-cfo-services"
+                  />
             <button className="rounded-lg border border-zinc-700 px-8 py-3 hover:border-emerald-400 transition">
               Read Our Story
             </button>
@@ -177,9 +183,14 @@ export default function About() {
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-20">Our Team</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
-            ["👨‍💼", "Founder & CEO", "Finance + AI", "15 years in corporate finance. Ex-CFO of Fortune 500 subsidiaries. Built financial close playbooks for dozens of companies."],
-            ["👩‍💻", "VP Engineering", "AI & Architecture", "ML engineer from leading fintech startup. Built scalable AI platforms handling millions of daily transactions."],
-            ["👨‍🔬", "Head of Product", "Finance Tech", "Previously at leading fintech. 5 years building products used by 10,000+ finance teams globally."],
+            [ <img
+          src={founderimg}   // ✅ replace with your actual image path
+          alt="Founder & CEO"
+          className="h-32 w-32 object-cover rounded-full mt-6"
+        />,
+, "Founder & CEO", "Finance + AI", "15 years in corporate finance. Ex-CFO of Fortune 500 subsidiaries. Built financial close playbooks for dozens of companies."],
+            ["👩‍💻", "VP Engineering" ],
+            ["👨‍💼", "Head of Product"],
           ].map(([icon, name, role, bio]) => (
             <div key={name} className="rounded-xl bg-zinc-950 border border-zinc-800 overflow-hidden">
               <div className="h-48 flex items-center justify-center text-6xl bg-gradient-to-br from-emerald-600 to-emerald-400">
@@ -204,9 +215,14 @@ export default function About() {
           Let's talk about how AI can free your team to focus on strategy.
           Schedule a personalized demo with our team.
         </p>
-        <button className="rounded-lg bg-emerald-500 px-10 py-4 font-medium text-black hover:bg-emerald-400 transition">
-          Schedule Demo
-        </button>
+        <CalBookingButton
+                    title="Schedule Demo"
+                    module_name="about page"
+                    className="rounded-lg bg-emerald-500 px-10 py-4 font-medium text-black hover:bg-emerald-400 transition"
+                    namespace="discovery-call-cfo-services"
+                    link="ashish-jadhao-5s0pjh/discovery-call-cfo-services"
+                  />
+
       </section>
 
     </main>
