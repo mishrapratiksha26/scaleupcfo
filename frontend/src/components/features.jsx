@@ -3,7 +3,7 @@ export default function Features() {
     {
       icon: "📊",
       title: "AI Dashboard: CFO Control Center",
-      description: "Your single source of truth. Real-time cash position, AR aging, AP maturity, treasury positions, compliance status—all at a glance. AI reasoning explains the \"why\" behind every number.",
+      description: "Your single source of truth. Real time cash position, AR aging, AP maturity, treasury positions, compliance status—all at a glance. AI reasoning explains the \"why\" behind every number.",
       points: [
         "Multi-agent orchestration: Dashboard agent pulls data from 5+ systems",
         "Reasoning engine: AI explains cash changes, trend anomalies",
@@ -29,7 +29,7 @@ export default function Features() {
       title: "Treasury: Liquidity at Your Fingertips",
       description: "Multi-bank, multi-currency cash orchestration. Predict tomorrow's positions. What-if scenarios for capex, acquisitions, or market shocks. Never miss a liquidity opportunity.",
       points: [
-        "100+ bank integrations: Real-time balance feeds",
+        "100+ bank integrations: Real time balance feeds",
         "FX automation: Spot/forward rate optimization",
         "Forecasting engine: 30-90 day predictions with +85% accuracy",
         "Scenario builder: Test acquisition, IPO, or capex impacts",

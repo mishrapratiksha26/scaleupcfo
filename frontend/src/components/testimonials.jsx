@@ -58,7 +58,7 @@ return (
 >
   {/* Image + Name */}
   <div className="flex items-center gap-4 mb-6">
-    <div className="w-14 h-14 rounded-xl overflow-hidden border-2 border-white/20 shadow-md">
+    <div className="w-16 h-16 rounded-xl overflow-hidden">
       <img
         src={t.image}
         alt={t.author}

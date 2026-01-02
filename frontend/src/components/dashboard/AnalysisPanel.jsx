@@ -61,7 +61,7 @@ const getBorderColor = (type) => {
 
 export const AnalysisPanel = () => {
   return (
-    <div className="glass-card rounded-lg p-5 h-full flex flex-col animate-slide-in-right">
+    <div className="glass-card border-none rounded-lg p-5 h-full flex flex-col animate-slide-in-right">
       <div className="flex items-center gap-2 mb-4">
         <Sparkles className="w-4 h-4 text-primary" />
         <h3 className="text-sm font-medium text-foreground">AI Analysis</h3>
@@ -70,7 +70,7 @@ export const AnalysisPanel = () => {
         {insights.map((insight, index) => (
           <div
             key={index}
-            className={`p-3 rounded-md bg-secondary/50 border-l-2 ${getBorderColor(
+            className={`p-3 rounded-md bg-secondary/50 ${getBorderColor(
               insight.type
             )} animate-fade-in`}
             style={{ animationDelay: `${index * 100}ms` }}

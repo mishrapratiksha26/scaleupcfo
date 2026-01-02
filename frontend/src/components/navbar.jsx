@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import CalBookingButton from "./DemoBookingButton";
-import logo from "../assets/darklogo.png";
+import logo from "../assets/ScaleupCFO_transparent.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +25,7 @@ export default function Navbar() {
 
 
 <div className="logo">
-  <Link to="/" className="flex items-center gap-2">
+  <Link to="/" className="flex items-center gap-2 bg-black">
     <img src={logo} alt="ScaleupCFO logo" className="h-8 w-8" />
     <span className="font-bold text-white">ScaleupCFO AI</span>
   </Link>

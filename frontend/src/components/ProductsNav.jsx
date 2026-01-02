@@ -32,7 +32,9 @@ export default function ProductsNav() {
     <nav className={`products-nav-wrapper ${scrolled ? "scrolled" : ""}`}>
       {/* Mobile header */}
       <div className="products-nav-header">
-        <span className="products-nav-title" style={{ color: "white" }}>Products</span>
+        <span className="products-nav-title" style={{ color: "white" }}>
+          Products
+        </span>
         <button
           className="products-nav-hamburger"
           onClick={() => setIsOpen(!isOpen)}
@@ -44,53 +46,57 @@ export default function ProductsNav() {
 
       {/* Links row */}
       <div
-  className={`products-nav-inner ${isOpen ? "products-nav-inner-open" : ""}`}
-  style={
-    isOpen
-      ? {
-          // Only apply these when open (mobile)
-          flexDirection: "column",
-          gap: "0.75rem",
-          padding: "1rem",
-          position: "absolute",
-          top: "100%",
-          left: 0,
-          right: 0,
-          background: "rgba(0,0,0,0.9)",
-          color: "white",
-          borderTop: "none",
-          boxShadow: "none",
-          zIndex: 10,
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
+        className={`products-nav-inner ${
+          isOpen ? "products-nav-inner-open" : ""
+        }`}
+        style={
+          isOpen
+            ? {
+                flexDirection: "column",
+                gap: "0.75rem",
+                padding: "1rem",
+                position: "absolute",
+                top: "100%",
+                left: 0,
+                right: 0,
+                background: "rgba(0,0,0,0.9)",
+                color: "white",
+                boxShadow: "none",
+                zIndex: 10,
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+              }
+            : undefined
         }
-      : undefined
-  }
->
-  {navItems.map((item) => {
-    const isActive = active === item.id;
-    return (
-      <button
-        key={item.id}
-        type="button"
-        onClick={() => handleClick(item.id)}
-        className={`products-nav-link ${isActive ? "products-nav-link-active" : ""}`}
-        style={{
-          color: "white",
-          background: "transparent",
-          textAlign: "left",
-          padding: "1rem",
-          borderRadius: "0.75rem",
-          fontWeight: isActive ? "600" : "500",
-          borderLeft: isActive ? "3px solid #34D399" : "none",
-          textShadow: isActive ? "0 0 12px rgba(52, 211, 153, 0.6)" : "none",
-        }}
       >
-        {item.label}
-      </button>
-    );
-  })}
-</div>
+        {navItems.map((item) => {
+          const isActive = active === item.id;
+
+          return (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => handleClick(item.id)}
+              className={`products-nav-link ${
+                isActive ? "products-nav-link-active" : ""
+              }`}
+              style={{
+                color: isActive ? "white" : "#34D399",
+                background: "transparent",
+                textAlign: "left",
+                padding: "1rem",
+                borderRadius: "0.75rem",
+                fontWeight: isActive ? "600" : "500",
+                textShadow: isActive
+                  ? "0 0 10px rgba(255,255,255,0.4)"
+                  : "none",
+              }}
+            >
+              {item.label}
+            </button>
+          );
+        })}
+      </div>
     </nav>
   );
 }

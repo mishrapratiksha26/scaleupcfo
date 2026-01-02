@@ -1,19 +1,19 @@
 import jiwyaLogo from "../assets/jiwya-logo.svg";
-import elchemyLogo from "../assets/elchemy_logo.png";
-import palladiumLogo from "../assets/palladium_logo.png";
+import elchemyLogo from "../assets/Elchemy.png";
+import palladiumLogo from "../assets/palladium.webp";
 import threeEvLogo from "../assets/3evi-logo.png";
 import threeEcoLogo from "../assets/3eco-Logo.svg";
 import metamorphLogo from "../assets/metamorphosys_logo.png";
-import oyelaLogo from "../assets/Oyela-logo.jfif";
+import oyelaLogo from "../assets/Oyela.png";
 
 const logos = [
   { src: jiwyaLogo, alt: "Jiwya" },
   { src: elchemyLogo, alt: "Elchemy" },
   { src: palladiumLogo, alt: "Palladium" },
   { src: threeEvLogo, alt: "3ev" },
-  { src: threeEcoLogo, alt: "3eco" },
   { src: metamorphLogo, alt: "MetaMorphosys Technologies" },
   { src: oyelaLogo, alt: "Oyela" },
+    { src: threeEcoLogo, alt: "3eco" },
 ];
 
 const scrollingLogos = [...logos, ...logos];
@@ -34,11 +34,14 @@ export default function ClientsLogos() {
   <div className="flex w-max animate-marquee">
     {[...scrollingLogos, ...scrollingLogos].map((logo, index) => (
       <img
-        key={`${logo.alt}-${index}`}
-        src={logo.src}
-        alt={logo.alt}
-        className="h-12 md:h-16 mx-12 lg:mx-16 opacity-90 hover:opacity-100 transition-all duration-300 drop-shadow-2xl brightness-110 contrast-125 hover:brightness-120 hover:scale-110"
-      />
+  key={`${logo.alt}-${index}`}
+  src={logo.src}
+  alt={logo.alt}
+  className={`h-12 md:h-16 mx-12 lg:mx-16 opacity-90 hover:opacity-100 transition-all duration-300 drop-shadow-2xl brightness-110 contrast-125 hover:brightness-120 hover:scale-110
+    ${logo.alt === "Palladium" ? "scale-110 md:scale-125" : ""}
+  `}
+/>
+
     ))}
   </div>
 

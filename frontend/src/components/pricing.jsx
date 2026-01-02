@@ -5,7 +5,7 @@ export default function Pricing() {
   const plans = [
     {
       name: "AI Dashboard",
-      description: "Real-time financial visibility",
+      description: "Real time financial visibility",
     },
     {
       name: "AR/AP Module",

@@ -6,7 +6,7 @@ export const KPICard = ({ title, value, change, changeLabel, icon, delay = 0 }) 
 
   return (
     <div
-      className="glass-card rounded-lg p-5 hover:border-primary/30 transition-all duration-300 animate-fade-in"
+      className="glass-card border-none rounded-lg p-3 hover:border-primary/30 transition-all duration-300 animate-fade-in"
       style={{ animationDelay: `${delay}ms` }}
     >
       <div className="flex items-center justify-between mb-3">

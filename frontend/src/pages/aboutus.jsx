@@ -1,5 +1,5 @@
 import Nav from "../components/navbar";
-import founderimg from "../assets/ceoimg.jfif"
+import founderimg from "../assets/ceo.png"
 import { HashLink } from "react-router-hash-link";
 import CalBookingButton from "../components/DemoBookingButton";
 export default function About() {
@@ -121,7 +121,7 @@ export default function About() {
             ["💰", "High Finance Ops Cost", "Large teams needed just to handle routine reconciliation, GL coding, and data entry.", "Before: Full team + overtime", "After: 40% cost reduction"],
             ["⚠️", "Manual Errors & Rework", "Typos, misclassified transactions, unmatched invoices requiring rework and reconciliation.", "Before: 95% accuracy", "After: 99%+ accuracy"],
             ["🎯", "No Business Insights", "CFO stuck in reconciliation instead of analyzing margins, cash flow, and strategic opportunities.", "Before: 20-30% strategy", "After: 70% strategy"],
-            ["📊", "Slow Business Visibility", "Monthly financials only. Real-time cash position, daily reconciliation not feasible.", "Before: Monthly only", "After: Real-time visibility"],
+            ["📊", "Slow Business Visibility", "Monthly financials only. Real time cash position, daily reconciliation not feasible.", "Before: Monthly only", "After: Real time visibility"],
             ["✓", "Audit Readiness Stress", "Last-minute document gathering, manual audit trail compilation, SOX/IFRS compliance rush.", "Before: Manual preparation", "After: Always audit-ready"],
           ].map(([icon, title, desc, before, after], i) => (
             <div key={i} className="rounded-xl border border-zinc-800 bg-zinc-950 p-6">
@@ -184,32 +184,71 @@ export default function About() {
       </section>
 
       {/* TEAM */}
-      <section className="bg-zinc-900 px-6 py-24">
-        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-20">Our Team</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {[
-            [ <img
-          src={founderimg}   // ✅ replace with your actual image path
-          alt="Founder & CEO"
-          className="h-32 w-32 object-cover rounded-full mt-6"
-        />,
-, "Founder & CEO", "Finance + AI", "15 years in corporate finance. Ex-CFO of Fortune 500 subsidiaries. Built financial close playbooks for dozens of companies."],
-            ["👩‍💻", "VP Engineering" ],
-            ["👨‍💼", "Head of Product"],
-          ].map(([icon, name, role, bio]) => (
-            <div key={name} className="rounded-xl bg-zinc-950 border border-zinc-800 overflow-hidden">
-              <div className="h-48 flex items-center justify-center text-6xl bg-gradient-to-br from-emerald-600 to-emerald-400">
-                {icon}
-              </div>
-              <div className="p-6">
-                <div className="font-semibold">{name}</div>
-                <div className="text-emerald-400 text-sm mb-2">{role}</div>
-                <p className="text-sm text-zinc-400">{bio}</p>
-              </div>
-            </div>
-          ))}
+<section className="bg-zinc-900 px-6 py-24">
+  <h2 className="text-3xl md:text-4xl font-semibold text-center mb-20">
+    Our Team
+  </h2>
+
+  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    {/* FOUNDER & CEO */}
+    <div className="rounded-xl bg-black border border-zinc-800 overflow-hidden transition-transform hover:-translate-y-1">
+      {/* Image */}
+<div className="h-56 flex items-center justify-center bg-black">
+  <div className="h-40 w-40 rounded-full overflow-hidden ring-4 ring-emerald-500/40 shadow-[0_0_40px_rgba(16,185,129,0.25)] bg-white">
+    <img
+      src={founderimg}
+      alt="Founder & CEO"
+      className="h-full w-full object-cover object-[50%_25%]"
+    />
         </div>
-      </section>
+      </div>
+
+      {/* Content */}
+      <div className="p-6 text-center">
+        <div className="font-semibold text-lg">Founder & CEO</div>
+        <div className="text-emerald-400 text-sm mb-3">Finance + AI</div>
+        <p className="text-sm text-zinc-400 leading-relaxed">
+          15 years in corporate finance. Ex-CFO of Fortune 500 subsidiaries.
+          Built financial close playbooks for dozens of companies.
+        </p>
+      </div>
+    </div>
+
+    {/* VP ENGINEERING */}
+    <div className="rounded-xl bg-black border border-zinc-800 overflow-hidden transition-transform hover:-translate-y-1">
+      <div className="h-56 flex items-center justify-center bg-black text-6xl">
+        👩‍💻
+      </div>
+
+      <div className="p-6 text-center">
+        <div className="font-semibold text-lg">VP Engineering</div>
+        <div className="text-emerald-400 text-sm mb-3">AI & Architecture</div>
+        <p className="text-sm text-zinc-400 leading-relaxed">
+          ML engineer from a leading fintech startup. Built scalable AI
+          platforms handling millions of daily transactions.
+        </p>
+      </div>
+    </div>
+
+    {/* HEAD OF PRODUCT */}
+    <div className="rounded-xl bg-black border border-zinc-800 overflow-hidden transition-transform hover:-translate-y-1">
+      <div className="h-56 flex items-center justify-center bg-black text-6xl">
+        👨‍💼
+      </div>
+
+      <div className="p-6 text-center">
+        <div className="font-semibold text-lg">Head of Product</div>
+        <div className="text-emerald-400 text-sm mb-3">Finance Tech</div>
+        <p className="text-sm text-zinc-400 leading-relaxed">
+          Previously at a leading fintech. 5+ years building finance products
+          used by 10,000+ finance teams globally.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
       {/* CTA */}
       <section className="px-6 py-24 text-center">

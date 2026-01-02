@@ -142,7 +142,7 @@ export default function Services() {
             {[
               ["5th", "Close financials by 5th of every month"],
               ["100%", "Accurate, audit-ready records"],
-              ["Real-time", "Cash & runway visibility"],
+              ["Real time", "Cash & runway visibility"],
               ["Strategic", "Growth partner, not compliance"],
             ].map(([num, label]) => (
               <div

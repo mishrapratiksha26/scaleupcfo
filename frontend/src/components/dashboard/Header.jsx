@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 
 export const Header = () => {
   return (
-    <header className="glass-card border-b border-border/50 px-6 py-4">
+    <header className="glass-card border-none px-6 py-4">
       <div className="flex items-center justify-between">
         {/* Left side: Logo + Title */}
         <div className="flex items-center gap-3">

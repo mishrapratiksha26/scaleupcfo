@@ -14,7 +14,7 @@ const data = [
 export const CashConversionChart = () => {
   return (
     <div
-      className="glass-card rounded-lg p-5 animate-fade-in"
+      className="glass-card border-none rounded-lg p-5 animate-fade-in"
       style={{ animationDelay: "400ms" }}
     >
       <h3 className="text-sm font-medium text-muted-foreground mb-4">
@@ -22,7 +22,7 @@ export const CashConversionChart = () => {
       </h3>
       <div className="h-48">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+          <LineChart data={data} margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(222, 30%, 22%)" />
             <XAxis
               dataKey="week"
@@ -32,13 +32,15 @@ export const CashConversionChart = () => {
               axisLine={false}
             />
             <YAxis
-              stroke="hsl(215, 20%, 65%)"
-              fontSize={12}
-              tickLine={false}
-              axisLine={false}
-              domain={[20, 50]}
-              tickFormatter={(v) => `${v}d`}
-            />
+  width={30}
+  stroke="hsl(215, 20%, 65%)"
+  fontSize={12}
+  tickLine={false}
+  axisLine={false}
+  domain={[20, 50]}
+  tickFormatter={(v) => `${v}d`}
+/>
+
             <Tooltip
               contentStyle={{
                 backgroundColor: "hsl(222, 47%, 14%)",
@@ -69,10 +71,6 @@ export const CashConversionChart = () => {
         </ResponsiveContainer>
       </div>
       <div className="flex gap-4 mt-3">
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-primary" />
-          <span className="text-xs text-muted-foreground">CCC</span>
-        </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-0.5 bg-warning" />
           <span className="text-xs text-muted-foreground">Target</span>

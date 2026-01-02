@@ -13,7 +13,7 @@ export default function Product() {
       icon: LiveDashboardGraphic,   
       title: "AI Dashboard: CFO Control Center",
       description:
-        "Your single source of truth. Real-time cash position, AR aging, AP maturity, treasury positions, compliance status—all at a glance. AI reasoning explains the \"why\" behind every number.",
+        "Your single source of truth. Real time cash position, AR aging, AP maturity, treasury positions, compliance status—all at a glance. AI reasoning explains the \"why\" behind every number.",
       points: [
         "Multi-agent orchestration: Dashboard agent pulls data from 5+ systems",
         "Reasoning engine: AI explains cash changes, trend anomalies",
@@ -46,7 +46,7 @@ export default function Product() {
       description:
         "Multi-bank, multi-currency cash orchestration. Predict tomorrow's positions. Alert if scenarios hit repos, acquisitions, or market shocks. Never miss a liquidity opportunity.",
       points: [
-        "100+ bank integrations: Real-time balance feeds",
+        "100+ bank integrations: Real time balance feeds",
         "FX automation: Spot/forward rate optimization",
         "Forecasting engine: 30-90 day projections with ±85% accuracy",
         "Scenario builder: Test acquisition, IPO, or market impacts",
@@ -61,7 +61,7 @@ export default function Product() {
       description:
         "Our Sales-to-Cash Reconciliation module resolves Partial receipts, timing gaps, references mismatches before month-end, enabling same-day closure.",
       points: [
-        "Real-time reconciliation : Continuous matching of invoices, credit notes, and bank credits throughout the month",
+        "Real time reconciliation : Continuous matching of invoices, credit notes, and bank credits throughout the month",
         "Intelligent matching engine : Handles customer name variations, partial payments, split receipts, advances, and adjustments",
         "Exception-first workflow : Only unresolved items surface for review; clean transactions auto-close",
         "Audit-ready trail : Every match, override, and exception logged with full traceability",

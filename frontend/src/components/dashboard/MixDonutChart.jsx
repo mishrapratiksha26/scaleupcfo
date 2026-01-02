@@ -5,7 +5,7 @@ export const MixDonutChart = ({ title, data, delay = 0 }) => {
 
   return (
     <div
-      className="glass-card rounded-lg p-5 animate-fade-in"
+      className="glass-card border-none rounded-lg p-5 animate-fade-in"
       style={{ animationDelay: `${delay}ms` }}
     >
       <h3 className="text-sm font-medium text-muted-foreground mb-4">{title}</h3>

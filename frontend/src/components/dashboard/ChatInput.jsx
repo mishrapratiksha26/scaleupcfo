@@ -15,14 +15,14 @@ export const ChatInput = ({ onSend }) => {
   };
 
   return (
-    <div className="glass-card rounded-lg p-3 border-t border-border/50">
+    <div className="glass-card border-none rounded-lg p-3 border-t border-border/50">
       <form onSubmit={handleSubmit} className="flex items-center gap-3">
         <div className="flex-1 relative">
           <Input
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Ask about your financial performance..."
-            className="bg-secondary/50 border-border/50 pr-10 text-foreground placeholder:text-muted-foreground focus-visible:ring-primary/50"
+            className="bg-secondary/50 pr-10 text-foreground placeholder:text-muted-foreground focus-visible:ring-primary/50"
           />
         </div>
         <Button

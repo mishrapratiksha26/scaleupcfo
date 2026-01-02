@@ -50,7 +50,7 @@ export function TreasuryGraphic() {
       <div className="flex items-center justify-between mb-4">
         <div>
           <h3 className="text-base md:text-lg text-slate-900 mb-1">Multi-Bank Treasury</h3>
-          <p className="text-xs md:text-sm text-slate-600">Real-time liquidity view</p>
+          <p className="text-xs md:text-sm text-slate-600">Real time liquidity view</p>
         </div>
       </div>
 

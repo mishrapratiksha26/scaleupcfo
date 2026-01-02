@@ -1570,7 +1570,7 @@ background: rgba(0,0,0,0.9);
   background: transparent;
   cursor: pointer;
   font-size: clamp(0.875rem, 1.5vw, 1rem);
-  color: white;
+  color: #34D399;
   padding: 0.5rem 0.75rem;
   border-bottom: 2px solid transparent;
   transition: all 0.3s ease;
@@ -1579,17 +1579,17 @@ background: rgba(0,0,0,0.9);
 
 /* HOVER - Light green */
 .products-nav-link:hover {
-  color: #34D399 !important;
-  text-shadow: 0 0 12px rgba(52, 211, 153, 0.6);
+  color: white !important;
+  text-shadow: 0 0 12px white(52, 211, 153, 0.6);
   transform: translateY(-1px);
 }
 
 /* ACTIVE - IDENTICAL light green */
 .products-nav-link-active {
-  color: #34D399 !important;
-  border-bottom-color: #34D399 !important;
+  color: white !important;
+  border-bottom-color:white !important;
   font-weight: 600;
-  text-shadow: 0 0 12px rgba(52, 211, 153, 0.6) !important;
+  text-shadow: 0 0 12px white !important;
 }
 
 /* Mobile */

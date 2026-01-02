@@ -157,7 +157,6 @@
   background: transparent;
   cursor: pointer;
   font-size: clamp(0.875rem, 1.5vw, 1rem);
-  color: #58595b;
   padding: 0.5rem 0.75rem 0.5rem;
   white-space: nowrap;
   border-bottom: 2px solid transparent;
@@ -167,13 +166,13 @@
 }
 
 .products-nav-link:hover {
-  color: #2b8a8a;
+  color: white;
   background: rgba(43,138,138,0.05);
 }
 
 .products-nav-link-active {
-  color: #2b8a8a !important;
-  border-bottom-color: #2b8a8a;
+  color: white !important;
+  border-bottom-color: white;
   font-weight: 600;
 }
 

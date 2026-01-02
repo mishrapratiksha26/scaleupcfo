@@ -55,7 +55,7 @@ const Index = () => {
             AI CFO Dashboard
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Real-time visibility and predictive insights for CFOs.
+            Real time visibility and predictive insights for CFOs.
           </p>
         </div>
 
@@ -134,8 +134,8 @@ const Index = () => {
             </SelectionOverlay>
 
             {/* Analysis Panel */}
-<div className="w-full lg:w-80 border-t lg:border-t-0 lg:border-l border-border/50 p-4 overflow-y-auto 
-                max-h-116 sm:max-h-124 md:max-h-132">
+<div className="w-full lg:w-80 p-4 overflow-y-auto 
+                max-h-116 sm:max-h-124 md:max-h-119 border-none">
   <AnalysisPanel />
 </div>
           </div>
