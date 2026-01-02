@@ -194,7 +194,7 @@ export default function About() {
     <div className="rounded-xl bg-black border border-zinc-800 overflow-hidden transition-transform hover:-translate-y-1">
       {/* Image */}
 <div className="h-56 flex items-center justify-center bg-black">
-  <div className="h-40 w-40 rounded-full overflow-hidden ring-4 ring-emerald-500/40 shadow-[0_0_40px_rgba(16,185,129,0.25)] bg-white">
+  <div className="h-40 w-40 rounded-full overflow-hidden shadow-[0_0_40px_rgba(16,185,129,0.25)] bg-white">
     <img
       src={founderimg}
       alt="Founder & CEO"
