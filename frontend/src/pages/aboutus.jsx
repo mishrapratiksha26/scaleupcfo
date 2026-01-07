@@ -205,12 +205,8 @@ export default function About() {
 
       {/* Content */}
       <div className="p-6 text-center">
-        <div className="font-semibold text-lg">Founder & CEO</div>
-        <div className="text-emerald-400 text-sm mb-3">Finance + AI</div>
-        <p className="text-sm text-zinc-400 leading-relaxed">
-          15 years in corporate finance. Ex-CFO of Fortune 500 subsidiaries.
-          Built financial close playbooks for dozens of companies.
-        </p>
+        <div className="font-semibold text-lg">Ashish Jadhao</div>
+        <div className="text-emerald-400 text-sm mb-3">Founder & CEO</div>
       </div>
     </div>
 
@@ -222,12 +218,6 @@ export default function About() {
 
       <div className="p-6 text-center">
         <div className="font-semibold text-lg">VP Engineering</div>
-        <div className="text-emerald-400 text-sm mb-3">AI & Architecture</div>
-        <p className="text-sm text-zinc-400 leading-relaxed">
-          ML engineer from a leading fintech startup. Built scalable AI
-          platforms handling millions of daily transactions.
-        </p>
-      </div>
     </div>
 
     {/* HEAD OF PRODUCT */}
@@ -238,11 +228,6 @@ export default function About() {
 
       <div className="p-6 text-center">
         <div className="font-semibold text-lg">Head of Product</div>
-        <div className="text-emerald-400 text-sm mb-3">Finance Tech</div>
-        <p className="text-sm text-zinc-400 leading-relaxed">
-          Previously at a leading fintech. 5+ years building finance products
-          used by 10,000+ finance teams globally.
-        </p>
       </div>
     </div>
   </div>
