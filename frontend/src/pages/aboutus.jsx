@@ -65,7 +65,8 @@ export default function About() {
             </p>
           </div>
 
-          <div className="rounded-xl bg-zinc-900 p-12 text-center">
+          <div className="rounded-xl bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl p-12 text-center">
             <div className="text-5xl font-mono text-emerald-400">70%</div>
             <p className="text-sm uppercase tracking-wide text-zinc-400">
               Time on Admin Tasks
@@ -80,7 +81,8 @@ export default function About() {
 
         {/* STORY 2 */}
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="rounded-xl bg-zinc-900 p-12 text-center">
+          <div className="rounded-xl bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl p-12 text-center">
             <div className="text-5xl font-mono text-emerald-400">99%</div>
             <p className="text-sm uppercase tracking-wide text-zinc-400">
               Reconciliation Accuracy
@@ -125,7 +127,8 @@ export default function About() {
             ["📊", "Slow Business Visibility", "Monthly financials only. Real time cash position, daily reconciliation not feasible.", "Before: Monthly only", "After: Real time visibility"],
             ["✓", "Audit Readiness Stress", "Last-minute document gathering, manual audit trail compilation, SOX/IFRS compliance rush.", "Before: Manual preparation", "After: Always audit-ready"],
           ].map(([icon, title, desc, before, after], i) => (
-            <div key={i} className="rounded-xl border border-zinc-800 bg-zinc-950 p-6">
+            <div key={i} className="rounded-xl border border-zinc-800 bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl p-6">
               <div className="text-3xl mb-3">{icon}</div>
               <h3 className="font-semibold mb-2">{title}</h3>
               <p className="text-sm text-zinc-400 mb-4">{desc}</p>
@@ -160,7 +163,8 @@ export default function About() {
                 ["Accuracy First", "99%+ precision. No shortcuts on quality."],
                 ["Strategy Over Admin", "Free your team for high-value thinking."],
               ].map(([title, desc]) => (
-                <div key={title} className="bg-zinc-900 p-4 rounded border-l-4 border-emerald-400">
+                <div key={title} className="bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl p-4 rounded border-l-4 border-emerald-400">
                   <h4 className="font-semibold">{title}</h4>
                   <p className="text-sm text-zinc-400">{desc}</p>
                 </div>
@@ -168,7 +172,8 @@ export default function About() {
             </div>
           </div>
 
-          <div className="bg-zinc-900 p-10 rounded-xl space-y-6">
+          <div className="bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl p-10 rounded-xl space-y-6">
             {[
               ["18-22", "FTE freed from admin work"],
               ["69%", "Faster close cycle"],
@@ -176,7 +181,10 @@ export default function About() {
               ["24/7", "AI agents running"],
             ].map(([num, label]) => (
               <div key={num} className="flex gap-6 border-b border-zinc-800 pb-4 last:border-none">
-                <div className="text-3xl font-mono text-emerald-400 w-20">{num}</div>
+                <div className="text-3xl font-mono text-emerald-400 w-20 whitespace-nowrap">
+                {num}
+              </div>
+
                 <div className="text-zinc-400">{label}</div>
               </div>
             ))}

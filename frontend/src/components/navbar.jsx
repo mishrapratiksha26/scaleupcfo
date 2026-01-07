@@ -45,7 +45,9 @@ export default function Navbar() {
             <li>
               <HashLink smooth to="/#resources">Resources</HashLink>
             </li>
-            <li><Link to="/about">About Us</Link></li>
+            <li>
+              <Link to="/about">About Us</Link>
+              </li>
 
           
           </ul>
@@ -83,18 +85,33 @@ export default function Navbar() {
             <HashLink smooth to="/#resources" onClick={() => setIsOpen(false)}>
               Resources
             </HashLink>
+            </li>
+            <li>
             <Link to="/about" onClick={() => setIsOpen(false)}>
               About Us
             </Link>
           </li>
         </ul>
 
-        <CalBookingButton
-          title="Schedule Demo"
-          module_name="Navbar scheduleDemo mobile"
-          className="btn-primary-nav"
-          onClick={() => setIsOpen(false)}
-        />
+        <div className="mt-6 md:hidden">
+  <CalBookingButton
+    title="Schedule Demo"
+    module_name="Navbar scheduleDemo mobile"
+    onClick={() => setIsOpen(false)}
+    className="
+      w-full
+      rounded-xl
+      bg-emerald-500
+      py-4
+      text-center
+      font-semibold
+      text-black
+      hover:bg-emerald-400
+      transition
+    "
+  />
+</div>
+
       </div>
     </nav>
   );

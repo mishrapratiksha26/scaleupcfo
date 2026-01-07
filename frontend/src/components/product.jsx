@@ -11,7 +11,7 @@ export default function Product() {
     {
       id: "product-dashboard",
       icon: LiveDashboardGraphic,   
-      title: "AI Dashboard: CFO Control Center",
+      title: "AI CFO Dashboard: CFO Control Center",
       description:
         "Your single source of truth. Real time cash position, AR aging, AP maturity, treasury positions, compliance status—all at a glance. AI reasoning explains the \"why\" behind every number.",
       points: [
@@ -26,7 +26,7 @@ export default function Product() {
     {
       id: "product-ar-ap",
       icon: ARAPGraphic,
-      title: "AI AR/AP: Autonomous Cash Operations",
+      title: "AI AR/AP Module: Autonomous Cash Operations",
       description:
         "No manual follow-ups needed. AI learns from customer and vendor behavior, payment cycles, and historical actions to automate collections, payables, and closures end to end.",
       points: [
@@ -42,7 +42,7 @@ export default function Product() {
     {
       id: "product-treasury",
       icon: TreasuryGraphic,
-      title: "Treasury: Liquidity at Your Fingertips",
+      title: "AI Treasury Module: Liquidity at Your Fingertips",
       description:
         "Multi-bank, multi-currency cash orchestration. Predict tomorrow's positions. Alert if scenarios hit repos, acquisitions, or market shocks. Never miss a liquidity opportunity.",
       points: [
@@ -57,7 +57,7 @@ export default function Product() {
     {
       id: "product-sales-to-cash",
       icon: SalesToCashGraphic,
-      title: "AI Sales-to-Cash Reconciliation",
+      title: "AI Sales to Cash Reconciliation",
       description:
         "Our Sales-to-Cash Reconciliation module resolves Partial receipts, timing gaps, references mismatches before month-end, enabling same-day closure.",
       points: [

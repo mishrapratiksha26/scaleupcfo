@@ -41,12 +41,16 @@ export default function Services() {
       </section>
 
       {/* SERVICES */}
-      <section className="px-6 py-24">
+      <section className="px-6 py-10" style={{paddingTop:10}}>
         <div className="mx-auto max-w-6xl">
+         <div className="flex justify-center">
           <span className="inline-block rounded-full border border-zinc-800 px-4 py-1 text-xs font-semibold tracking-wide text-emerald-400">
             OUR OFFERINGS
           </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-semibold">
+        </div>
+
+
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold justify-center text-center">
             ScaleUp CFO Services
           </h2>
 
@@ -85,7 +89,8 @@ export default function Services() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-zinc-800 bg-zinc-900 p-8 hover:border-emerald-500 hover:-translate-y-1 transition"
+                className="rounded-xl border border-zinc-800 bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl p-8 hover:border-emerald-500 hover:-translate-y-1 transition"
               >
                 <div className="text-4xl">{item.icon}</div>
                 <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
@@ -99,11 +104,14 @@ export default function Services() {
       {/* PROBLEM */}
       <section className="bg-zinc-900 px-6 py-24" id="problem">
         <div className="mx-auto max-w-6xl">
-          <span className="inline-block rounded-full border border-zinc-800 px-4 py-1 text-xs font-semibold tracking-wide text-emerald-400">
-            THE CHALLENGE
-          </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-semibold">
-            Problem we are solving
+          <div className="flex justify-center">
+  <span className="inline-block rounded-full border border-zinc-800 px-4 py-1 text-xs font-semibold tracking-wide text-emerald-400">
+    THE CHALLENGE
+  </span>
+</div>
+
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold justify-center text-center">
+            Problems we are solving
           </h2>
 
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -115,7 +123,8 @@ export default function Services() {
             ].map(([num, title, desc]) => (
               <div
                 key={num}
-                className="rounded-xl border border-zinc-800 bg-zinc-950 p-6 hover:border-emerald-500 transition"
+                className="rounded-xl border border-zinc-800 bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl p-6 hover:border-emerald-500 transition"
               >
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500 font-semibold text-black">
                   {num}
@@ -131,10 +140,13 @@ export default function Services() {
       {/* VALUE */}
       <section className="px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <span className="inline-block rounded-full border border-zinc-800 px-4 py-1 text-xs font-semibold tracking-wide text-emerald-400">
-            WHAT WE DELIVER
-          </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-semibold">
+          <div className="flex justify-center">
+  <span className="inline-block rounded-full border border-zinc-800 px-4 py-1 text-xs font-semibold tracking-wide text-emerald-400">
+    WHAT WE DELIVER
+  </span>
+</div>
+
+          <h2 className="mt-4 text-3xl md:text-4xl font-semibold justify-center text-center">
             Value we create for you
           </h2>
 
@@ -147,7 +159,8 @@ export default function Services() {
             ].map(([num, label]) => (
               <div
                 key={num}
-                className="rounded-xl border border-zinc-800 bg-zinc-900 p-8 text-center"
+                className="rounded-xl border border-zinc-800 bg-gradient-to-br from-black via-gray-900 to-black 
+             backdrop-blur-xl p-8 text-center"
               >
                 <div className="text-3xl font-semibold text-emerald-400">
                   {num}
@@ -171,7 +184,7 @@ export default function Services() {
                   <CalBookingButton
                   title="Book Discovery Call"
                   module_name="services page"
-                  className="rounded-lg bg-emerald-500 px-8 py-3 font-medium text-black hover:bg-emerald-400 transition"
+                  className="rounded-lg bg-emerald-500 mt-5 px-8 py-3 font-medium text-black hover:bg-emerald-400 transition"
                   namespace="discovery-call-cfo-services"
                   link="ashish-jadhao-5s0pjh/discovery-call-cfo-services"
                 />
