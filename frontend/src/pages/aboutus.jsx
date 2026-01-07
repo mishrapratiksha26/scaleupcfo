@@ -2,6 +2,7 @@ import Nav from "../components/navbar";
 import founderimg from "../assets/ceo.png"
 import { HashLink } from "react-router-hash-link";
 import CalBookingButton from "../components/DemoBookingButton";
+import { FaLinkedin } from "react-icons/fa";
 export default function About() {
   return (
     <main className="bg-zinc-950 text-zinc-100">
@@ -184,29 +185,41 @@ export default function About() {
       </section>
 
       {/* TEAM */}
-<section className="bg-zinc-900 px-6 py-24">
-  <h2 className="text-3xl md:text-4xl font-semibold text-center mb-20">
+<section className="bg-zinc-900 px-6 py-20">
+  <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
     Our Team
   </h2>
 
-  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
     {/* FOUNDER & CEO */}
     <div className="rounded-xl bg-black border border-zinc-800 overflow-hidden transition-transform hover:-translate-y-1">
       {/* Image */}
-<div className="h-56 flex items-center justify-center bg-black">
-  <div className="h-40 w-40 rounded-full overflow-hidden shadow-[0_0_40px_rgba(16,185,129,0.25)] bg-white">
-    <img
-      src={founderimg}
-      alt="Founder & CEO"
-      className="h-full w-full object-cover object-[50%_25%]"
-    />
+      <div className="h-56 flex items-center justify-center bg-black">
+        <div className="h-40 w-40 rounded-full overflow-hidden shadow-[0_0_40px_rgba(16,185,129,0.25)] bg-white">
+          <img
+            src={founderimg}
+            alt="Founder & CEO"
+            className="h-full w-full object-cover object-[50%_25%]"
+          />
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-6 text-center">
-        <div className="font-semibold text-lg">Ashish Jadhao</div>
-        <div className="text-emerald-400 text-sm mb-3">Founder & CEO</div>
+      <div className="p-5 text-center">
+        <div className="font-semibold text-xl text-white">Ashish Jadhao</div>
+        <div className="text-emerald-400 text-base mb-4">Founder & CEO</div>
+
+        {/* LinkedIn Icon */}
+        <a
+          href="https://www.linkedin.com/in/ashishjadhao"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block"
+        >
+          <div className="w-9 h-9 mx-auto flex items-center justify-center rounded-full bg-zinc-800 text-white shadow-md hover:bg-emerald-500 transition-colors duration-300">
+            <FaLinkedin className="w-5 h-5" />
+          </div>
+        </a>
       </div>
     </div>
 
@@ -215,9 +228,9 @@ export default function About() {
       <div className="h-56 flex items-center justify-center bg-black text-6xl">
         👩‍💻
       </div>
-
-      <div className="p-6 text-center">
-        <div className="font-semibold text-lg">VP Engineering</div>
+      <div className="p-5 text-center">
+        <div className="font-semibold text-xl text-white">VP Engineering</div>
+      </div>
     </div>
 
     {/* HEAD OF PRODUCT */}
@@ -225,15 +238,12 @@ export default function About() {
       <div className="h-56 flex items-center justify-center bg-black text-6xl">
         👨‍💼
       </div>
-
-      <div className="p-6 text-center">
-        <div className="font-semibold text-lg">Head of Product</div>
+      <div className="p-5 text-center">
+        <div className="font-semibold text-xl text-white">Head of Product</div>
       </div>
     </div>
   </div>
 </section>
-
-
 
       {/* CTA */}
       <section className="px-6 py-24 text-center">
