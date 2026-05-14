@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Services — Lekha AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/site.css" />
+<style>
+  /* Tier card system */
+  .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 980px) { .tier-grid { grid-template-columns: 1fr; } }
+
+  .tier {
+    background: #fff;
+    border: 1px solid var(--ink-200);
+    border-radius: var(--r-xl);
+    padding: 36px 32px;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .tier .tier-name { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-500); font-weight: 600; }
+  .tier .tier-title { margin: 6px 0 6px; font-size: 22px; font-weight: 600; color: var(--ink-900); letter-spacing: -0.01em; }
+  .tier .tier-tag { margin: 0 0 28px; font-size: 14px; color: var(--ink-500); }
+  .tier .tier-price { display:flex; align-items: baseline; gap: 6px; }
+  .tier .tier-price .amount { font-family: var(--font-mono); font-size: 44px; font-weight: 700; color: var(--ink-900); letter-spacing: -0.02em; }
+  .tier .tier-price .unit { font-size: 14px; color: var(--ink-500); }
+  .tier .tier-usd { font-family: var(--font-mono); font-size: 13px; color: var(--ink-400); margin-top: 4px; }
+  .tier .tier-features { margin: 28px 0 28px; padding: 0; list-style: none; display: grid; gap: 12px; flex: 1; }
+  .tier .tier-features li { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; color: var(--ink-700); line-height: 1.5; }
+  .tier .tier-features li .check { margin-top: 3px; }
+
+  .tier-featured {
+    background: var(--ink-900);
+    color: #E5E7EB;
+    border-color: var(--ink-900);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+  }
+  .tier-featured .tier-name { color: #6DD5C8; }
+  .tier-featured .tier-title { color: #fff; }
+  .tier-featured .tier-tag { color: #B6BEC9; }
+  .tier-featured .tier-price .amount { color: #fff; }
+  .tier-featured .tier-price .unit, .tier-featured .tier-usd { color: #9CA3AF; }
+  .tier-featured .tier-features li { color: #E5E7EB; }
+  .tier-featured .tier-features li .check { background: rgba(204,251,241,0.12); color: #6DD5C8; }
+
+  .tier-featured .badge-popular {
+    position: absolute; top: -12px; left: 32px;
+    background: var(--accent); color: #fff;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 6px 12px; border-radius: 999px;
+  }
+
+  /* Compare table */
+  .compare {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    background: #fff; border: 1px solid var(--ink-200); border-radius: var(--r-xl); overflow: hidden;
+    font-size: 14px;
+  }
+  .compare th, .compare td { padding: 16px 20px; border-bottom: 1px solid var(--ink-200); text-align: left; vertical-align: top; }
+  .compare thead th { background: var(--ink-100); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-600); font-weight: 600; }
+  .compare th:first-child, .compare td:first-child { background: var(--ink-50); color: var(--ink-700); font-weight: 500; }
+  .compare tr:last-child td { border-bottom: 0; }
+  .compare .y { color: var(--accent); font-weight: 600; }
+  .compare .n { color: var(--ink-300); }
+  .compare .group-row td { background: var(--ink-100); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-500); font-weight: 600; padding: 10px 20px; }
+  .compare td .check-tbl { display:inline-flex; width:18px; height:18px; border-radius:999px; background: var(--accent-soft); color: var(--accent); align-items:center; justify-content:center; }
+  .compare td .check-tbl svg { width: 10px; height: 10px; }
+
+  @media (max-width: 720px) {
+    .compare th, .compare td { padding: 12px; font-size: 13px; }
+  }
+</style>
+</head>
+<body data-screen-label="03 Pricing">
+
+<!-- NAV -->
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="nav-left">
+      <a href="homepage.html" class="brand">
+        <svg class="brand-svg" viewBox="0 0 28 28" aria-hidden="true">
+          <path class="arc" d="M4 24 L11 17 L17 21 L24 7"/>
+          <circle class="dot" cx="24" cy="7" r="3.6"/>
+        </svg>
+        <span class="brand-name">Lekha&nbsp;AI<span class="dot">.</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="homepage.html">Home</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="pricing.html" class="active">Pricing</a>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <a href="#" style="font-size:14px; color:var(--ink-600); font-weight:500;">Login</a>
+      <a href="https://cal.com/ashish-jadhao-5s0pjh/discovery-call-cfo-services" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="section hero" style="padding-block:80px 24px;">
+  <div class="hero-mesh" aria-hidden="true" style="opacity:0.7;"></div>
+  <div class="container" style="max-width: 880px; text-align:center; margin-inline:auto; position:relative;">
+    <span class="eyebrow reveal" style="justify-content:center;">Services  ·  Lekha AI — close-as-a-service</span>
+    <h1 class="display-xl reveal" data-delay="1" style="margin:20px 0 22px;">Top-quality CA firm outcomes,<br>at <span style="color:var(--accent);">50–80% lower cost.</span></h1>
+    <p class="lead reveal" data-delay="2" style="max-width: 720px; margin-inline:auto;">
+      One subscription. Closed books every month — delivered by AI agents, supervised by Chartered Accountants on our staff.
+      Pick the tier that matches your reconciliation volume; first month’s books closed in five days.
+    </p>
+  </div>
+</section>
+
+<!-- Positioning band -->
+<section style="padding-block: 0 48px;">
+  <div class="container reveal" style="max-width: 1180px;">
+    <div class="card" style="padding: 24px 28px; background:#fff; display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; overflow:hidden;">
+      <div style="padding: 4px 24px 4px 0; border-right: 1px solid var(--ink-200);">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); font-weight: 600;">vs CA firms</div>
+        <div style="margin-top: 8px; font-size: 15px; color: var(--ink-700); line-height: 1.5;">50–80% cheaper than mid-tier &amp; Top-20 CA firms for equivalent scope.</div>
+      </div>
+      <div style="padding: 4px 24px;">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); font-weight: 600;">vs DIY tools</div>
+        <div style="margin-top: 8px; font-size: 15px; color: var(--ink-700); line-height: 1.5;">We deliver the close. Tally / Zoho stay your system of record — we sit on top.</div>
+      </div>
+      <div style="padding: 4px 0 4px 24px; border-left: 1px solid var(--ink-200);">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); font-weight: 600;">Trust gate</div>
+        <div style="margin-top: 8px; font-size: 15px; color: var(--ink-700); line-height: 1.5;">Every agent action is logged. Humans sign off every irreversible posting.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section style="padding-block: 24px 64px;">
+  <div class="container" style="max-width: 1180px;">
+
+    <!-- Billing toggle -->
+    <div class="row reveal" style="justify-content:center; gap: 6px; margin-bottom: 40px;">
+      <div class="toggle">
+        <div class="indicator"></div>
+        <button class="opt active" data-period="monthly">Monthly</button>
+        <button class="opt" data-period="annual">Annual <span style="color: var(--accent); font-weight: 600;">−20%</span></button>
+      </div>
+    </div>
+
+    <div class="tier-grid">
+
+      <!-- Lekha Jr -->
+      <div class="tier reveal" data-delay="1">
+        <div class="tier-name">Lekha Jr</div>
+        <h3 class="tier-title">Starter</h3>
+        <p class="tier-tag">For single-entity SMBs on Tally or Zoho.</p>
+        <div class="tier-price"><span class="amount" data-price-monthly="₹2,499" data-price-annual="₹1,999">₹2,499</span><span class="unit" data-billing-label>/ month</span></div>
+        <div class="tier-usd">≈ $30 USD · billed in INR</div>
+        <ul class="tier-features">
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b style="font-weight:600;">9 – 10 reconciliations</b> / month</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Bank &amp; GST 2B reconciliation</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Exception inbox with AI explanations</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Full agent audit trail · human-override</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Email support · 24-hour SLA · 1 seat</div></li>
+        </ul>
+        <a href="https://cal.com/ashish-jadhao-5s0pjh/discovery-call-cfo-services" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-arrow" style="width:100%;">Get started</a>
+      </div>
+
+      <!-- Lekha Associate -->
+      <div class="tier tier-featured reveal" data-delay="2">
+        <span class="badge-popular">Most popular</span>
+        <div class="tier-name">Lekha Associate</div>
+        <h3 class="tier-title">Growth</h3>
+        <p class="tier-tag">Multi-payment-gateway D2C &amp; marketplace sellers.</p>
+        <div class="tier-price"><span class="amount" data-price-monthly="₹5,999" data-price-annual="₹4,799">₹5,999</span><span class="unit" data-billing-label>/ month</span></div>
+        <div class="tier-usd">≈ $72 USD · billed in INR</div>
+        <ul class="tier-features">
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b style="font-weight:600;">45 – 90 reconciliations</b> / month</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Everything in Lekha&nbsp;Jr</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Form 26Q TDS · AR aging · AP reconciliation</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Razorpay · Shopify · Amazon SP-API</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Close by <b style="font-weight:600;">10th business day</b></div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Priority email · 12-hr SLA · 3 seats</div></li>
+        </ul>
+        <a href="https://cal.com/ashish-jadhao-5s0pjh/discovery-call-cfo-services" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-arrow" style="width:100%;">Get started</a>
+      </div>
+
+      <!-- Lekha Accountant -->
+      <div class="tier reveal" data-delay="3">
+        <div class="tier-name">Lekha Accountant</div>
+        <h3 class="tier-title">Scale</h3>
+        <p class="tier-tag">Mid-market, multi-entity companies.</p>
+        <div class="tier-price"><span class="amount" data-price-monthly="₹17,999" data-price-annual="₹14,399">₹17,999</span><span class="unit" data-billing-label>/ month</span></div>
+        <div class="tier-usd" style="visibility:hidden;"> </div>
+        <ul class="tier-features">
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b style="font-weight:600;">500+ reconciliations</b> / month</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Everything in Lekha&nbsp;Associate</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Multi-entity consolidation · full close (P&amp;L · BS · CFS)</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Audit-ready trial balance · audit trail</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b style="font-weight:600;">CA reviewer sign-off</b> on monthly close</div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Close by <b style="font-weight:600;">7th business day</b></div></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div>Dedicated success manager · 10 seats</div></li>
+        </ul>
+        <a href="https://cal.com/ashish-jadhao-5s0pjh/discovery-call-cfo-services" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-arrow" style="width:100%;">Get started</a>
+      </div>
+
+    </div>
+
+    <!-- Enterprise card -->
+    <div class="mt-12 reveal" style="background: #0F1626; color:#E5E7EB; border-radius: var(--r-xl); padding: 40px 44px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items:center; position:relative; overflow:hidden;">
+      <div aria-hidden="true" style="position:absolute; inset:-40% auto auto -10%; width:380px; height:380px; background: radial-gradient(closest-side, rgba(15,118,110,0.32), rgba(15,118,110,0)); pointer-events:none;"></div>
+      <div>
+        <div class="row" style="gap:10px; margin-bottom: 16px;">
+          <span class="pill pill-dark">Enterprise</span>
+          <span class="pill pill-dark">Custom integrations</span>
+          <span class="pill pill-dark">Audit support</span>
+        </div>
+        <h3 class="display-md" style="margin: 0 0 12px; color:#fff;">Full Close-as-a-Service.</h3>
+        <p style="margin:0; color: #B6BEC9; font-size:16px; line-height:1.6; max-width: 580px;">
+          We run your entire finance close as a managed service. Custom integrations, multi-entity consolidation,
+          audit support, monthly variance commentary, FP&amp;A handoff to your CFO.
+        </p>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-family: var(--font-mono); font-size: 13px; color: #9CA3AF;">starting at</div>
+        <div class="tnum" style="font-size: 44px; color: #fff; font-weight: 700; letter-spacing:-0.02em;">₹40,000<span style="font-size:18px; color:#9CA3AF; font-weight:400;"> / mo · custom</span></div>
+        <div style="font-size:12px; color:#9CA3AF; margin-top:6px; font-family:var(--font-mono);">Close by 5th business day · unlimited seats</div>
+        <a href="mailto:ashish@scaleupcfo.in?subject=Enterprise%20Close-as-a-Service" class="btn btn-accent btn-arrow mt-6">Talk to us</a>
+      </div>
+    </div>
+
+    <!-- What counts as one reconciliation? -->
+    <div class="mt-8 reveal card" style="padding: 24px 28px; display:flex; gap: 22px; align-items:flex-start; background:#fff;">
+      <div style="flex:0 0 44px; width:44px; height:44px; border-radius:10px; background: var(--accent-soft); color: var(--accent); display:flex; align-items:center; justify-content:center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      </div>
+      <div style="flex:1;">
+        <div style="font-weight:600; color:var(--ink-900); font-size:15px; letter-spacing:-0.005em;">What counts as one &ldquo;reconciliation&rdquo;?</div>
+        <p style="margin: 6px 0 0; font-size:14px; color:var(--ink-600); line-height:1.6; max-width: 880px;">
+          One reconciliation = one completed run for a single source. Example: one bank account reconciled against your books for one month = 1 recon; one GST 2B reconciliation against your purchase register for one month = 1 recon; one payment-gateway settlement for one month = 1 recon. The volumes shown on each tier are estimates based on typical usage; we size your plan during onboarding from real data.
+        </p>
+      </div>
+    </div>
+
+    <!-- Reassurance strip -->
+    <div class="mt-12" style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+      <div class="card card-hover reveal" data-delay="1" style="padding: 18px; display:flex; gap:12px; align-items:center;">
+        <div style="width:32px; height:32px; border-radius:8px; background:var(--accent-soft); color:var(--accent); display:flex; align-items:center; justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>
+        </div>
+        <div style="font-size:13px; color:var(--ink-700); line-height:1.4;">India data residency · AWS Mumbai</div>
+      </div>
+      <div class="card card-hover reveal" data-delay="2" style="padding: 18px; display:flex; gap:12px; align-items:center;">
+        <div style="width:32px; height:32px; border-radius:8px; background:var(--accent-soft); color:var(--accent); display:flex; align-items:center; justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
+        </div>
+        <div style="font-size:13px; color:var(--ink-700); line-height:1.4;">Audit trail on every agent action</div>
+      </div>
+      <div class="card card-hover reveal" data-delay="3" style="padding: 18px; display:flex; gap:12px; align-items:center;">
+        <div style="width:32px; height:32px; border-radius:8px; background:var(--accent-soft); color:var(--accent); display:flex; align-items:center; justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div style="font-size:13px; color:var(--ink-700); line-height:1.4;">No setup fees · first close free</div>
+      </div>
+      <div class="card card-hover reveal" data-delay="4" style="padding: 18px; display:flex; gap:12px; align-items:center;">
+        <div style="width:32px; height:32px; border-radius:8px; background:var(--accent-soft); color:var(--accent); display:flex; align-items:center; justify-content:center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+        </div>
+        <div style="font-size:13px; color:var(--ink-700); line-height:1.4;">Cancel anytime · 30-day notice</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPARE TABLE -->
+<section class="section bg-ink-100" style="border-top:1px solid var(--ink-200); border-bottom:1px solid var(--ink-200);">
+  <div class="container">
+    <div class="row" style="justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom: 24px;">
+      <div>
+        <span class="eyebrow">Compare</span>
+        <h2 class="display-lg" style="margin:14px 0 0;">All features, side by side.</h2>
+      </div>
+      <span style="font-size:13px; color:var(--ink-500);">All tiers include India residency · audit trail · 20% off on annual prepay</span>
+    </div>
+
+    <div style="overflow-x: auto;">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th style="width: 34%;">&nbsp;</th>
+            <th>Lekha Jr<div style="font-family:var(--font-mono); font-weight:500; color:var(--ink-500); margin-top:4px;">₹2,499 / mo</div></th>
+            <th>Lekha Associate<div style="font-family:var(--font-mono); font-weight:500; color:var(--ink-500); margin-top:4px;">₹5,999 / mo</div></th>
+            <th>Lekha Accountant<div style="font-family:var(--font-mono); font-weight:500; color:var(--ink-500); margin-top:4px;">₹17,999 / mo</div></th>
+            <th>Enterprise<div style="font-family:var(--font-mono); font-weight:500; color:var(--ink-500); margin-top:4px;">from ₹40,000</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="group-row"><td colspan="5">Reconciliation</td></tr>
+          <tr><td>Monthly reconciliations</td><td>9 – 10</td><td>45 – 90</td><td>500+</td><td>Unlimited</td></tr>
+          <tr><td>Bank reconciliation</td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+          <tr><td>GST 2B reconciliation</td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+          <tr><td>Form 26Q TDS reconciliation</td><td><span class="n">—</span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+          <tr><td>AR aging + AP reconciliation</td><td><span class="n">—</span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+          <tr><td>Multi-entity consolidation</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+          <tr><td>Full close · P&amp;L · BS · CFS</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+
+          <tr class="group-row"><td colspan="5">Agent transparency</td></tr>
+          <tr><td>Exception inbox with AI explanations</td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+          <tr><td>Agent action audit trail — every step explained</td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+          <tr><td>Human-in-the-loop override on every action</td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+          <tr><td>CA reviewer sign-off on monthly close</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+
+          <tr class="group-row"><td colspan="5">Close timeline SLA</td></tr>
+          <tr><td>Monthly close delivered by</td><td>DIY</td><td>10th biz day</td><td>7th biz day</td><td>5th biz day</td></tr>
+
+          <tr class="group-row"><td colspan="5">Integrations</td></tr>
+          <tr><td>Tally · Zoho Books</td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+          <tr><td>Razorpay · Shopify · Amazon SP-API</td><td><span class="n">—</span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+          <tr><td>Account Aggregator banks</td><td>1 bank</td><td>3 banks</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Custom integrations</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td>On request</td><td>Included</td></tr>
+
+          <tr class="group-row"><td colspan="5">Support &amp; access</td></tr>
+          <tr><td>Email support SLA</td><td>24 hr</td><td>12 hr</td><td>4 hr</td><td>1 hr</td></tr>
+          <tr><td>Dedicated success manager</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+          <tr><td>User seats</td><td>1</td><td>3</td><td>10</td><td>Unlimited</td></tr>
+          <tr><td>FP&amp;A handoff &amp; variance commentary</td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="n">—</span></td><td><span class="check-tbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container" style="max-width: 880px;">
+    <div style="max-width: 620px;">
+      <span class="eyebrow">Pricing FAQ</span>
+      <h2 class="display-lg" style="margin:14px 0 8px;">Things buyers ask before they sign.</h2>
+    </div>
+
+    <div class="mt-10">
+      <details class="faq" open>
+        <summary>Why so much cheaper than a Top-20 CA firm?</summary>
+        <p class="answer">AI agents do the 80% pattern-matching work that a junior accountant used to do manually. CA judgment is preserved — a Chartered Accountant on our staff signs off every monthly close on Scale and Enterprise tiers. Top-20 CA firms (BDO, GT, Nexdigm, Singhi, Mazars, RSM, Nangia, ASA) typically charge ₹50,000–₹2,00,000+/month for equivalent scope. We deliver the same outcome at 50–80% lower cost.</p>
+      </details>
+      <details class="faq">
+        <summary>What happens if my volume exceeds the tier limit?</summary>
+        <p class="answer">We auto-upgrade you and prorate. You always get reconciled books, never a surprise overage charge.</p>
+      </details>
+      <details class="faq">
+        <summary>Is there an annual discount?</summary>
+        <p class="answer">Yes — 20% off when paid annually, applied automatically during checkout.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I cancel anytime?</summary>
+        <p class="answer">Yes. 30-day notice. We hand off all data in clean format — your books stay yours.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I pay before integration is complete?</summary>
+        <p class="answer">No. You sign a Purchase Order today. Billing starts only after your first month’s books are successfully closed.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I switch tiers later?</summary>
+        <p class="answer">Yes, in either direction, anytime.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="fade-into-dark"></div>
+<section class="section-tight bg-ink-deep" style="position:relative; overflow:hidden;">
+  <div class="spotlight"></div>
+  <div class="container reveal" style="position:relative; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;">
+    <div>
+      <h2 class="display-md" style="margin:0 0 8px; color:#fff;">Sign a purchase order. We close your books.</h2>
+      <p style="margin:0; color:#B6BEC9; font-size:16px;">No charges until your first month is successfully closed.</p>
+    </div>
+    <div class="row">
+      <a href="https://cal.com/ashish-jadhao-5s0pjh/discovery-call-cfo-services" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-arrow">Get started</a>
+      <a href="how-it-works.html" class="btn btn-ghost btn-arrow" style="border-color:#1E2A40; color:#E5E7EB; background:transparent;">See how it works</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" style="border-top: 0;">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="homepage.html" class="brand">
+          <svg class="brand-svg" viewBox="0 0 28 28" aria-hidden="true">
+            <path class="arc" d="M4 24 L11 17 L17 21 L24 7"/>
+            <circle class="dot" cx="24" cy="7" r="3.6"/>
+          </svg>
+          <span class="brand-name">Lekha&nbsp;AI<span class="dot">.</span></span>
+        </a>
+        <p style="margin: 18px 0 0; max-width: 320px; color: #B6BEC9; font-size:14px;">
+          AI-native book closure for Indian CFOs.<br>
+          Reconciled ledgers, GST and TDS filings, audit-ready trial balance — every month.
+        </p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <a href="homepage.html">Home</a><br>
+        <a href="how-it-works.html">How it works</a><br>
+        <a href="pricing.html">Pricing</a><br>
+        <a href="#">Login</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="#">Privacy</a><br>
+        <a href="#">Terms</a><br>
+        <a href="#">DPA</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:ashish@scaleupcfo.in">ashish@scaleupcfo.in</a><br>
+        <a href="mailto:ashish@scaleupcfo.in">ashish@scaleupcfo.in</a><br>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Lekha AI Pvt Ltd. All rights reserved.</div>
+      <div>Made in Bengaluru</div>
+    </div>
+  </div>
+</footer>
+
+<script src="styles/motion.js" defer></script>
+
+</body>
+</html>
