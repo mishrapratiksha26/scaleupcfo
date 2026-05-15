@@ -8,13 +8,11 @@ import { fetchPublishedPosts, supabase, isAdminEmail } from "../lib/supabase";
 
 function PostCard({ post }) {
   const isLinkedIn = post.kind === "linkedin";
-  return (
-    <a
-      href={isLinkedIn ? post.linkedin_url : `/#/posts/${post.id}`}
-      target={isLinkedIn ? "_blank" : "_self"}
-      rel={isLinkedIn ? "noopener noreferrer" : undefined}
-      className="group flex flex-col rounded-2xl border border-zinc-800 bg-gradient-to-br from-black via-gray-900 to-black p-6 transition hover:border-emerald-500 hover:-translate-y-1"
-    >
+  const className =
+    "group flex flex-col rounded-2xl border border-zinc-800 bg-gradient-to-br from-black via-gray-900 to-black p-6 transition hover:border-emerald-500 hover:-translate-y-1";
+
+  const body = (
+    <>
       {post.cover_image_url && (
         <img
           src={post.cover_image_url}
@@ -54,7 +52,22 @@ function PostCard({ post }) {
           {isLinkedIn ? "Open" : "Read"} <ExternalLink className="h-3 w-3" />
         </span>
       </div>
+    </>
+  );
+
+  return isLinkedIn ? (
+    <a
+      href={post.linkedin_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+    >
+      {body}
     </a>
+  ) : (
+    <Link to={`/posts/${post.id}`} className={className}>
+      {body}
+    </Link>
   );
 }
 
