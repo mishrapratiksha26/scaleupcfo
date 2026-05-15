@@ -1,1 +1,4 @@
+# Netlify SPA rewrite: any path that doesn't match a static file falls back to
+# index.html so client-side routing (BrowserRouter) can handle it. Static assets
+# under /lekha/, /assets/, etc. are served as files first.
 /*    /index.html   200

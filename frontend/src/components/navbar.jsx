@@ -37,7 +37,7 @@ export default function Navbar() {
               <HashLink smooth to="/#products">Products</HashLink>
             </li>
             <li>
-              <Link to="/services">Services</Link>
+              <Link to="/ai-native-services">Services</Link>
             </li>
             <li>
               <HashLink smooth to="/#comparison">Why Us</HashLink>
@@ -72,7 +72,7 @@ export default function Navbar() {
             </HashLink>
           </li>
           <li>
-            <Link to="/services" onClick={() => setIsOpen(false)}>
+            <Link to="/ai-native-services" onClick={() => setIsOpen(false)}>
               Services
             </Link>
           </li>

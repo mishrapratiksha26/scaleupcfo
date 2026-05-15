@@ -8,6 +8,7 @@ import Pricing from "../components/pricing";
 import ClientsLogos from "../components/clients";
 import { WaitlistButton } from "../components/waitlist";
 import CTA from "../components/cta";
+import PostsGrid from "../components/PostsGrid";
 import Footer from "../components/footer";
 import '../marketing.css'
 import '../index.css';
@@ -24,6 +25,7 @@ export default function Home() {
       <Comparison />
       
       <Pricing />
+      <PostsGrid limit={6} heading="Insights from the founder" />
       <CTA />
       <Footer />
     </>

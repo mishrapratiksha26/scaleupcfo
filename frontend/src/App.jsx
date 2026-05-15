@@ -1,8 +1,10 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import Home from "./pages/home";
 import ServicesPage from "./pages/services";
 import About from "./pages/aboutus";
+import AdminPage from "./pages/admin";
+import PostPage from "./pages/post";
 import { initTallyFormTracking } from "./utils/analytics"; // import your helper
 
 export default function App() {
@@ -41,8 +43,10 @@ useEffect(() => {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/ai-native-services" element={<ServicesPage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/posts/:id" element={<PostPage />} />
       </Routes>
     </Router>
   );
