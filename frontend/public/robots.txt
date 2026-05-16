@@ -1,0 +1,7 @@
+# scaleupcfo.in — crawl rules
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+
+Sitemap: https://scaleupcfo.in/sitemap.xml
