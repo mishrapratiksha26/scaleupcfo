@@ -57,18 +57,48 @@ export default function PostPage() {
 
   const seoTitle = (post.title || post.caption || "Insights") + " — Insights | ScaleupCFO";
   const seoDesc = post.caption || post.title || "Insights from ScaleupCFO on AI-native finance operations.";
+  const postUrl = `https://scaleupcfo.in/posts/${post.id}`;
+
+  // Structured data: Article (for written posts) or SocialMediaPosting (for LinkedIn embeds).
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": post.kind === "linkedin" ? "SocialMediaPosting" : "Article",
+    "headline": post.title || post.caption || "Insights",
+    "description": seoDesc,
+    "datePublished": post.created_at,
+    "dateModified": post.updated_at || post.created_at,
+    "url": postUrl,
+    ...(post.cover_image_url && { image: post.cover_image_url }),
+    ...(post.kind === "linkedin" && post.linkedin_url && { sharedContent: post.linkedin_url }),
+    "author": {
+      "@type": "Organization",
+      "name": "ScaleupCFO",
+      "url": "https://scaleupcfo.in"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ScaleupCFO",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://scaleupcfo.in/favicon.png"
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#FAFAF8] text-[#0A0F1C]">
       <Helmet>
         <title>{seoTitle}</title>
         <meta name="description" content={seoDesc} />
-        <link rel="canonical" href={`https://scaleupcfo.in/posts/${post.id}`} />
+        <link rel="canonical" href={postUrl} />
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDesc} />
-        <meta property="og:url" content={`https://scaleupcfo.in/posts/${post.id}`} />
+        <meta property="og:url" content={postUrl} />
         {post.cover_image_url && <meta property="og:image" content={post.cover_image_url} />}
         <meta property="og:type" content="article" />
+        <script type="application/ld+json">
+          {JSON.stringify(articleSchema)}
+        </script>
       </Helmet>
 
       <Link

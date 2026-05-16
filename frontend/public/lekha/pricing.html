@@ -79,6 +79,171 @@
     .compare th, .compare td { padding: 12px; font-size: 13px; }
   }
 </style>
+
+<!-- Structured data: FAQPage. Lifts the 6 pricing FAQs verbatim so Google can show
+     an FAQ accordion in search results and AI engines can quote each Q/A directly. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why so much cheaper than a Top-20 CA firm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI agents do the 80% pattern-matching work that a junior accountant used to do manually. CA judgment is preserved — a Chartered Accountant on our staff signs off every monthly close on Scale and Enterprise tiers. Top-20 CA firms (BDO, GT, Nexdigm, Singhi, Mazars, RSM, Nangia, ASA) typically charge ₹50,000–₹2,00,000+/month for equivalent scope. We deliver the same outcome at 50–80% lower cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if my volume exceeds the tier limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We auto-upgrade you and prorate. You always get reconciled books, never a surprise overage charge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there an annual discount?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — 20% off when paid annually, applied automatically during checkout."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel anytime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. 30-day notice. We hand off all data in clean format — your books stay yours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I pay before integration is complete?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. You sign a Purchase Order today. Billing starts only after your first month's books are successfully closed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I switch tiers later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in either direction, anytime."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Structured data: OfferCatalog of all 4 pricing tiers. Each tier is a Service with
+     a priced Offer. Enables Google price-card displays and gives LLMs structured tier
+     data they can compare/cite. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  "name": "Lekha AI — AI Bookkeeping Tiers",
+  "itemListElement": [
+    {
+      "@type": "Offer",
+      "name": "Lekha Jr — Starter",
+      "description": "For single-entity SMBs on Tally or Zoho. 9–10 reconciliations/month, bank + GST 2B reconciliation, exception inbox, 1 seat.",
+      "price": "2499",
+      "priceCurrency": "INR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "2499",
+        "priceCurrency": "INR",
+        "billingDuration": "P1M",
+        "unitText": "month"
+      },
+      "availability": "https://schema.org/InStock",
+      "areaServed": "IN",
+      "category": "Bookkeeping",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Lekha Jr",
+        "serviceType": "AI-native bookkeeping and reconciliation",
+        "provider": { "@type": "Organization", "name": "ScaleupCFO" }
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Lekha Associate — Growth",
+      "description": "Multi-payment-gateway D2C & marketplace sellers. 45–90 reconciliations/month, Razorpay/Shopify/Amazon SP-API, Form 26Q TDS, 3 seats. Close by 5th business day.",
+      "price": "5999",
+      "priceCurrency": "INR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "5999",
+        "priceCurrency": "INR",
+        "billingDuration": "P1M",
+        "unitText": "month"
+      },
+      "availability": "https://schema.org/InStock",
+      "areaServed": "IN",
+      "category": "Bookkeeping",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Lekha Associate",
+        "serviceType": "AI-native bookkeeping with multi-channel reconciliation",
+        "provider": { "@type": "Organization", "name": "ScaleupCFO" }
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Lekha Accountant — Scale",
+      "description": "Mid-market, multi-entity companies. 500+ reconciliations/month, multi-entity consolidation, full close (P&L, BS, CFS), audit-ready trial balance, CA reviewer sign-off, 10 seats.",
+      "price": "17999",
+      "priceCurrency": "INR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "17999",
+        "priceCurrency": "INR",
+        "billingDuration": "P1M",
+        "unitText": "month"
+      },
+      "availability": "https://schema.org/InStock",
+      "areaServed": "IN",
+      "category": "Bookkeeping and full close",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Lekha Accountant",
+        "serviceType": "AI-native full-close and consolidation with CA sign-off",
+        "provider": { "@type": "Organization", "name": "ScaleupCFO" }
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Enterprise — Full Close-as-a-Service",
+      "description": "Custom integrations, multi-entity consolidation, audit support, monthly variance commentary, FP&A handoff. Unlimited reconciliations and seats. Books closed by 5th business day.",
+      "priceCurrency": "INR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "40000",
+        "priceCurrency": "INR",
+        "billingDuration": "P1M",
+        "unitText": "month",
+        "valueAddedTaxIncluded": false
+      },
+      "availability": "https://schema.org/InStock",
+      "areaServed": "IN",
+      "category": "Close-as-a-Service",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Enterprise Close-as-a-Service",
+        "serviceType": "Managed monthly close, FP&A, audit support",
+        "provider": { "@type": "Organization", "name": "ScaleupCFO" }
+      }
+    }
+  ]
+}
+</script>
+
 </head>
 <body data-screen-label="03 Pricing">
 
