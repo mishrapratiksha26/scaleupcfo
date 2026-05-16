@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Linkedin, ExternalLink } from "lucide-react";
 import { supabase } from "../lib/supabase";
 
@@ -54,8 +55,22 @@ export default function PostPage() {
     year: "numeric",
   });
 
+  const seoTitle = (post.title || post.caption || "Insights") + " — Insights | ScaleupCFO";
+  const seoDesc = post.caption || post.title || "Insights from ScaleupCFO on AI-native finance operations.";
+
   return (
     <div className="min-h-screen bg-[#FAFAF8] text-[#0A0F1C]">
+      <Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDesc} />
+        <link rel="canonical" href={`https://scaleupcfo.in/posts/${post.id}`} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDesc} />
+        <meta property="og:url" content={`https://scaleupcfo.in/posts/${post.id}`} />
+        {post.cover_image_url && <meta property="og:image" content={post.cover_image_url} />}
+        <meta property="og:type" content="article" />
+      </Helmet>
+
       <Link
         to="/"
         aria-label="Back to home"

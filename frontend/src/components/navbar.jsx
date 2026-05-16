@@ -9,6 +9,25 @@ export default function Navbar() {
 
   return (
     <nav>
+      {/* Announcement strip — full-bleed inside the fixed navbar */}
+      <Link
+        to="/ai-native-services"
+        style={{
+          display: "block",
+          background: "linear-gradient(90deg, #34D399 0%, #10B981 100%)",
+          color: "#000",
+          textAlign: "center",
+          fontSize: "13px",
+          fontWeight: 600,
+          padding: "8px 16px",
+          textDecoration: "none",
+          letterSpacing: "0.01em",
+          margin: "-0.75rem -1.5rem 0.75rem -1.5rem",
+        }}
+      >
+        ✨ We're now live with AI-native services — see what's new →
+      </Link>
+
       <div className="nav-inner">
         {/* LEFT SIDE */}
         <div className="nav-left">

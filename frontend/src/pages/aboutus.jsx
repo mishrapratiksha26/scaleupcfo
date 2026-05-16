@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Nav from "../components/navbar";
 import founderimg from "../assets/ceo.png"
 import { HashLink } from "react-router-hash-link";
@@ -6,13 +7,27 @@ import { FaLinkedin } from "react-icons/fa";
 export default function About() {
   return (
     <main className="bg-zinc-950 text-zinc-100">
+      <Helmet>
+        <title>About ScaleupCFO — Founders & Story | Ashish Jadhao</title>
+        <meta
+          name="description"
+          content="Meet the founders of ScaleupCFO — building AI-native finance operations for Indian D2C and mid-market companies. From bookkeeping to monthly close."
+        />
+        <link rel="canonical" href="https://scaleupcfo.in/about" />
+        <meta property="og:title" content="About ScaleupCFO — Founders & Story" />
+        <meta
+          property="og:description"
+          content="Meet the founders of ScaleupCFO — building AI-native finance operations for Indian founders."
+        />
+        <meta property="og:url" content="https://scaleupcfo.in/about" />
+      </Helmet>
         <Nav />
       {/* HERO */}
       <section className="relative overflow-hidden px-6 py-24 text-center">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),_transparent_60%)]" />
         <div className="relative mx-auto max-w-4xl">
           <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
-            We're Reimagining Financial Operations
+            Building AI-Native Finance for India's Founders
           </h1>
           <p className="mt-6 text-lg text-zinc-400">
             Financial teams spend 70% of their time on reconciliation and admin. We're building AI

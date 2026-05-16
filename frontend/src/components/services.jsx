@@ -4,10 +4,44 @@
 
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+
+// Visually-hidden but screen-reader-and-crawler-readable.
+const srOnly = {
+  position: "absolute",
+  width: 1,
+  height: 1,
+  padding: 0,
+  margin: -1,
+  overflow: "hidden",
+  clip: "rect(0,0,0,0)",
+  whiteSpace: "nowrap",
+  border: 0,
+};
 
 export default function Services() {
   return (
     <>
+      <Helmet>
+        <title>Lekha AI — AI Bookkeeping & Close-as-a-Service for Indian SMBs | ScaleupCFO</title>
+        <meta
+          name="description"
+          content="Lekha AI is our AI-native bookkeeping product. Bank, GST, TDS reconciliation by AI agents, signed off by Chartered Accountants. Books closed by day 5. From ₹2,499/mo."
+        />
+        <link rel="canonical" href="https://scaleupcfo.in/ai-native-services" />
+        <meta property="og:title" content="Lekha AI — AI Bookkeeping for Indian SMBs | ScaleupCFO" />
+        <meta
+          property="og:description"
+          content="Bank, GST, TDS reconciliation by AI agents. CA sign-off on every monthly close. From ₹2,499/mo."
+        />
+        <meta property="og:url" content="https://scaleupcfo.in/ai-native-services" />
+      </Helmet>
+
+      {/* H1 for crawlers; visually hidden so it doesn't disrupt the iframe layout. */}
+      <h1 style={srOnly}>
+        Lekha AI — AI-native bookkeeping &amp; monthly book close for Indian SMBs
+      </h1>
+
       <iframe
         src="/lekha/homepage.html"
         title="Lekha AI"

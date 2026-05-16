@@ -27,16 +27,14 @@ export default function Hero() {
         {/* Center content */}
         <div className="flex-1 flex flex-col items-center justify-center text-center px-6">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight drop-shadow-lg mb-4">
-            The AI-Native Finance Operations
+            AI Bookkeeping for Indian Founders
           </h1>
 
           <p className="text-gray-100 text-lg md:text-xl leading-relaxed max-w-2xl mb-3 drop-shadow-md">
-            From bookkeeping to boardroom – in real time.
+            Books closed by <span className="font-semibold" style={{ color: '#34D399' }}>day 5</span>.
+            AI agents do the work — Chartered Accountants sign it off.
             <br />
-            <span className="font-semibold" style={{ color: '#34D399' }}>
-              AI agents + certified accountants
-            </span>{" "}
-            = strategic finance at scale.
+            From <span className="font-semibold" style={{ color: '#34D399' }}>₹2,499/mo</span>.
           </p>
 
           <p className="text-sm text-gray-300 italic mb-6 drop-shadow-sm">
