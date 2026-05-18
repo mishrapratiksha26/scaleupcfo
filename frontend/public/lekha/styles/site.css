@@ -521,7 +521,8 @@ details.faq .answer {
 /* =====================================================
    Brand mark — SVG glyph version sits alongside text
    ===================================================== */
-.brand-svg { width: 28px; height: 28px; flex: 0 0 28px; }
+.brand-svg { width: 32px; height: 32px; flex: 0 0 32px; }
+/* legacy inline-SVG color rules; harmless for the new <img> brand logo */
 .brand-svg .arc { fill: none; stroke: var(--ink-900); stroke-width: 2.4; stroke-linecap: round; }
 .brand-svg .dot { fill: var(--accent); }
 .footer .brand-svg .arc { stroke: #fff; }
