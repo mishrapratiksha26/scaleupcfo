@@ -21,7 +21,7 @@ export default function Home() {
         <title>AI Bookkeeping for Indian Founders — Books Closed by Day 5 | ScaleupCFO</title>
         <meta
           name="description"
-          content="AI-native bookkeeping for Indian D2C and mid-market companies. Books closed by day 5. CA reviewer sign-off. 50–80% cheaper than top-20 CA firms."
+          content="AI-native bookkeeping for Indian D2C and mid-market companies. Books closed by day 5. CA reviewer sign-off. 50–80% lower cost than top-20 CA firms."
         />
         <link rel="canonical" href="https://scaleupcfo.in/" />
         <meta property="og:title" content="AI Bookkeeping for Indian Founders — Books Closed by Day 5 | ScaleupCFO" />
