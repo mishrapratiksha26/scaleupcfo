@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Linkedin, ExternalLink } from "lucide-react";
 import { supabase } from "../lib/supabase";
@@ -18,9 +18,23 @@ function getLinkedinEmbedUrl(url) {
 
 export default function PostPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  // Back behavior: prefer browser history (returns the visitor to wherever
+  // they came from — homepage Insights, Lekha Posts tab, etc.). Fall back to
+  // the homepage Insights anchor if the page was opened in a fresh tab and
+  // there's no history to pop.
+  const goBack = (e) => {
+    e.preventDefault();
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/#insights");
+    }
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -113,9 +127,9 @@ export default function PostPage() {
         </script>
       </Helmet>
 
-      <Link
-        to="/"
-        aria-label="Back to home"
+      <button
+        onClick={goBack}
+        aria-label="Back to posts"
         style={{
           position: "fixed",
           top: 16,
@@ -135,11 +149,12 @@ export default function PostPage() {
           boxShadow:
             "0 6px 20px -8px rgba(10,15,28,0.18), 0 2px 4px rgba(10,15,28,0.04)",
           backdropFilter: "blur(8px)",
+          cursor: "pointer",
         }}
       >
         <ArrowLeft size={16} strokeWidth={2.25} />
         Back
-      </Link>
+      </button>
 
       <article className="mx-auto max-w-2xl px-6 pt-24 pb-20">
         {post.cover_image_url && (
