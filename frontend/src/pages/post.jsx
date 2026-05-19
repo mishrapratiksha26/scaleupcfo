@@ -4,6 +4,18 @@ import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Linkedin, ExternalLink } from "lucide-react";
 import { supabase } from "../lib/supabase";
 
+// LinkedIn post URLs all contain a 19-digit activity ID, regardless of which
+// URL shape the user pasted (personal-post URL, feed/update URL, urn URL).
+// We extract it and build LinkedIn's official iframe embed URL — free, no API
+// key, no rate limit. The embed renders the actual LinkedIn card with text,
+// image, author, reactions — exactly as it appears on LinkedIn.
+function getLinkedinEmbedUrl(url) {
+  if (!url) return null;
+  const match = url.match(/(\d{18,20})/);
+  if (!match) return null;
+  return `https://www.linkedin.com/embed/feed/update/urn:li:share:${match[1]}`;
+}
+
 export default function PostPage() {
   const { id } = useParams();
   const [post, setPost] = useState(null);
@@ -154,14 +166,39 @@ export default function PostPage() {
 
         {post.kind === "linkedin" ? (
           <div className="mt-10">
-            <a
-              href={post.linkedin_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 h-12 px-6 rounded-xl bg-[#0F766E] hover:bg-[#0D5F58] text-white font-semibold text-sm transition-colors"
-            >
-              <Linkedin size={16} /> View on LinkedIn <ExternalLink size={14} />
-            </a>
+            {(() => {
+              const embedUrl = getLinkedinEmbedUrl(post.linkedin_url);
+              return embedUrl ? (
+                <div
+                  className="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white shadow-sm"
+                  style={{ minHeight: 600 }}
+                >
+                  <iframe
+                    src={embedUrl}
+                    title="LinkedIn post"
+                    width="100%"
+                    height="600"
+                    frameBorder="0"
+                    allowFullScreen
+                    style={{ display: "block", border: "none" }}
+                  />
+                </div>
+              ) : (
+                <div className="rounded-xl bg-[#F3F4F6] p-5 text-sm text-[#6B7280]">
+                  Couldn't auto-embed this post. Open it directly on LinkedIn below.
+                </div>
+              );
+            })()}
+            <div className="mt-6">
+              <a
+                href={post.linkedin_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 h-11 px-5 rounded-xl border border-[#E5E7EB] hover:border-[#0F766E] hover:text-[#0F766E] text-[#374151] font-semibold text-sm transition-colors"
+              >
+                <Linkedin size={16} /> Open on LinkedIn <ExternalLink size={14} />
+              </a>
+            </div>
           </div>
         ) : (
           <div
