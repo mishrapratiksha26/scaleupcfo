@@ -4,16 +4,32 @@ import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Linkedin, ExternalLink } from "lucide-react";
 import { supabase } from "../lib/supabase";
 
-// LinkedIn post URLs all contain a 19-digit activity ID, regardless of which
-// URL shape the user pasted (personal-post URL, feed/update URL, urn URL).
-// We extract it and build LinkedIn's official iframe embed URL — free, no API
-// key, no rate limit. The embed renders the actual LinkedIn card with text,
-// image, author, reactions — exactly as it appears on LinkedIn.
+// LinkedIn embeds are keyed by URN. There are three URN types in the wild
+// (urn:li:share:, urn:li:activity:, urn:li:ugcPost:) and using the wrong one
+// produces LinkedIn's 404 inside the iframe. We sniff the source URL for an
+// explicit URN, fall back to "activity-<id>" pattern (which is what personal
+// post share URLs use), and finally fall back to share as a last resort.
 function getLinkedinEmbedUrl(url) {
   if (!url) return null;
-  const match = url.match(/(\d{18,20})/);
-  if (!match) return null;
-  return `https://www.linkedin.com/embed/feed/update/urn:li:share:${match[1]}`;
+  const base = "https://www.linkedin.com/embed/feed/update/urn:li:";
+
+  // 1) explicit URN in the URL
+  const urn = url.match(/urn:li:(share|activity|ugcPost):(\d{18,20})/i);
+  if (urn) return `${base}${urn[1]}:${urn[2]}`;
+
+  // 2) "/activity-<id>" pattern (the standard personal-post share URL)
+  const activity = url.match(/activity[-:](\d{18,20})/i);
+  if (activity) return `${base}activity:${activity[1]}`;
+
+  // 3) "/share-<id>" pattern (less common)
+  const share = url.match(/share[-:](\d{18,20})/i);
+  if (share) return `${base}share:${share[1]}`;
+
+  // 4) last resort — any 18-20 digit run, assume activity (most common today)
+  const any = url.match(/(\d{18,20})/);
+  if (any) return `${base}activity:${any[1]}`;
+
+  return null;
 }
 
 export default function PostPage() {
