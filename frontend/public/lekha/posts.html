@@ -229,8 +229,10 @@
 
   function postCard(p) {
     const isLi = p.kind === "linkedin";
-    const href = isLi ? p.linkedin_url : `/posts/${p.id}`;
-    const target = isLi ? ' target="_blank" rel="noopener noreferrer"' : ' target="_top"';
+    // Every card routes to our own /posts/:id detail page. LinkedIn embeds
+    // are rendered inline there; written posts show the article body.
+    const href = `/posts/${p.id}`;
+    const target = ' target="_top"';
     const date = new Date(p.created_at).toLocaleDateString("en-IN", {
       day: "numeric", month: "short", year: "numeric",
     });
@@ -250,7 +252,7 @@
         ${caption}
         <div class="post-meta">
           <span>${date}</span>
-          <span class="post-arrow">${isLi ? "Open" : "Read"} →</span>
+          <span class="post-arrow">Read →</span>
         </div>
       </a>
     `;

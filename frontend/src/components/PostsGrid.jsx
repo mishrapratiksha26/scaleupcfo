@@ -2,7 +2,7 @@
 // "Posts" tab (via an iframe path that re-renders this component).
 
 import { useEffect, useState } from "react";
-import { Linkedin, ExternalLink, FileText, Pencil } from "lucide-react";
+import { Linkedin, ArrowRight, FileText, Pencil } from "lucide-react";
 import { Link } from "react-router-dom";
 import { fetchPublishedPosts, supabase, isAdminEmail } from "../lib/supabase";
 
@@ -49,22 +49,16 @@ function PostCard({ post }) {
           })}
         </span>
         <span className="inline-flex items-center gap-1 text-emerald-400 group-hover:translate-x-0.5 transition-transform">
-          {isLinkedIn ? "Open" : "Read"} <ExternalLink className="h-3 w-3" />
+          Read <ArrowRight className="h-3 w-3" />
         </span>
       </div>
     </>
   );
 
-  return isLinkedIn ? (
-    <a
-      href={post.linkedin_url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={className}
-    >
-      {body}
-    </a>
-  ) : (
+  // Every card routes to our own /posts/:id detail page. For LinkedIn posts the
+  // detail page renders the original LinkedIn embed inline; for written posts
+  // it renders the article. Visitor never gets bounced off-site from the card.
+  return (
     <Link to={`/posts/${post.id}`} className={className}>
       {body}
     </Link>
