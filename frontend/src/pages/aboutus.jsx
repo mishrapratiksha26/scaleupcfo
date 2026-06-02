@@ -39,8 +39,6 @@ export default function About() {
                     title="Explore Our Solution"
                     module_name="about page"
                     className="rounded-lg bg-emerald-500 px-8 py-3 font-medium text-black hover:bg-emerald-400 transition"
-                    namespace="discovery-call-cfo-services"
-                    link="ashish-jadhao-5s0pjh/discovery-call-cfo-services"
                   />
             <HashLink
   smooth
@@ -281,8 +279,6 @@ export default function About() {
                     title="Schedule Demo"
                     module_name="about page"
                     className="rounded-lg bg-emerald-500 px-10 py-4 font-medium text-black hover:bg-emerald-400 transition"
-                    namespace="discovery-call-cfo-services"
-                    link="ashish-jadhao-5s0pjh/discovery-call-cfo-services"
                   />
 
       </section>
