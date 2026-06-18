@@ -23,7 +23,7 @@ export default function About() {
       </Helmet>
         <Nav />
       {/* HERO */}
-      <section className="relative overflow-hidden px-6 py-24 text-center">
+      <section className="relative overflow-hidden px-6 pb-20 text-center" style={{ paddingTop: "130px" }}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),_transparent_60%)]" />
         <div className="relative mx-auto max-w-4xl">
           <h1 className="text-4xl md:text-5xl font-semibold leading-tight">

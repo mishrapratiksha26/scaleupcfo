@@ -1,10 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
 import Home from "./pages/home";
 import ServicesPage from "./pages/services";
 import About from "./pages/aboutus";
 import AdminPage from "./pages/admin";
 import PostPage from "./pages/post";
+import BlogsPage from "./pages/blogs";
+import BlogPostPage from "./pages/blogpost";
 import { initTallyFormTracking } from "./utils/analytics"; // import your helper
 
 export default function App() {
@@ -41,12 +49,15 @@ useEffect(() => {
 }, []);
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ai-native-services" element={<ServicesPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/posts/:id" element={<PostPage />} />
+        <Route path="/blogs" element={<BlogsPage />} />
+        <Route path="/blogs/:slug" element={<BlogPostPage />} />
       </Routes>
     </Router>
   );

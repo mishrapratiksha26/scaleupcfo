@@ -66,9 +66,10 @@ export default function Navbar() {
             </li>
             <li>
               <Link to="/about">About Us</Link>
-              </li>
-
-          
+            </li>
+            <li>
+              <Link to="/blogs">Blogs</Link>
+            </li>
           </ul>
         </div>
 
@@ -108,6 +109,11 @@ export default function Navbar() {
             <li>
             <Link to="/about" onClick={() => setIsOpen(false)}>
               About Us
+            </Link>
+          </li>
+          <li>
+            <Link to="/blogs" onClick={() => setIsOpen(false)}>
+              Blogs
             </Link>
           </li>
         </ul>
