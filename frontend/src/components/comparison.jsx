@@ -29,6 +29,7 @@ export default function Comparison() {
         <div className="overflow-x-auto rounded-xl border border-white/10 backdrop-blur-xl bg-white/5 shadow-md">
           <table className="min-w-full text-left text-sm text-gray-200">
             <thead className="bg-white/10 text-gray-300">
+            {/* hi */}
               <tr>
                 <th className="px-6 py-4 font-semibold">Capability</th>
                 <th className="px-6 py-4 font-semibold text-[#34D399]">ScaleupCFO AI</th>
