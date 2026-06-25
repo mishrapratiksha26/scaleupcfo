@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import CalBookingButton from "./DemoBookingButton";
@@ -6,6 +6,8 @@ import logo from "../assets/ScaleupCFO_transparent.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
+  const resourcesTimeout = useRef(null);
 
   return (
     <nav>
@@ -61,14 +63,46 @@ export default function Navbar() {
             <li>
               <HashLink smooth to="/#comparison">Why Us</HashLink>
             </li>
-            <li>
-              <HashLink smooth to="/#resources">Resources</HashLink>
+            <li
+              style={{ position: "relative" }}
+              onMouseEnter={() => {
+                clearTimeout(resourcesTimeout.current);
+                setResourcesOpen(true);
+              }}
+              onMouseLeave={() => {
+                resourcesTimeout.current = setTimeout(() => setResourcesOpen(false), 150);
+              }}
+            >
+              <span style={{ cursor: "pointer", color: "white", fontSize: "0.9rem", fontWeight: 500, transition: "all 0.25s ease" }}>Resources ▾</span>
+              {resourcesOpen && (
+                <ul style={{
+                  position: "absolute",
+                  top: "100%",
+                  left: 0,
+                  background: "#111",
+                  border: "1px solid #2d2d2d",
+                  borderRadius: "8px",
+                  padding: "8px 0",
+                  minWidth: "160px",
+                  zIndex: 1000,
+                  listStyle: "none",
+                  margin: 0,
+                }}>
+                  <li style={{ padding: "8px 16px" }}>
+                    <HashLink smooth to="/#resources" onClick={() => setResourcesOpen(false)}>
+                      Resources
+                    </HashLink>
+                  </li>
+                  <li style={{ padding: "8px 16px" }}>
+                    <Link to="/blogs" onClick={() => setResourcesOpen(false)}>
+                      Blogs
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
             <li>
               <Link to="/about">About Us</Link>
-            </li>
-            <li>
-              <Link to="/blogs">Blogs</Link>
             </li>
           </ul>
         </div>
@@ -102,18 +136,30 @@ export default function Navbar() {
             </HashLink>
           </li>
           <li>
-            <HashLink smooth to="/#resources" onClick={() => setIsOpen(false)}>
-              Resources
-            </HashLink>
-            </li>
-            <li>
-            <Link to="/about" onClick={() => setIsOpen(false)}>
-              About Us
-            </Link>
+            <span
+              style={{ cursor: "pointer", color: "white", fontSize: "1rem", fontWeight: 500 }}
+              onClick={() => setResourcesOpen(!resourcesOpen)}
+            >
+              Resources ▾
+            </span>
+            {resourcesOpen && (
+              <ul style={{ paddingLeft: "16px", listStyle: "none", margin: "4px 0 0 0" }}>
+                <li style={{ padding: "6px 0" }}>
+                  <HashLink smooth to="/#resources" onClick={() => { setIsOpen(false); setResourcesOpen(false); }}>
+                    Resources
+                  </HashLink>
+                </li>
+                <li style={{ padding: "6px 0" }}>
+                  <Link to="/blogs" onClick={() => { setIsOpen(false); setResourcesOpen(false); }}>
+                    Blogs
+                  </Link>
+                </li>
+              </ul>
+            )}
           </li>
           <li>
-            <Link to="/blogs" onClick={() => setIsOpen(false)}>
-              Blogs
+            <Link to="/about" onClick={() => setIsOpen(false)}>
+              About Us
             </Link>
           </li>
         </ul>

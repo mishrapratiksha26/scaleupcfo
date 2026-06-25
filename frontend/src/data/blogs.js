@@ -12,6 +12,42 @@ export const blogs = [
     date: "June 2026",
   },
   {
+    slug: "cfo-cash-position-real-time",
+    tag: "CFO · Cash Flow · Finance Operations",
+    title: '"What\'s Our Cash Position Right Now?"',
+    titleHighlight: "Why Your CFO Doesn't Have a Real Answer.",
+    excerpt:
+      "It is Monday morning. An investor calls. A board meeting starts in 20 minutes. And the CFO is logging into four different bank portals, waiting for someone to compile a spreadsheet that was already out of date before it was finished.",
+    author: "ScaleupCFO Team",
+    readTime: "7 min read",
+    category: "CFO · Treasury · Cash Flow",
+    date: "June 2026",
+  },
+  {
+    slug: "sales-reconciliation-layers",
+    tag: "Sales Reconciliation · COD · Finance Automation",
+    title: "Why Sales Reconciliation Has So Many Layers.",
+    titleHighlight: "And How to Remove Them.",
+    excerpt:
+      "Your junior opens the sales register. Your senior reviews the summary. Your manager consolidates. Your controller signs off. Four people, four days, one number. The work isn't hard — the data is just never in one place.",
+    author: "ScaleupCFO Team",
+    readTime: "8 min read",
+    category: "Sales Reconciliation · Finance Ops",
+    date: "June 2026",
+  },
+  {
+    slug: "gap-between-finding-and-fixing-mismatch",
+    tag: "Reconciliation · Book Closure · Finance Operations",
+    title: "You Found the Mismatch.",
+    titleHighlight: "Now What?",
+    excerpt:
+      "Every finance team gets good at spotting errors. Almost none can fix them fast. The gap between 'I know there's a mismatch' and 'the mismatch is resolved' is measured in hours, sometimes days — and that gap is where audits get uncomfortable.",
+    author: "ScaleupCFO Team",
+    readTime: "7 min read",
+    category: "Reconciliation · Accounting Errors",
+    date: "June 2026",
+  },
+  {
     slug: "why-book-closure-is-slow",
     tag: "Book Closure · Finance Operations",
     title: "Why Does Month-End Book Closure Take So Long?",

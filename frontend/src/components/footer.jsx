@@ -17,10 +17,10 @@ export default function Footer() {
         <div className="footer-section">
             <h4>Resources</h4>
             <ul>
-                <li><a href="#">Documentation</a></li>
+                <li><Link to="/blogs">Blogs</Link></li>
+                <li><a href="#">Guides</a></li>
                 <li><a href="#">Case Studies</a></li>
                 <li><a href="#">Research Papers</a></li>
-                <li><a href="#">Blog & Webinars</a></li>
                 <li><a href="#">Templates</a></li>
                 <li><a href="#">API Reference</a></li>
             </ul>
