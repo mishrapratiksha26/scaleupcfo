@@ -334,6 +334,7 @@ export default function QuizPopup() {
   const [branch, setBranch]         = useState(null);      // "A" | "B" | "C" | "D"
   const [current, setCurrent]       = useState(0);         // index in branch questions
   const [scores, setScores]         = useState([]);        // points per branch question
+  const [picks, setPicks]           = useState([]);        // { question, answer } per branch question
   const [animating, setAnimating]   = useState(false);
   const [result, setResult]         = useState(null);
   const [countryCode, setCountryCode] = useState("+91");
@@ -370,6 +371,7 @@ export default function QuizPopup() {
       setBranch(optLabel);
       setCurrent(0);
       setScores([]);
+      setPicks([]);
       setScreen("quiz");
     });
   }
@@ -378,16 +380,20 @@ export default function QuizPopup() {
   function selectAnswer(optIdx) {
     const points = optIdx + 1; // A=1 … D=4
     const newScores = [...scores, points];
+    const q = BRANCHES[branch][current];
+    const newPicks = [...picks, { question: q.text, answer: q.options[optIdx].text }];
 
     advance(() => {
       const questions = BRANCHES[branch];
       if (current + 1 < questions.length) {
         setScores(newScores);
         setCurrent(current + 1);
+        setPicks(newPicks);
       } else {
         // All branch questions done — store result, go to contact form first
         const total = newScores.reduce((a, b) => a + b, 0);
         setResult(getResult(total));
+        setPicks(newPicks);
         setScreen("form");
       }
     });
@@ -424,15 +430,18 @@ export default function QuizPopup() {
 
     setSubmitting(true);
     try {
-      await fetch("/api/quiz-lead", {
+      await fetch("https://script.google.com/macros/s/AKfycbx17TFgwBM-Ze631x2WQJ8qUGox-k4IfNBcW7plKL3nn9Tkpv79_7_K3dNIK1UCpLQSXA/exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
           phone: countryCode + form.phone,
+          mainQuestion: MAIN_QUESTION.text,
+          mainAnswer: MAIN_QUESTION.options.find(o => o.label === branch)?.text || "",
           branch: BRANCH_LABELS[branch],
           score: result?.pct,
           bucket: result?.bucket,
+          answers: picks,
         }),
       });
     } catch (_) { /* placeholder — fail silently */ }
