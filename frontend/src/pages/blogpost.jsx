@@ -4,11 +4,17 @@ import Nav from "../components/navbar";
 import { blogs } from "../data/blogs";
 import WhyBookClosureIsSlow from "../blogs/why-book-closure-is-slow";
 import TdsReconciliation10Minutes from "../blogs/tds-reconciliation-10-minutes";
+import GapBetweenFindingAndFixingMismatch from "../blogs/gap-between-finding-and-fixing-mismatch";
+import CfoCashPositionRealTime from "../blogs/cfo-cash-position-real-time";
+import SalesReconciliationLayers from "../blogs/sales-reconciliation-layers";
 import CalBookingButton from "../components/DemoBookingButton";
 
 const contentMap = {
   "why-book-closure-is-slow": WhyBookClosureIsSlow,
   "tds-reconciliation-10-minutes": TdsReconciliation10Minutes,
+  "gap-between-finding-and-fixing-mismatch": GapBetweenFindingAndFixingMismatch,
+  "cfo-cash-position-real-time": CfoCashPositionRealTime,
+  "sales-reconciliation-layers": SalesReconciliationLayers,
 };
 
 export default function BlogPost() {
