@@ -432,7 +432,8 @@ export default function QuizPopup() {
     try {
       await fetch("https://script.google.com/macros/s/AKfycbx17TFgwBM-Ze631x2WQJ8qUGox-k4IfNBcW7plKL3nn9Tkpv79_7_K3dNIK1UCpLQSXA/exec", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
         body: JSON.stringify({
           ...form,
           phone: countryCode + form.phone,
