@@ -89,13 +89,18 @@ export default function Navbar() {
                   margin: 0,
                 }}>
                   <li style={{ padding: "8px 16px" }}>
-                    <HashLink smooth to="/#resources" onClick={() => setResourcesOpen(false)}>
+                    <Link to="/resources" onClick={() => setResourcesOpen(false)}>
                       Resources
-                    </HashLink>
+                    </Link>
                   </li>
                   <li style={{ padding: "8px 16px" }}>
                     <Link to="/blogs" onClick={() => setResourcesOpen(false)}>
                       Blogs
+                    </Link>
+                  </li>
+                  <li style={{ padding: "8px 16px" }}>
+                    <Link to="/resources/ai-readiness-guide" onClick={() => setResourcesOpen(false)}>
+                      AI Readiness Guide for CA Firms
                     </Link>
                   </li>
                 </ul>
@@ -145,13 +150,18 @@ export default function Navbar() {
             {resourcesOpen && (
               <ul style={{ paddingLeft: "16px", listStyle: "none", margin: "4px 0 0 0" }}>
                 <li style={{ padding: "6px 0" }}>
-                  <HashLink smooth to="/#resources" onClick={() => { setIsOpen(false); setResourcesOpen(false); }}>
+                  <Link to="/resources" onClick={() => { setIsOpen(false); setResourcesOpen(false); }}>
                     Resources
-                  </HashLink>
+                  </Link>
                 </li>
                 <li style={{ padding: "6px 0" }}>
                   <Link to="/blogs" onClick={() => { setIsOpen(false); setResourcesOpen(false); }}>
                     Blogs
+                  </Link>
+                </li>
+                <li style={{ padding: "6px 0" }}>
+                  <Link to="/resources/ai-readiness-guide" onClick={() => { setIsOpen(false); setResourcesOpen(false); }}>
+                    AI Readiness Guide for CA Firms
                   </Link>
                 </li>
               </ul>
