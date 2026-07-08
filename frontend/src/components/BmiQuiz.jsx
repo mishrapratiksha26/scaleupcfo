@@ -17,7 +17,7 @@ const HIGHLIGHT_MS = 150;
 const SLIDE_MS = 380;
 const FADE_MS = 220;
 const REDUCED_MS = 150;
-const PANEL_HEIGHT = 480;
+const PANEL_HEIGHT = 380;
 const TOTAL_STEPS = 7; // main question + 5 branch questions + contact form
 
 function usePrefersReducedMotion() {
@@ -540,15 +540,15 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
         <div className="relative overflow-hidden" style={{ height: PANEL_HEIGHT }}>
           {transitionState ? (
             <>
-              <div className="absolute inset-0" style={panelStyle("out")}>
+              <div className="absolute inset-0 overflow-y-auto" style={panelStyle("out")}>
                 {transitionState.fromStep !== null ? renderStep(transitionState.fromStep, false) : null}
               </div>
-              <div className="absolute inset-0" style={panelStyle("in")}>
+              <div className="absolute inset-0 overflow-y-auto" style={panelStyle("in")}>
                 {transitionState.isComplete ? renderResult({ animateIn: false }) : renderStep(transitionState.toStep, false)}
               </div>
             </>
           ) : (
-            <div className="absolute inset-0" style={panelStyle("static")}>
+            <div className="absolute inset-0 overflow-y-auto" style={panelStyle("static")}>
               {renderStep(step, true)}
             </div>
           )}
@@ -606,8 +606,8 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
 
   // inline mode
   return (
-    <div>
-      {renderHeader()}
+    <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 md:gap-10 md:items-center">
+      <div>{renderHeader()}</div>
       <div className="rounded-2xl bg-zinc-900 border border-zinc-800 p-6 sm:p-10">
         {canGoBack && (
           <button onClick={goBack} className="flex items-center gap-1 text-xs text-zinc-500 hover:text-emerald-400 transition mb-3">

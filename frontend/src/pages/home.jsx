@@ -11,7 +11,6 @@ import { WaitlistButton } from "../components/waitlist";
 import CTA from "../components/cta";
 import PostsGrid from "../components/PostsGrid";
 import Footer from "../components/footer";
-import QuizPopup from "../components/QuizPopup";
 import '../marketing.css'
 import '../index.css';
 
@@ -44,7 +43,6 @@ export default function Home() {
       <PostsGrid limit={6} heading="Insights from the founder" />
       <CTA />
       <Footer />
-      <QuizPopup />
     </>
   );
 }
