@@ -100,10 +100,10 @@ export const BRANCHES = {
     {
       text: "If your finance manager is unavailable tomorrow, how easily can someone else continue the work?",
       options: [
-        { label: "A", text: "Very difficult — knowledge is mostly in one person's head" },
+        { label: "A", text: "Very difficult, knowledge is mostly in one person's head" },
         { label: "B", text: "Possible, but with delays and confusion" },
         { label: "C", text: "Manageable because processes are documented" },
-        { label: "D", text: "Easy — workflows and data are standardised and automated" },
+        { label: "D", text: "Easy, workflows and data are standardised and automated" },
       ],
     },
   ],
@@ -111,37 +111,37 @@ export const BRANCHES = {
     {
       text: "How often do you find mismatches or errors in your books that are hard to trace?",
       options: [
-        { label: "A", text: "Very often — it's a regular headache" },
-        { label: "B", text: "Sometimes — maybe once or twice a month" },
-        { label: "C", text: "Rarely — we catch them quickly" },
-        { label: "D", text: "Almost never — our records are clean" },
+        { label: "A", text: "Very often, it's a regular headache" },
+        { label: "B", text: "Sometimes, maybe once or twice a month" },
+        { label: "C", text: "Rarely, we catch them quickly" },
+        { label: "D", text: "Almost never, our records are clean" },
       ],
     },
     {
       text: "How often do you reconcile your bank transactions?",
       options: [
-        { label: "A", text: "Rarely — only when there's an issue" },
+        { label: "A", text: "Rarely, only when there's an issue" },
         { label: "B", text: "Monthly during closing" },
         { label: "C", text: "Weekly with manual effort" },
-        { label: "D", text: "Automatically — it's always up to date" },
+        { label: "D", text: "Automatically, it's always up to date" },
       ],
     },
     {
       text: "How often do you miss deadlines for GST, TDS, or other compliance filings?",
       options: [
-        { label: "A", text: "Frequently — deadlines are stressful" },
+        { label: "A", text: "Frequently, deadlines are stressful" },
         { label: "B", text: "Occasionally due to missing information" },
-        { label: "C", text: "Rarely — we usually stay on track" },
-        { label: "D", text: "Never — reminders and processes are automated" },
+        { label: "C", text: "Rarely, we usually stay on track" },
+        { label: "D", text: "Never, reminders and processes are automated" },
       ],
     },
     {
       text: "How easy is it to track the source of a transaction when someone asks for details?",
       options: [
-        { label: "A", text: "Very difficult — we search through emails and files" },
+        { label: "A", text: "Very difficult, we search through emails and files" },
         { label: "B", text: "Possible, but takes significant effort" },
         { label: "C", text: "Usually manageable within a few minutes" },
-        { label: "D", text: "Instant — all supporting documents are linked" },
+        { label: "D", text: "Instant, all supporting documents are linked" },
       ],
     },
     {
@@ -168,15 +168,15 @@ export const BRANCHES = {
       text: "How quickly can you see your current cash position?",
       options: [
         { label: "A", text: "I don't know / can't easily check" },
-        { label: "B", text: "End of month — after closing" },
+        { label: "B", text: "End of month, after closing" },
         { label: "C", text: "Weekly, after some manual work" },
-        { label: "D", text: "Real-time — I can check anytime" },
+        { label: "D", text: "Real-time, I can check anytime" },
       ],
     },
     {
       text: "How much visibility do you have into pending receivables?",
       options: [
-        { label: "A", text: "Very little — we usually find out when cash is delayed" },
+        { label: "A", text: "Very little, we usually find out when cash is delayed" },
         { label: "B", text: "We track it manually in Excel" },
         { label: "C", text: "We review reports periodically" },
         { label: "D", text: "We have real-time visibility and alerts" },
@@ -188,7 +188,7 @@ export const BRANCHES = {
         { label: "A", text: "Almost every week" },
         { label: "B", text: "A few times each month" },
         { label: "C", text: "Occasionally" },
-        { label: "D", text: "Rarely — most information is already available on dashboards" },
+        { label: "D", text: "Rarely, most information is already available on dashboards" },
       ],
     },
     {
@@ -217,7 +217,7 @@ export const BRANCHES = {
         { label: "A", text: "Shared over Email & WhatsApp informally" },
         { label: "B", text: "Manual entry into the system" },
         { label: "C", text: "Uploaded into accounting software" },
-        { label: "D", text: "Automated workflows — no manual handling needed" },
+        { label: "D", text: "Automated workflows, no manual handling needed" },
       ],
     },
     {
@@ -232,7 +232,7 @@ export const BRANCHES = {
     {
       text: "How much effort is required to prepare month-end closing reports?",
       options: [
-        { label: "A", text: "Extremely high — multiple people work for several days" },
+        { label: "A", text: "Extremely high, multiple people work for several days" },
         { label: "B", text: "Significant effort over a few days" },
         { label: "C", text: "A few hours of focused work" },
         { label: "D", text: "Mostly automated with minimal intervention" },
