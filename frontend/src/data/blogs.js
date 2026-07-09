@@ -59,4 +59,28 @@ export const blogs = [
     category: "Finance Operations",
     date: "June 2026",
   },
+  {
+    slug: "investor-mis-not-ready",
+    tag: "MIS Report · Investor Readiness · Finance Operations",
+    title: "Investor Asked for MIS at 9pm.",
+    titleHighlight: "Your Books Weren't Ready. Here's Why.",
+    excerpt:
+      "It is not a one-time failure. It is not your team being slow. Every time an investor asks for MIS and your books aren't ready, it is the same systems problem surfacing again — and it will keep surfacing until the root cause is fixed.",
+    author: "ScaleupCFO Team",
+    readTime: "9 min read",
+    category: "MIS · Investor Readiness · Book Closure",
+    date: "July 2026",
+  },
+  {
+    slug: "finance-ops-without-a-finance-team",
+    tag: "Startup Finance · Fractional CFO · Finance Automation",
+    title: "Your Startup Doesn't Need a Finance Team.",
+    titleHighlight: "It Needs a Finance Layer.",
+    excerpt:
+      "Most founders think the next step after outgrowing spreadsheets is hiring a junior accountant, then a senior one, then a manager. It isn't. Here's what a lean, AI-native finance function looks like instead — and the exact point where you actually need to hire.",
+    author: "ScaleupCFO Team",
+    readTime: "10 min read",
+    category: "Startup Finance · Hiring · Book Closure",
+    date: "July 2026",
+  },
 ];
