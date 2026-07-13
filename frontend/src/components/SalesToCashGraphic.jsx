@@ -42,7 +42,7 @@ export function SalesToCashGraphic() {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-        className="absolute top-6 right-6 w-10 h-10 bg-[#4A6C6F] rounded-xl flex items-center justify-center shadow-lg"
+        className="absolute top-6 right-6 w-10 h-10 bg-[#0F766E] rounded-xl flex items-center justify-center shadow-lg"
       >
         <RefreshCw className="w-5 h-5 text-white" />
       </motion.div>
@@ -81,7 +81,7 @@ export function SalesToCashGraphic() {
               key={stage}
               className={`text-center py-1.5 rounded-lg text-xs transition-all ${
                 index <= matchingStage
-                  ? "bg-[#4A6C6F] text-white"
+                  ? "bg-[#0F766E] text-white"
                   : "bg-white text-slate-400 border-2 border-slate-200"
               }`}
               animate={{
@@ -125,7 +125,7 @@ export function SalesToCashGraphic() {
                 exit={{ opacity: 0, height: 0 }}
                 className="flex items-center gap-3 bg-white rounded-lg p-2.5 border-2 border-slate-200"
               >
-                <div className="w-8 h-8 rounded-lg bg-[#4A6C6F] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-[#0F766E] flex items-center justify-center">
                   <Check className="w-4 h-4 text-white" />
                 </div>
                 <div className="flex-1">
@@ -154,7 +154,7 @@ export function SalesToCashGraphic() {
           <div className="text-lg text-slate-900">2.3s</div>
           <div className="text-xs text-slate-600">Avg time</div>
         </div>
-        <div className="bg-white rounded-xl p-2.5 border-2 border-[#4A6C6F] text-center">
+        <div className="bg-white rounded-xl p-2.5 border-2 border-[#0F766E] text-center">
           <div className="text-lg text-slate-900">98%</div>
           <div className="text-xs text-slate-600">Auto-match</div>
         </div>

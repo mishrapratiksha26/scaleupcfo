@@ -16,8 +16,8 @@ export default function Navbar() {
         to="/ai-native-services"
         style={{
           display: "block",
-          background: "linear-gradient(90deg, #34D399 0%, #10B981 100%)",
-          color: "#000",
+          background: "linear-gradient(90deg, #0F766E 0%, #0D5F58 100%)",
+          color: "#fff",
           textAlign: "center",
           fontSize: "13px",
           fontWeight: 600,
@@ -46,7 +46,7 @@ export default function Navbar() {
 
 
 <div className="logo">
-  <Link to="/" className="flex items-center gap-2 bg-black">
+  <Link to="/" className="flex items-center gap-2 bg-primary rounded-lg px-2 py-1">
     <img src={logo} alt="ScaleupCFO logo" className="h-8 w-8" />
     <span className="font-bold text-white">ScaleupCFO AI</span>
   </Link>
@@ -73,14 +73,15 @@ export default function Navbar() {
                 resourcesTimeout.current = setTimeout(() => setResourcesOpen(false), 150);
               }}
             >
-              <span style={{ cursor: "pointer", color: "white", fontSize: "0.9rem", fontWeight: 500, transition: "all 0.25s ease" }}>Resources ▾</span>
+              <span style={{ cursor: "pointer", color: "var(--text-dark)", fontSize: "0.9rem", fontWeight: 500, transition: "all 0.25s ease" }}>Resources ▾</span>
               {resourcesOpen && (
                 <ul style={{
                   position: "absolute",
                   top: "100%",
                   left: 0,
-                  background: "#111",
-                  border: "1px solid #2d2d2d",
+                  background: "var(--bg-white)",
+                  border: "1px solid hsl(var(--border))",
+                  boxShadow: "0 10px 30px rgba(10,15,28,0.1)",
                   borderRadius: "8px",
                   padding: "8px 0",
                   minWidth: "160px",
@@ -142,7 +143,7 @@ export default function Navbar() {
           </li>
           <li>
             <span
-              style={{ cursor: "pointer", color: "white", fontSize: "1rem", fontWeight: 500 }}
+              style={{ cursor: "pointer", color: "var(--text-dark)", fontSize: "1rem", fontWeight: 500 }}
               onClick={() => setResourcesOpen(!resourcesOpen)}
             >
               Resources ▾
@@ -182,12 +183,12 @@ export default function Navbar() {
     className="
       w-full
       rounded-xl
-      bg-emerald-500
+      bg-primary
       py-4
       text-center
       font-semibold
-      text-black
-      hover:bg-emerald-400
+      text-primary-foreground
+      hover:brightness-110
       transition
     "
   />

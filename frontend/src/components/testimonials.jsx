@@ -27,18 +27,15 @@ export default function Testimonials() {
     },
   ];
 return (
-    <section className="relative py-20 overflow-hidden text-white">
-      {/* Solid black top + gradient fade */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-black z-[-1]" />
-
+    <section className="relative py-20 overflow-hidden bg-background text-foreground">
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
-        {/* Header - Changed to green gradient */}
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-[#34D399] via-white to-gray-300 bg-clip-text text-transparent">
-  Why Founders Trust ScaleupCFO AI
-</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-foreground">
+            Why Founders Trust <span className="text-primary">ScaleupCFO AI</span>
+          </h2>
 
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Strategic finance, real results — in their own words.
           </p>
         </div>
@@ -48,12 +45,12 @@ return (
   {testimonials.map((t, i) => (
  <div
   key={i}
-  className="group relative flex flex-col 
-             bg-gradient-to-br from-black via-gray-900 to-black 
-             backdrop-blur-xl border-t border-b border-white/10 
-             border-l-4 border-r-4 border-[#34D399] 
-             rounded-2xl p-6 shadow-md 
-             hover:shadow-[#34D399]/30 hover:border-[#34D399]/60 
+  className="group relative flex flex-col
+             bg-card
+             border-t border-b border-border
+             border-l-4 border-r-4 border-primary
+             rounded-2xl p-6 shadow-md
+             hover:shadow-primary/20 hover:border-[#0D5F58]
              transition-all duration-500 hover:-translate-y-2"
 >
   {/* Image + Name */}
@@ -66,15 +63,15 @@ return (
       />
     </div>
     <div>
-      <h4 className="text-[#34D399] font-semibold text-lg group-hover:text-[#4ADE80] transition-colors">
+      <h4 className="text-primary font-semibold text-lg group-hover:brightness-110 transition-colors">
         {t.author}
       </h4>
-      <p className="text-gray-400 text-sm font-medium">{t.title}</p>
+      <p className="text-muted-foreground text-sm font-medium">{t.title}</p>
     </div>
   </div>
 
   {/* Quote */}
-  <p className="text-gray-200 text-base leading-relaxed italic text-center">
+  <p className="text-foreground/80 text-base leading-relaxed italic text-center">
     "{t.quote}"
   </p>
 </div>

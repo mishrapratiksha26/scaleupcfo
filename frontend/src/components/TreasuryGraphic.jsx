@@ -41,7 +41,7 @@ export function TreasuryGraphic() {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-        className="absolute top-4 right-4 w-8 h-8 md:w-10 md:h-10 bg-[#4A6C6F] rounded-xl flex items-center justify-center shadow-lg"
+        className="absolute top-4 right-4 w-8 h-8 md:w-10 md:h-10 bg-[#0F766E] rounded-xl flex items-center justify-center shadow-lg"
       >
         <Globe className="w-4 h-4 md:w-5 md:h-5 text-white" />
       </motion.div>
@@ -65,7 +65,7 @@ export function TreasuryGraphic() {
           ${(totalBalance / 1000000).toFixed(2)}M
         </div>
         <div className="flex items-center gap-2 text-xs md:text-sm">
-          <div className="w-4 h-4 md:w-5 md:h-5 bg-[#4A6C6F] rounded flex items-center justify-center">
+          <div className="w-4 h-4 md:w-5 md:h-5 bg-[#0F766E] rounded flex items-center justify-center">
             <TrendingUp className="w-3 h-3 text-white" />
           </div>
           <span>+$340K today</span>
@@ -82,7 +82,7 @@ export function TreasuryGraphic() {
             transition={{ delay: index * 0.15 }}
             className={`rounded-xl p-2 md:p-3 border-2 transition-all cursor-pointer ${
               selectedBank === index
-                ? 'border-[#4A6C6F] bg-white'
+                ? 'border-[#0F766E] bg-white'
                 : 'border-slate-200 bg-slate-50'
             }`}
             onClick={() => setSelectedBank(index)}
@@ -102,7 +102,7 @@ export function TreasuryGraphic() {
                 <motion.div
                   animate={{ opacity: [0.5, 1, 0.5] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="text-xs text-[#4A6C6F]"
+                  className="text-xs text-[#0F766E]"
                 >
                   Live
                 </motion.div>
@@ -121,7 +121,7 @@ export function TreasuryGraphic() {
 
         <div className="h-2 md:h-3 bg-slate-200 rounded-full mb-2 overflow-hidden">
           <motion.div
-            className="h-full bg-[#4A6C6F]"
+            className="h-full bg-[#0F766E]"
             initial={{ width: 0 }}
             animate={{ width: `${((forecastDay + 1) / 30) * 100}%` }}
             transition={{ duration: 0.15 }}

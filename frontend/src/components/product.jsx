@@ -86,14 +86,14 @@ export default function Product() {
   ];
 
   return (
-    <section className="relative py-20 text-white bg-black" style={{paddingTop:"2rem", paddingBottom:"2rem"}} id="products">
+    <section className="relative py-20 text-foreground bg-background" style={{paddingTop:"2rem", paddingBottom:"2rem"}} id="products">
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section header */}
         <div className="text-center mb-8">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[#34D399] via-white to-gray-300 bg-clip-text text-transparent mb-4">
-            AI-Powered CFO Modules
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4">
+            AI-Powered <span className="text-primary">CFO Modules</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">Enterprise-grade automation with human expertise. Each module works standalone or together for complete finance transformation.</p>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">Enterprise-grade automation with human expertise. Each module works standalone or together for complete finance transformation.</p>
         </div>
 
         <ProductsNav />
@@ -107,8 +107,7 @@ export default function Product() {
               <div
                 key={f.id}
                 id={f.id}   
-                className={`flex flex-col bg-gradient-to-br from-black via-gray-900 to-black 
-             backdrop-blur-xl lg:flex-row items-center gap-10 bg-white/15 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-md hover:shadow-[#34D399]/20 transition-all ${
+                className={`flex flex-col bg-card lg:flex-row items-center gap-10 border border-border rounded-2xl p-6 shadow-md hover:shadow-primary/10 transition-all ${
                   isEven ? "" : "lg:flex-row-reverse"
                 }`}
               >
@@ -119,9 +118,9 @@ export default function Product() {
 
                 {/* Content */}
                 <div className="w-full lg:w-1/2">
-                  <h3 className="text-2xl font-bold text-white mb-2">{f.title}</h3>
-                  <p className="text-gray-300 mb-4">{f.description}</p>
-                  <ul className="list-disc list-inside space-y-2 text-gray-200 mb-6">
+                  <h3 className="text-2xl font-bold text-foreground mb-2">{f.title}</h3>
+                  <p className="text-muted-foreground mb-4">{f.description}</p>
+                  <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-6">
                     {f.points.map((p, j) => (
                       <li key={j}>{p}</li>
                     ))}
@@ -129,7 +128,7 @@ export default function Product() {
                   <CalBookingButton
                     title={f.cta}
                     module_name={f.title}
-                    className="px-5 py-3 bg-[#34D399] text-black font-semibold rounded-md hover:brightness-125 hover:shadow-lg hover:scale-105 transition-all duration-300"
+                    className="px-5 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:brightness-110 hover:shadow-lg hover:scale-105 transition-all duration-300"
                   />
                 </div>
               </div>

@@ -17,21 +17,21 @@ import { SelectionOverlay } from "./dashboard/SelectionOverlay";
 import { WaitlistButton } from "./waitlist";
 
 const productMixData = [
-  { name: "Premium", value: 42, color: "hsl(174, 72%, 56%)" },
-  { name: "Standard", value: 35, color: "hsl(262, 83%, 58%)" },
-  { name: "Basic", value: 23, color: "hsl(38, 92%, 50%)" },
+  { name: "Premium", value: 42, color: "hsl(175, 77%, 26%)" },
+  { name: "Standard", value: 35, color: "hsl(175, 60%, 55%)" },
+  { name: "Basic", value: 23, color: "hsl(220, 13%, 80%)" },
 ];
 
 const channelMixData = [
-  { name: "Direct", value: 45, color: "hsl(174, 72%, 56%)" },
-  { name: "Partner", value: 30, color: "hsl(340, 82%, 52%)" },
-  { name: "Organic", value: 25, color: "hsl(200, 98%, 39%)" },
+  { name: "Direct", value: 45, color: "hsl(175, 77%, 26%)" },
+  { name: "Partner", value: 30, color: "hsl(175, 60%, 55%)" },
+  { name: "Organic", value: 25, color: "hsl(220, 13%, 80%)" },
 ];
 
 const customerMixData = [
-  { name: "Enterprise", value: 52, color: "hsl(174, 72%, 56%)" },
-  { name: "SMB", value: 33, color: "hsl(262, 83%, 58%)" },
-  { name: "Startup", value: 15, color: "hsl(38, 92%, 50%)" },
+  { name: "Enterprise", value: 52, color: "hsl(175, 77%, 26%)" },
+  { name: "SMB", value: 33, color: "hsl(175, 60%, 55%)" },
+  { name: "Startup", value: 15, color: "hsl(220, 13%, 80%)" },
 ];
 
 const Index = () => {
@@ -43,18 +43,14 @@ const Index = () => {
   };
 
   return (
-    <section className="relative pt-20 pb-8 text-white overflow-hidden" style={{paddingBottom:"2rem"}}>
-      {/* Gradient background for the section */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black 
-             backdrop-blur-xl bg-gradient-to-b from-black via-black/70 to-black z-[-1]" />
-
+    <section className="relative pt-20 pb-8 bg-background text-foreground overflow-hidden" style={{paddingBottom:"2rem"}}>
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         {/* Section header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 bg-gradient-to-r from-[#34D399] via-white to-gray-300 bg-clip-text text-transparent">
-            AI CFO Dashboard
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-foreground">
+            AI CFO <span className="text-primary">Dashboard</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Real time visibility and predictive insights for CFOs.
           </p>
         </div>
@@ -148,7 +144,7 @@ const Index = () => {
 
 {/* Waitlist CTA */}
 <div className="mt-12 flex justify-center">
-  <WaitlistButton className="px-5 py-3 bg-[#34D399] text-black font-semibold rounded-md hover:brightness-125 hover:shadow-lg hover:scale-105 transition-all duration-300" />
+  <WaitlistButton className="px-5 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:brightness-110 hover:shadow-lg hover:scale-105 transition-all duration-300" />
 
 </div>
 </div>

@@ -28,11 +28,11 @@ export default function BlogPost() {
 
   if (!blog || !ContentComponent) {
     return (
-      <main className="bg-zinc-950 text-zinc-100 min-h-screen">
+      <main className="bg-background text-foreground min-h-screen">
         <Nav />
-        <div className="flex flex-col items-center justify-center py-40 text-zinc-400">
+        <div className="flex flex-col items-center justify-center py-40 text-muted-foreground">
           <p className="text-2xl font-semibold mb-4">Blog not found</p>
-          <Link to="/blogs" className="text-emerald-400 underline">
+          <Link to="/blogs" className="text-[#2DD4BF] underline">
             ← Back to Blogs
           </Link>
         </div>
@@ -41,7 +41,7 @@ export default function BlogPost() {
   }
 
   return (
-    <main className="bg-zinc-950 text-zinc-100 min-h-screen">
+    <main className="bg-background text-foreground min-h-screen">
       <Helmet>
         <title>{blog.title} | ScaleupCFO</title>
         <meta name="description" content={blog.excerpt} />
@@ -52,32 +52,32 @@ export default function BlogPost() {
 
       {/* HERO */}
       <section className="relative overflow-hidden px-6 pb-10" style={{ paddingTop: "130px" }}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.12),_transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(15,118,110,0.12),_transparent_60%)]" />
         <div className="relative mx-auto max-w-3xl">
           <Link
             to="/blogs"
-            className="inline-flex items-center gap-1 text-sm text-zinc-400 hover:text-emerald-400 transition mb-6"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition mb-6"
           >
             ← Back to Blogs
           </Link>
 
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full mb-5">
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary bg-primary/10 px-3 py-1 rounded-full mb-5">
             {blog.tag}
           </span>
 
-          <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-2 text-foreground">
             {blog.title}
           </h1>
           {blog.titleHighlight && (
-            <h1 className="text-3xl md:text-4xl font-bold leading-tight text-emerald-400 mb-5">
+            <h1 className="text-3xl md:text-4xl font-bold leading-tight text-primary mb-5">
               {blog.titleHighlight}
             </h1>
           )}
 
-          <p className="text-zinc-400 text-lg leading-relaxed mb-8">{blog.excerpt}</p>
+          <p className="text-muted-foreground text-lg leading-relaxed mb-8">{blog.excerpt}</p>
 
-          <div className="flex items-center gap-4 text-sm text-zinc-500 border-t border-zinc-800 pt-5">
-            <span>By <strong className="text-zinc-300">{blog.author}</strong></span>
+          <div className="flex items-center gap-4 text-sm text-muted-foreground border-t border-border pt-5">
+            <span>By <strong className="text-foreground">{blog.author}</strong></span>
             <span>·</span>
             <span>{blog.readTime}</span>
             <span>·</span>
@@ -94,16 +94,16 @@ export default function BlogPost() {
           <ContentComponent />
 
           {/* CTA */}
-          <div className="mt-16 rounded-xl bg-zinc-900 border border-zinc-800 p-10 text-center">
-            <h3 className="text-2xl font-bold mb-3">See ScaleupCFO close books in under 30 minutes</h3>
-            <p className="text-zinc-400 text-sm mb-6">
+          <div className="mt-16 rounded-xl bg-card border border-border p-10 text-center">
+            <h3 className="text-2xl font-bold mb-3 text-foreground">See ScaleupCFO close books in under 30 minutes</h3>
+            <p className="text-muted-foreground text-sm mb-6">
               We'll show you exactly how the reconciliation works — TDS, GST, sales, bank — all in
               one session. No commitment needed.
             </p>
             <CalBookingButton
               title="Book a Demo →"
               module_name="blog cta"
-              className="inline-block bg-emerald-500 hover:bg-emerald-400 text-black font-semibold px-6 py-3 rounded-lg transition"
+              className="inline-block bg-primary hover:brightness-110 text-primary-foreground font-semibold px-6 py-3 rounded-lg transition"
             />
           </div>
         </div>

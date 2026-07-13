@@ -25,12 +25,12 @@ export const UnitEconomicsChart = () => {
           >
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="hsl(222, 30%, 22%)"
+              stroke="hsl(220, 13%, 91%)"
               horizontal={false}
             />
             <XAxis
               type="number"
-              stroke="hsl(215, 20%, 65%)"
+              stroke="hsl(220, 9%, 46%)"
               fontSize={12}
               tickLine={false}
               axisLine={false}
@@ -38,7 +38,7 @@ export const UnitEconomicsChart = () => {
             <YAxis
               dataKey="metric"
               type="category"
-              stroke="hsl(215, 20%, 65%)"
+              stroke="hsl(220, 9%, 46%)"
               fontSize={12}
               tickLine={false}
               axisLine={false}
@@ -46,21 +46,21 @@ export const UnitEconomicsChart = () => {
             />
             <Tooltip
               contentStyle={{
-                backgroundColor: "hsl(222, 47%, 14%)",
-                border: "1px solid hsl(222, 30%, 22%)",
+                backgroundColor: "hsl(0, 0%, 100%)",
+                border: "1px solid hsl(220, 13%, 91%)",
                 borderRadius: "8px",
-                color: "hsl(210, 40%, 98%)",
+                color: "hsl(221, 39%, 11%)",
               }}
             />
             <Bar
               dataKey="value"
-              fill="hsl(174, 72%, 56%)"
+              fill="hsl(175, 77%, 26%)"
               radius={[0, 4, 4, 0]}
               name="Actual"
             />
             <Bar
               dataKey="benchmark"
-              fill="hsl(222, 30%, 35%)"
+              fill="hsl(218, 11%, 65%)"
               radius={[0, 4, 4, 0]}
               name="Benchmark"
             />
@@ -73,7 +73,7 @@ export const UnitEconomicsChart = () => {
           <span className="text-xs text-muted-foreground">Actual</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-muted" />
+          <div className="w-3 h-3 rounded-full bg-muted-foreground" />
           <span className="text-xs text-muted-foreground">Benchmark</span>
         </div>
       </div>

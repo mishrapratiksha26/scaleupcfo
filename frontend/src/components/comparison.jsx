@@ -13,36 +13,36 @@ export default function Comparison() {
   ];
 
   return (
-    <section className="relative py-20 text-white bg-black" id="comparison">
+    <section className="relative py-20 text-foreground bg-background" id="comparison">
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[#34D399] via-white to-gray-300 bg-clip-text text-transparent mb-4">
-            Why ScaleupCFO AI Wins
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4">
+            Why <span className="text-primary">ScaleupCFO AI</span> Wins
           </h2>
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed whitespace-nowrap">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed whitespace-nowrap">
   Built for modern CFOs who demand AI + human expertise + enterprise compliance.
 </p>
         </div>
 
         {/* Comparison table */}
-        <div className="overflow-x-auto rounded-xl border border-white/10 backdrop-blur-xl bg-white/5 shadow-md">
-          <table className="min-w-full text-left text-sm text-gray-200">
-            <thead className="bg-white/10 text-gray-300">
+        <div className="overflow-x-auto rounded-xl border border-border bg-card shadow-md">
+          <table className="min-w-full text-left text-sm text-foreground">
+            <thead className="bg-secondary text-muted-foreground">
               <tr>
                 <th className="px-6 py-4 font-semibold">Capability</th>
-                <th className="px-6 py-4 font-semibold text-[#34D399]">ScaleupCFO AI</th>
+                <th className="px-6 py-4 font-semibold text-primary">ScaleupCFO AI</th>
                 <th className="px-6 py-4 font-semibold">Legacy ERP + Plugin</th>
                 <th className="px-6 py-4 font-semibold">Competitor A</th>
               </tr>
             </thead>
             <tbody>
               {rows.map((row, i) => (
-                <tr key={i} className="hover:bg-white/10 transition">
-                  <td className="px-6 py-4 font-medium text-white">{row.feature}</td>
-                  <td className="px-6 py-4 text-green-400">{row.ours}</td>
-                  <td className="px-6 py-4 text-red-400">{row.legacy}</td>
-                  <td className="px-6 py-4 text-red-400">{row.competitor}</td>
+                <tr key={i} className="hover:bg-secondary/60 transition">
+                  <td className="px-6 py-4 font-medium text-foreground">{row.feature}</td>
+                  <td className="px-6 py-4 text-success">{row.ours}</td>
+                  <td className="px-6 py-4 text-destructive">{row.legacy}</td>
+                  <td className="px-6 py-4 text-destructive">{row.competitor}</td>
                 </tr>
               ))}
             </tbody>

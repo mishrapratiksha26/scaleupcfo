@@ -3,9 +3,8 @@ import CalBookingButton from "./DemoBookingButton";
 export default function CTA() {
   return (
     <section 
-      className="cta-final" 
+      className="cta-final"
       style={{
-        background: 'linear-gradient(135deg, #000 0%, #1a1a1a 100%)',
         padding: '3rem 1rem', // Ultra tight mobile padding
         textAlign: 'center'
       }}
@@ -47,7 +46,7 @@ export default function CTA() {
           <CalBookingButton
             title="Schedule Demo →"
             module_name="CTA Final Section"
-            className="block w-full max-w-[280px] mx-auto px-6 py-3 bg-[#34D399] text-black font-bold text-base rounded-xl hover:brightness-125 hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            className="block w-full max-w-[280px] mx-auto px-6 py-3 bg-white text-primary font-bold text-base rounded-xl hover:brightness-105 hover:shadow-2xl hover:scale-105 transition-all duration-300"
           />
         </div>
 
