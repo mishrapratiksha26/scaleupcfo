@@ -9,7 +9,7 @@ import { fetchPublishedPosts, supabase, isAdminEmail } from "../lib/supabase";
 function PostCard({ post }) {
   const isLinkedIn = post.kind === "linkedin";
   const className =
-    "group flex flex-col rounded-2xl border border-zinc-800 bg-gradient-to-br from-black via-gray-900 to-black p-6 transition hover:border-emerald-500 hover:-translate-y-1";
+    "group flex flex-col rounded-2xl border border-border bg-card p-6 transition hover:border-primary hover:-translate-y-1";
 
   const body = (
     <>
@@ -21,7 +21,7 @@ function PostCard({ post }) {
           loading="lazy"
         />
       )}
-      <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+      <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
         {isLinkedIn ? (
           <>
             <Linkedin className="h-3.5 w-3.5" /> LinkedIn post
@@ -33,14 +33,14 @@ function PostCard({ post }) {
         )}
       </div>
       {post.title && (
-        <h3 className="text-lg font-semibold text-white leading-snug">{post.title}</h3>
+        <h3 className="text-lg font-semibold text-foreground leading-snug">{post.title}</h3>
       )}
       {post.caption && (
-        <p className="mt-2 text-sm text-zinc-400 leading-relaxed line-clamp-4">
+        <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-4">
           {post.caption}
         </p>
       )}
-      <div className="mt-auto flex items-center justify-between pt-4 text-xs text-zinc-500">
+      <div className="mt-auto flex items-center justify-between pt-4 text-xs text-muted-foreground">
         <span>
           {new Date(post.created_at).toLocaleDateString("en-IN", {
             day: "numeric",
@@ -48,7 +48,7 @@ function PostCard({ post }) {
             year: "numeric",
           })}
         </span>
-        <span className="inline-flex items-center gap-1 text-emerald-400 group-hover:translate-x-0.5 transition-transform">
+        <span className="inline-flex items-center gap-1 text-primary group-hover:translate-x-0.5 transition-transform">
           Read <ArrowRight className="h-3 w-3" />
         </span>
       </div>
@@ -92,21 +92,21 @@ export default function PostsGrid({ limit = 6, heading = "Insights" }) {
   }
 
   return (
-    <section className="px-6 py-20 bg-zinc-950" id="insights">
+    <section className="px-6 py-20 bg-background" id="insights">
       <div className="mx-auto max-w-6xl">
         <div className="flex justify-center">
-          <span className="inline-block rounded-full border border-zinc-800 px-4 py-1 text-xs font-semibold tracking-wide text-emerald-400">
+          <span className="inline-block rounded-full border border-border px-4 py-1 text-xs font-semibold tracking-wide text-primary">
             FROM THE FOUNDER
           </span>
         </div>
-        <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-center text-white">
+        <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-center text-foreground">
           {heading}
         </h2>
         {adminSession && (
           <div className="mt-4 flex justify-center">
             <Link
               to="/admin"
-              className="inline-flex items-center gap-1.5 text-sm text-emerald-400 hover:text-emerald-300"
+              className="inline-flex items-center gap-1.5 text-sm text-primary hover:brightness-110"
             >
               <Pencil className="h-3.5 w-3.5" /> Manage posts
             </Link>
@@ -120,7 +120,7 @@ export default function PostsGrid({ limit = 6, heading = "Insights" }) {
             ) : (
               <div
                 key={i}
-                className="h-56 animate-pulse rounded-2xl border border-zinc-800 bg-zinc-900/60"
+                className="h-56 animate-pulse rounded-2xl border border-border bg-secondary/60"
               />
             )
           )}

@@ -27,10 +27,10 @@ export const MixDonutChart = ({ title, data, delay = 0 }) => {
             </Pie>
             <Tooltip
               contentStyle={{
-                backgroundColor: "hsla(222, 22%, 46%, 1.00)",
-                border: "1px solid hsl(222, 30%, 22%)",
+                backgroundColor: "hsl(0, 0%, 100%)",
+                border: "1px solid hsl(220, 13%, 91%)",
                 borderRadius: "8px",
-                color: "hsl(210, 40%, 98%)",
+                color: "hsl(221, 39%, 11%)",
               }}
               formatter={(value) => [
                 `${((value / total) * 100).toFixed(1)}%`,

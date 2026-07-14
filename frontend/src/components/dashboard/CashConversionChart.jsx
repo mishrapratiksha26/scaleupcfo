@@ -23,17 +23,17 @@ export const CashConversionChart = () => {
       <div className="h-48">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="hsl(222, 30%, 22%)" />
+            <CartesianGrid strokeDasharray="3 3" stroke="hsl(220, 13%, 91%)" />
             <XAxis
               dataKey="week"
-              stroke="hsl(215, 20%, 65%)"
+              stroke="hsl(220, 9%, 46%)"
               fontSize={12}
               tickLine={false}
               axisLine={false}
             />
             <YAxis
   width={30}
-  stroke="hsl(215, 20%, 65%)"
+  stroke="hsl(220, 9%, 46%)"
   fontSize={12}
   tickLine={false}
   axisLine={false}
@@ -43,25 +43,25 @@ export const CashConversionChart = () => {
 
             <Tooltip
               contentStyle={{
-                backgroundColor: "hsl(222, 47%, 14%)",
-                border: "1px solid hsl(222, 30%, 22%)",
+                backgroundColor: "hsl(0, 0%, 100%)",
+                border: "1px solid hsl(220, 13%, 91%)",
                 borderRadius: "8px",
-                color: "hsl(210, 40%, 98%)",
+                color: "hsl(221, 39%, 11%)",
               }}
               formatter={(value) => [`${value} days`, ""]}
             />
             <Line
               type="monotone"
               dataKey="ccc"
-              stroke="hsl(174, 72%, 56%)"
+              stroke="hsl(175, 77%, 26%)"
               strokeWidth={2}
-              dot={{ fill: "hsl(174, 72%, 56%)", strokeWidth: 0, r: 4 }}
+              dot={{ fill: "hsl(175, 77%, 26%)", strokeWidth: 0, r: 4 }}
               name="CCC"
             />
             <Line
               type="monotone"
               dataKey="target"
-              stroke="hsl(38, 92%, 50%)"
+              stroke="hsl(32, 95%, 44%)"
               strokeWidth={2}
               strokeDasharray="5 5"
               dot={false}

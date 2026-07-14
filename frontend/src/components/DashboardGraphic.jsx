@@ -58,7 +58,7 @@ export function LiveDashboardGraphic() {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-        className="absolute top-6 right-6 w-10 h-10 bg-[#4A6C6F] rounded-xl flex items-center justify-center shadow-lg"
+        className="absolute top-6 right-6 w-10 h-10 bg-[#0F766E] rounded-xl flex items-center justify-center shadow-lg"
       >
         <Sparkles className="w-5 h-5 text-white" />
       </motion.div>
@@ -78,7 +78,7 @@ export function LiveDashboardGraphic() {
             <motion.span
               animate={{ opacity: [1, 0] }}
               transition={{ duration: 0.8, repeat: Infinity }}
-              className="w-0.5 h-4 bg-[#4A6C6F]"
+              className="w-0.5 h-4 bg-[#0F766E]"
             />
           )}
         </div>
@@ -94,13 +94,13 @@ export function LiveDashboardGraphic() {
             className="bg-white rounded-xl p-2.5 border-2 border-slate-200"
           >
             <div className="flex items-center gap-2 mb-1">
-              <div className="w-5 h-5 rounded-lg bg-[#4A6C6F] flex items-center justify-center">
+              <div className="w-5 h-5 rounded-lg bg-[#0F766E] flex items-center justify-center">
                 <TrendingUp className="w-3 h-3 text-white" />
               </div>
               <span className="text-xs text-slate-600">Revenue</span>
             </div>
             <div className="text-lg text-slate-900">$1.2M</div>
-            <div className="text-xs text-[#4A6C6F]">+18%</div>
+            <div className="text-xs text-[#0F766E]">+18%</div>
           </motion.div>
 
           <motion.div
@@ -139,13 +139,13 @@ export function LiveDashboardGraphic() {
           <div className="h-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData}>
-                <XAxis dataKey="name" stroke="#64748b" fontSize={11} />
-                <YAxis stroke="#64748b" fontSize={11} />
+                <XAxis dataKey="name" stroke="#6B7280" fontSize={11} />
+                <YAxis stroke="#6B7280" fontSize={11} />
                 <Bar dataKey="value" radius={[6, 6, 0, 0]}>
                   {chartData.map((entry, index) => (
-                    <Cell 
-                      key={`cell-${index}`} 
-                      fill={index === chartData.length - 1 ? '#4A6C6F' : '#cbd5e1'} 
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={index === chartData.length - 1 ? '#0F766E' : '#D1D5DB'}
                     />
                   ))}
                 </Bar>

@@ -32,7 +32,7 @@ export default function ProductsNav() {
     <nav className={`products-nav-wrapper ${scrolled ? "scrolled" : ""}`}>
       {/* Mobile header */}
       <div className="products-nav-header">
-        <span className="products-nav-title" style={{ color: "white" }}>
+        <span className="products-nav-title" style={{ color: "var(--text-dark)" }}>
           Products
         </span>
         <button
@@ -59,9 +59,9 @@ export default function ProductsNav() {
                 top: "100%",
                 left: 0,
                 right: 0,
-                background: "rgba(0,0,0,0.9)",
-                color: "white",
-                boxShadow: "none",
+                background: "rgba(255,255,255,0.98)",
+                color: "var(--text-dark)",
+                boxShadow: "0 10px 30px rgba(10,15,28,0.1)",
                 zIndex: 10,
                 backdropFilter: "blur(12px)",
                 WebkitBackdropFilter: "blur(12px)",
@@ -81,15 +81,12 @@ export default function ProductsNav() {
                 isActive ? "products-nav-link-active" : ""
               }`}
               style={{
-                color: isActive ? "white" : "#34D399",
+                color: isActive ? "hsl(var(--primary))" : "var(--text-dark)",
                 background: "transparent",
                 textAlign: "left",
                 padding: "1rem",
                 borderRadius: "0.75rem",
                 fontWeight: isActive ? "600" : "500",
-                textShadow: isActive
-                  ? "0 0 10px rgba(255,255,255,0.4)"
-                  : "none",
               }}
             >
               {item.label}

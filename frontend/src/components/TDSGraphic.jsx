@@ -42,7 +42,7 @@ export function TDSGraphic() {
       <motion.div
         animate={{ rotate: reconciling ? 360 : 0 }}
         transition={{ duration: 1, ease: "linear" }}
-        className="absolute top-6 right-6 w-10 h-10 bg-[#4A6C6F] rounded-xl flex items-center justify-center shadow-lg"
+        className="absolute top-6 right-6 w-10 h-10 bg-[#0F766E] rounded-xl flex items-center justify-center shadow-lg"
       >
         <FileCheck className="w-5 h-5 text-white" />
       </motion.div>
@@ -59,10 +59,10 @@ export function TDSGraphic() {
       <div className="grid grid-cols-2 gap-2.5 mb-4">
         <motion.div
           animate={{ scale: reconciling ? [1, 1.05, 1] : 1 }}
-          className="bg-white rounded-xl p-3 border-2 border-[#4A6C6F]"
+          className="bg-white rounded-xl p-3 border-2 border-[#0F766E]"
         >
           <div className="flex items-center gap-2 mb-1">
-            <div className="w-5 h-5 bg-[#4A6C6F] rounded flex items-center justify-center">
+            <div className="w-5 h-5 bg-[#0F766E] rounded flex items-center justify-center">
               <CheckCircle2 className="w-3 h-3 text-white" />
             </div>
             <span className="text-xs text-slate-700">Matched</span>
@@ -100,11 +100,11 @@ export function TDSGraphic() {
                 record.status === 'matched'
                   ? 'bg-white border-slate-200'
                   : 'bg-slate-50 border-red-200'
-              } ${index === currentRecord && reconciling ? 'ring-2 ring-[#4A6C6F]' : ''}`}
+              } ${index === currentRecord && reconciling ? 'ring-2 ring-[#0F766E]' : ''}`}
             >
               <div className="flex items-center gap-2.5">
                 <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
-                  record.status === 'matched' ? 'bg-[#4A6C6F]' : 'bg-red-500'
+                  record.status === 'matched' ? 'bg-[#0F766E]' : 'bg-red-500'
                 }`}>
                   {record.status === 'matched' ? (
                     <CheckCircle2 className="w-4 h-4 text-white" />
@@ -143,7 +143,7 @@ export function TDSGraphic() {
         </div>
         <div className="h-2 bg-slate-200 rounded-full overflow-hidden mb-2">
           <motion.div
-            className="h-full bg-[#4A6C6F]"
+            className="h-full bg-[#0F766E]"
             initial={{ width: 0 }}
             animate={{ width: `${(matchedCount / records.length) * 100}%` }}
             transition={{ duration: 0.5 }}

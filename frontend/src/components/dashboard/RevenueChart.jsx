@@ -31,38 +31,38 @@ export const RevenueChart = () => {
               <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop
                   offset="5%"
-                  stopColor="hsl(174, 72%, 56%)"
+                  stopColor="hsl(175, 77%, 26%)"
                   stopOpacity={0.3}
                 />
                 <stop
                   offset="95%"
-                  stopColor="hsl(174, 72%, 56%)"
+                  stopColor="hsl(175, 77%, 26%)"
                   stopOpacity={0}
                 />
               </linearGradient>
               <linearGradient id="marginGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop
                   offset="5%"
-                  stopColor="hsl(262, 83%, 58%)"
+                  stopColor="hsl(220, 9%, 46%)"
                   stopOpacity={0.3}
                 />
                 <stop
                   offset="95%"
-                  stopColor="hsl(262, 83%, 58%)"
+                  stopColor="hsl(220, 9%, 46%)"
                   stopOpacity={0}
                 />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="hsl(222, 30%, 22%)" />
+            <CartesianGrid strokeDasharray="3 3" stroke="hsl(220, 13%, 91%)" />
             <XAxis
               dataKey="month"
-              stroke="hsl(215, 20%, 65%)"
+              stroke="hsl(220, 9%, 46%)"
               fontSize={12}
               tickLine={false}
               axisLine={false}
             />
             <YAxis
-              stroke="hsl(215, 20%, 65%)"
+              stroke="hsl(220, 9%, 46%)"
               fontSize={12}
               tickLine={false}
               axisLine={false}
@@ -70,17 +70,17 @@ export const RevenueChart = () => {
             />
             <Tooltip
               contentStyle={{
-                backgroundColor: "hsl(222, 47%, 14%)",
-                border: "1px solid hsl(222, 30%, 22%)",
+                backgroundColor: "hsl(0, 0%, 100%)",
+                border: "1px solid hsl(220, 13%, 91%)",
                 borderRadius: "8px",
-                color: "hsl(210, 40%, 98%)",
+                color: "hsl(221, 39%, 11%)",
               }}
               formatter={(value) => [`$${value.toLocaleString()}`, ""]}
             />
             <Area
               type="monotone"
               dataKey="revenue"
-              stroke="hsl(174, 72%, 56%)"
+              stroke="hsl(175, 77%, 26%)"
               strokeWidth={2}
               fill="url(#revenueGradient)"
               name="Revenue"
@@ -88,7 +88,7 @@ export const RevenueChart = () => {
             <Area
               type="monotone"
               dataKey="margin"
-              stroke="hsl(262, 83%, 58%)"
+              stroke="hsl(220, 9%, 46%)"
               strokeWidth={2}
               fill="url(#marginGradient)"
               name="Margin"
@@ -102,7 +102,7 @@ export const RevenueChart = () => {
           <span className="text-xs text-muted-foreground">Revenue</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-chart-2" />
+          <div className="w-3 h-3 rounded-full bg-muted-foreground" />
           <span className="text-xs text-muted-foreground">Margin</span>
         </div>
       </div>

@@ -19,7 +19,7 @@ const FADE_MS = 220;
 const REDUCED_MS = 150;
 const TOTAL_STEPS = 7; // main question + 5 branch questions + contact form
 const CONTACT_STEP = 6;
-const CONFETTI_COLORS = ["#10b981", "#34d399", "#fbbf24", "#f97316", "#60a5fa"];
+const CONFETTI_COLORS = ["#0F766E", "#2DD4BF", "#D97706", "#0D5F58", "#FFFFFF"];
 
 // Lightweight input-modality tracker so option buttons can show a real
 // focus-visible ring for keyboard users without one for mouse clicks.
@@ -38,11 +38,11 @@ function QuizOptionButton({ selected, disabled, onClick, className, children }) 
   const [focusVisible, setFocusVisible] = useState(false);
   const active = (hovered || focusVisible) && !disabled;
 
-  const background = selected ? "rgba(16,185,129,0.18)" : active ? "rgba(16,185,129,0.08)" : "#18181b";
-  const borderColor = selected || active ? "#10b981" : "#27272a";
-  const color = selected || active ? "#ffffff" : "#a1a1aa";
+  const background = selected ? "rgba(15,118,110,0.12)" : active ? "rgba(15,118,110,0.06)" : "#FFFFFF";
+  const borderColor = selected || active ? "#0F766E" : "#E5E7EB";
+  const color = selected || active ? "#0F766E" : "#111827";
   const transform = selected ? "scale(0.98)" : active ? "translateY(-2px) scale(1.03)" : "translateY(0) scale(1)";
-  const boxShadow = active && !selected ? "0 10px 24px rgba(16,185,129,0.18)" : "none";
+  const boxShadow = active && !selected ? "0 10px 24px rgba(15,118,110,0.12)" : "none";
 
   return (
     <button
@@ -62,7 +62,7 @@ function QuizOptionButton({ selected, disabled, onClick, className, children }) 
         color,
         transform,
         boxShadow,
-        outline: focusVisible ? "2px solid rgba(16,185,129,0.55)" : "none",
+        outline: focusVisible ? "2px solid rgba(15,118,110,0.55)" : "none",
         outlineOffset: focusVisible ? 2 : 0,
         transition:
           "background-color 150ms ease, border-color 150ms ease, color 150ms ease, transform 150ms ease, box-shadow 150ms ease",
@@ -129,7 +129,7 @@ function CircleProgress({ pct, color }) {
   return (
     <div className="relative inline-flex items-center justify-center" style={{ width: 136, height: 136 }}>
       <svg width="136" height="136" style={{ transform: "rotate(-90deg)" }}>
-        <circle cx="68" cy="68" r={r} fill="none" stroke="#27272a" strokeWidth="10" />
+        <circle cx="68" cy="68" r={r} fill="none" stroke="#E5E7EB" strokeWidth="10" />
         <circle
           cx="68" cy="68" r={r}
           fill="none"
@@ -142,8 +142,8 @@ function CircleProgress({ pct, color }) {
         />
       </svg>
       <div className="absolute flex flex-col items-center">
-        <span className="text-3xl font-bold text-white">{pct}%</span>
-        <span className="text-xs text-zinc-500 mt-0.5">score</span>
+        <span className="text-3xl font-bold text-foreground">{pct}%</span>
+        <span className="text-xs text-muted-foreground mt-0.5">score</span>
       </div>
     </div>
   );
@@ -438,7 +438,7 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
   function renderMain(interactive) {
     return (
       <div>
-        <p className="text-white font-bold text-lg sm:text-xl leading-snug mb-3">
+        <p className="text-foreground font-bold text-lg sm:text-xl leading-snug mb-3">
           {MAIN_QUESTION.text}
         </p>
         <div className="grid grid-cols-2 gap-2 sm:gap-3">
@@ -466,9 +466,9 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
     return (
       <div>
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs text-zinc-500">Question {stepIndex} of 5</span>
+          <span className="text-xs text-muted-foreground">Question {stepIndex} of 5</span>
         </div>
-        <p className="text-white font-semibold text-base sm:text-lg leading-snug mb-5">{q.text}</p>
+        <p className="text-foreground font-semibold text-base sm:text-lg leading-snug mb-5">{q.text}</p>
         <div className="flex flex-col gap-3">
           {q.options.map((opt, idx) => {
             const isPending = interactive && pendingValue === idx;
@@ -480,7 +480,7 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
                 onClick={() => selectBranch(idx)}
                 className="w-full text-left rounded-xl px-4 py-3 text-sm disabled:cursor-default"
               >
-                <span className="font-bold mr-2" style={{ color: isPending ? "#10b981" : "#52525b" }}>
+                <span className="font-bold mr-2" style={{ color: isPending ? "#0F766E" : "#52525b" }}>
                   {opt.label}
                 </span>
                 {opt.text}
@@ -496,17 +496,17 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
     return (
       <div>
         <div className="relative mb-1">
-          <p className="font-bold text-lg sm:text-xl leading-snug" style={{ color: "#3f3a34" }}>
+          <p className="font-bold text-lg sm:text-xl leading-snug" style={{ color: "#111827" }}>
             Great, you clearly know your firm's pain points. {reducedMotion && <span aria-hidden="true">🎉</span>}
           </p>
           {showConfetti && !reducedMotion && <ConfettiBurst />}
         </div>
-        <p className="text-sm leading-relaxed mb-5" style={{ color: "#7a6f62" }}>
+        <p className="text-sm leading-relaxed mb-5" style={{ color: "#0D5F58" }}>
           Just a few details and your free AI Readiness Guide is ready to download.
         </p>
         <form onSubmit={interactive ? handleContactSubmit : (e) => e.preventDefault()} className="flex flex-col gap-3">
           <div>
-            <label className="text-xs mb-1 block" style={{ color: "#7a6f62" }}>Your Name</label>
+            <label className="text-xs mb-1 block" style={{ color: "#0D5F58" }}>Your Name</label>
             <input
               required
               type="text"
@@ -515,12 +515,12 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
               value={contact.name}
               onChange={(e) => setContact({ ...contact, name: e.target.value })}
               className="quiz-input-light w-full rounded-xl px-4 py-3 text-sm outline-none transition"
-              style={{ background: "#ffffff", border: "1px solid #c9b49b", color: "#3f3a34" }}
+              style={{ background: "#ffffff", border: "1px solid #99E6DC", color: "#111827" }}
             />
           </div>
 
           <div>
-            <label className="text-xs mb-1 block" style={{ color: "#7a6f62" }}>Name of Your Firm</label>
+            <label className="text-xs mb-1 block" style={{ color: "#0D5F58" }}>Name of Your Firm</label>
             <input
               required
               type="text"
@@ -529,12 +529,12 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
               value={contact.firm}
               onChange={(e) => setContact({ ...contact, firm: e.target.value })}
               className="quiz-input-light w-full rounded-xl px-4 py-3 text-sm outline-none transition"
-              style={{ background: "#ffffff", border: "1px solid #c9b49b", color: "#3f3a34" }}
+              style={{ background: "#ffffff", border: "1px solid #99E6DC", color: "#111827" }}
             />
           </div>
 
           <div>
-            <label className="text-xs mb-1 block" style={{ color: "#7a6f62" }}>Work Email</label>
+            <label className="text-xs mb-1 block" style={{ color: "#0D5F58" }}>Work Email</label>
             <input
               required
               type="email"
@@ -546,20 +546,20 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
                 if (contactErrors.email) setContactErrors({ ...contactErrors, email: null });
               }}
               className="quiz-input-light w-full rounded-xl px-4 py-3 text-sm outline-none transition"
-              style={{ background: "#ffffff", border: contactErrors.email ? "1px solid #dc2626" : "1px solid #c9b49b", color: "#3f3a34" }}
+              style={{ background: "#ffffff", border: contactErrors.email ? "1px solid #dc2626" : "1px solid #99E6DC", color: "#111827" }}
             />
             {contactErrors.email && <p className="text-xs mt-1" style={{ color: "#dc2626" }}>{contactErrors.email}</p>}
           </div>
 
           <div>
-            <label className="text-xs mb-1 block" style={{ color: "#7a6f62" }}>Phone Number</label>
+            <label className="text-xs mb-1 block" style={{ color: "#0D5F58" }}>Phone Number</label>
             <div className="flex gap-2">
               <select
                 disabled={!interactive || busy || submitting}
                 value={countryCode}
                 onChange={(e) => setCountryCode(e.target.value)}
                 className="quiz-input-light rounded-xl px-2 py-3 text-sm outline-none transition flex-shrink-0"
-                style={{ background: "#ffffff", border: "1px solid #c9b49b", color: "#3f3a34", width: "110px" }}
+                style={{ background: "#ffffff", border: "1px solid #99E6DC", color: "#111827", width: "110px" }}
               >
                 {COUNTRY_CODES.map((cc) => (
                   <option key={cc.c + cc.n} value={cc.c}>
@@ -580,7 +580,7 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
                   if (contactErrors.phone) setContactErrors({ ...contactErrors, phone: null });
                 }}
                 className="quiz-input-light flex-1 rounded-xl px-4 py-3 text-sm outline-none transition"
-                style={{ background: "#ffffff", border: contactErrors.phone ? "1px solid #dc2626" : "1px solid #c9b49b", color: "#3f3a34" }}
+                style={{ background: "#ffffff", border: contactErrors.phone ? "1px solid #dc2626" : "1px solid #99E6DC", color: "#111827" }}
               />
             </div>
             {contactErrors.phone && <p className="text-xs mt-1" style={{ color: "#dc2626" }}>{contactErrors.phone}</p>}
@@ -589,13 +589,13 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
           <button
             type="submit"
             disabled={!interactive || busy || submitting}
-            className="w-full bg-emerald-600 hover:bg-emerald-500 text-black font-semibold py-3 rounded-xl transition text-sm mt-1 flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-70"
+            className="w-full bg-primary hover:brightness-110 text-primary-foreground font-semibold py-3 rounded-xl transition text-sm mt-1 flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-70"
           >
             {submitting ? (
               <>
                 <span
                   className="inline-block w-4 h-4 rounded-full border-2 animate-spin"
-                  style={{ borderColor: "rgba(0,0,0,0.25)", borderTopColor: "#000000" }}
+                  style={{ borderColor: "rgba(255,255,255,0.35)", borderTopColor: "#ffffff" }}
                   aria-hidden="true"
                 />
                 Getting your guide...
@@ -605,7 +605,7 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
             )}
           </button>
           {submitError && (
-            <p className="text-xs text-center" style={{ color: "#c2410c" }} role="alert">
+            <p className="text-xs text-center" style={{ color: "#DC2626" }} role="alert">
               {submitError}
             </p>
           )}
@@ -634,13 +634,13 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
             >
               {result.emoji} {result.bucket}
             </span>
-            <h3 className="text-base font-semibold text-white leading-snug mb-2">{result.headline}</h3>
-            <p className="text-zinc-400 text-sm leading-relaxed mb-5">{result.sub}</p>
+            <h3 className="text-base font-semibold text-foreground leading-snug mb-2">{result.headline}</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-5">{result.sub}</p>
           </>
         )}
 
-        <h3 className="text-lg font-bold text-white mb-2">Done. Here's your guide.</h3>
-        <p className="text-zinc-400 text-sm leading-relaxed mb-6 max-w-md mx-auto">
+        <h3 className="text-lg font-bold text-foreground mb-2">Done. Here's your guide.</h3>
+        <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-md mx-auto">
           Your answers show where to look first, and the guide shows you what to do about it.
         </p>
 
@@ -648,7 +648,7 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
           href={pdfHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-10 py-5 rounded-xl transition text-lg sm:text-xl shadow-lg shadow-emerald-500/30 mb-4"
+          className="inline-block bg-primary hover:brightness-110 text-primary-foreground font-bold px-10 py-5 rounded-xl transition text-lg sm:text-xl shadow-lg shadow-primary/30 mb-4"
           style={
             reducedMotion
               ? undefined
@@ -662,7 +662,7 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
           Download the AI Readiness Guide (PDF) →
         </a>
 
-        <p className="text-zinc-500 text-xs leading-relaxed max-w-sm mx-auto mb-2">
+        <p className="text-muted-foreground text-xs leading-relaxed max-w-sm mx-auto mb-2">
           Don't worry, you don't have to figure this out alone. The guide walks you through your
           first steps, and we're here if you want to talk it through.
         </p>
@@ -670,19 +670,19 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
         {result?.offer && (
           <div
             className="rounded-xl p-4 mt-5 text-left"
-            style={{ background: "#1a0a00", border: "1px solid rgba(251,146,60,0.27)" }}
+            style={{ background: "rgba(15,118,110,0.08)", border: "1px solid rgba(15,118,110,0.25)" }}
           >
-            <p className="text-xs font-bold text-orange-400 uppercase tracking-widest mb-1">🎁 Special Offer</p>
-            <p className="text-sm text-zinc-300">
+            <p className="text-xs font-bold uppercase tracking-widest mb-1 text-primary">🎁 Special Offer</p>
+            <p className="text-sm text-foreground/80">
               Because of where your firm stands, we're offering a{" "}
-              <strong className="text-white">3-month free subscription</strong> to Lekha AI, no
+              <strong className="text-foreground">3-month free subscription</strong> to Lekha AI, no
               credit card required. Leave your details and we'll reach out personally.
             </p>
           </div>
         )}
 
         {mode === "modal" && (
-          <button onClick={onClose} className="w-full text-zinc-600 hover:text-zinc-400 text-xs py-2 mt-4 transition">
+          <button onClick={onClose} className="w-full text-muted-foreground hover:text-foreground text-xs py-2 mt-4 transition">
             Close
           </button>
         )}
@@ -693,13 +693,13 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
   function renderHeader() {
     return (
       <div className={mode === "modal" ? "text-center mb-5" : "text-center mb-6"}>
-        <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Understand where you stand.</h2>
-        <p className="text-zinc-400 text-sm leading-relaxed max-w-md mx-auto">
+        <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">Understand where you stand.</h2>
+        <p className="text-muted-foreground text-sm leading-relaxed max-w-md mx-auto">
           Answer a few quick questions and get our free AI Readiness Guide. See where your firm's
           hours really go, and how to scale your practice without disrupting it.
         </p>
         {step === 0 && !completed && (
-          <p className="text-zinc-600 text-xs mt-3">Takes under a minute · Instant download at the end</p>
+          <p className="text-muted-foreground text-xs mt-3">Takes under a minute · Instant download at the end</p>
         )}
       </div>
     );
@@ -716,8 +716,8 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
     : (completed ? -1 : step);
   const isContactStep = themeStep === CONTACT_STEP;
   const theme = isContactStep
-    ? { cardBg: "#f1e6d9", cardBorder: "#d9c7ae", label: "#7a6f62", track: "#e4d5c1" }
-    : { cardBg: "#18181b", cardBorder: "#27272a", label: "#71717a", track: "#27272a" };
+    ? { cardBg: "#E6FAF6", cardBorder: "#99E6DC", label: "#0D5F58", track: "#CCFBF1" }
+    : { cardBg: "#FFFFFF", cardBorder: "#E5E7EB", label: "#6B7280", track: "#E5E7EB" };
 
   const questionArea = completed && !transitionState ? (
     renderResult({ animateIn: celebrate })
@@ -729,13 +729,13 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
             <span className="text-xs" style={{ color: theme.label }}>
               Step {Math.min(progressIndex, TOTAL_STEPS)} of {TOTAL_STEPS}
             </span>
-            <span className="text-xs text-emerald-400 font-semibold">
+            <span className="text-xs text-primary font-semibold">
               {Math.round((progressIndex / TOTAL_STEPS) * 100)}%
             </span>
           </div>
           <div className="w-full h-1 rounded-full mb-6 overflow-hidden" style={{ background: theme.track }}>
             <div
-              className="h-full bg-emerald-500 rounded-full"
+              className="h-full bg-primary rounded-full"
               style={{ width: `${(progressIndex / TOTAL_STEPS) * 100}%`, transition: "width 400ms ease" }}
             />
           </div>
@@ -784,9 +784,9 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
         <div
           className="relative w-full max-w-lg rounded-2xl overflow-hidden"
           style={{
-            background: "#0f0f0f",
-            border: "1px solid rgba(255,255,255,0.1)",
-            boxShadow: "0 25px 60px rgba(0,0,0,0.6)",
+            background: "#FFFFFF",
+            border: "1px solid #E5E7EB",
+            boxShadow: "0 25px 60px rgba(10,15,28,0.25)",
             maxHeight: "92vh",
             overflowY: "auto",
             opacity: closing ? 0 : 1,
@@ -794,15 +794,15 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
             transition: "opacity 0.3s, transform 0.3s",
           }}
         >
-          <div style={{ height: "3px", background: "linear-gradient(90deg,#10b981,#34d399)", flexShrink: 0 }} />
+          <div style={{ height: "3px", background: "linear-gradient(90deg,#0F766E,#2DD4BF)", flexShrink: 0 }} />
 
           <div className="flex items-center justify-between px-7 pt-5 pb-0">
             {canGoBack ? (
-              <button onClick={goBack} className="flex items-center gap-1 text-xs text-zinc-500 hover:text-emerald-400 transition">
+              <button onClick={goBack} className="flex items-center gap-1 text-xs text-zinc-500 hover:text-primary transition">
                 ← Back
               </button>
             ) : <span />}
-            <button onClick={onClose} className="text-zinc-500 hover:text-white transition text-lg leading-none ml-auto" aria-label="Close">
+            <button onClick={onClose} className="text-zinc-500 hover:text-foreground transition text-lg leading-none ml-auto" aria-label="Close">
               ✕
             </button>
           </div>
@@ -827,7 +827,7 @@ export default function BmiQuiz({ mode, source, pdfHref, onClose, closing }) {
         {canGoBack && (
           <button
             onClick={goBack}
-            className="flex items-center gap-1 text-xs hover:text-emerald-400 transition mb-3"
+            className="flex items-center gap-1 text-xs hover:text-primary transition mb-3"
             style={{ color: theme.label }}
           >
             ← Back

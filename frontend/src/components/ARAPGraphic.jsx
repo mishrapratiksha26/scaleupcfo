@@ -31,7 +31,7 @@ export function ARAPGraphic() {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 2, repeat: Infinity ,ease: "linear" }}
-        className="absolute top-6 right-6 w-10 h-10 bg-[#4A6C6F] rounded-xl flex items-center justify-center shadow-lg"
+        className="absolute top-6 right-6 w-10 h-10 bg-[#0F766E] rounded-xl flex items-center justify-center shadow-lg"
       >
         <Zap className="w-5 h-5 text-white" />
       </motion.div>
@@ -56,12 +56,12 @@ export function ARAPGraphic() {
           >
             <div className={`rounded-xl p-3 border-2 transition-all duration-500 ${
               index < processedCount
-                ? 'bg-white border-[#4A6C6F]'
+                ? 'bg-white border-[#0F766E]'
                 : 'bg-slate-50 border-slate-200'
             }`}>
               <div className="flex items-center gap-3">
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                  index < processedCount ? 'bg-[#4A6C6F]' : 'bg-slate-300'
+                  index < processedCount ? 'bg-[#0F766E]' : 'bg-slate-300'
                 }`}>
                   <AnimatePresence mode="wait">
                     {index < processedCount ? (
@@ -104,7 +104,7 @@ export function ARAPGraphic() {
                   <motion.div
                     animate={{ opacity: [0.5, 1, 0.5] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
-                    className="text-xs bg-[#4A6C6F] text-white px-3 py-1 rounded-full"
+                    className="text-xs bg-[#0F766E] text-white px-3 py-1 rounded-full"
                   >
                     Processing...
                   </motion.div>
@@ -121,7 +121,7 @@ export function ARAPGraphic() {
           <div className="text-lg text-slate-900">156</div>
           <div className="text-xs text-slate-600">Processed today</div>
         </div>
-        <div className="bg-white rounded-xl p-2.5 border-2 border-[#4A6C6F] text-center">
+        <div className="bg-white rounded-xl p-2.5 border-2 border-[#0F766E] text-center">
           <div className="text-lg text-slate-900">94%</div>
           <div className="text-xs text-slate-600">Auto-coded</div>
         </div>
@@ -138,7 +138,7 @@ export function ARAPGraphic() {
         transition={{ delay: 1 }}
         className="flex items-center gap-2 text-xs text-slate-600"
       >
-        <ArrowRight className="w-3 h-3 text-[#4A6C6F]" />
+        <ArrowRight className="w-3 h-3 text-[#0F766E]" />
         AI learning from your GL history • Accuracy improving daily
       </motion.div>
     </motion.div>
