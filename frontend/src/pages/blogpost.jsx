@@ -1,6 +1,8 @@
 import { useParams, Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Nav from "../components/navbar";
+import BlogLeadPopup, { BLOG_LEAD_SUBMITTED_KEY } from "../components/BlogLeadPopup";
 import { blogs } from "../data/blogs";
 import WhyBookClosureIsSlow from "../blogs/why-book-closure-is-slow";
 import TdsReconciliation10Minutes from "../blogs/tds-reconciliation-10-minutes";
@@ -9,6 +11,7 @@ import CfoCashPositionRealTime from "../blogs/cfo-cash-position-real-time";
 import SalesReconciliationLayers from "../blogs/sales-reconciliation-layers";
 import InvestorMisNotReady from "../blogs/investor-mis-not-ready";
 import FinanceOpsWithoutAFinanceTeam from "../blogs/finance-ops-without-a-finance-team";
+import GstReconciliation30Minutes from "../blogs/gst-reconciliation-30-minutes";
 import CalBookingButton from "../components/DemoBookingButton";
 
 const contentMap = {
@@ -19,12 +22,40 @@ const contentMap = {
   "sales-reconciliation-layers": SalesReconciliationLayers,
   "investor-mis-not-ready": InvestorMisNotReady,
   "finance-ops-without-a-finance-team": FinanceOpsWithoutAFinanceTeam,
+  "gst-reconciliation-30-minutes": GstReconciliation30Minutes,
 };
+
+const LEAD_POPUP_SCROLL_THRESHOLD = 0.2; // show once ~1/5 of the page has been scrolled
 
 export default function BlogPost() {
   const { slug } = useParams();
   const blog = blogs.find((b) => b.slug === slug);
   const ContentComponent = contentMap[slug];
+  const [showLeadPopup, setShowLeadPopup] = useState(false);
+  const hasTriggeredRef = useRef(false);
+
+  useEffect(() => {
+    hasTriggeredRef.current = false;
+    setShowLeadPopup(false);
+  }, [slug]);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (hasTriggeredRef.current) return;
+      if (localStorage.getItem(BLOG_LEAD_SUBMITTED_KEY) === "1") return;
+
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollableHeight <= 0) return;
+
+      if (window.scrollY / scrollableHeight >= LEAD_POPUP_SCROLL_THRESHOLD) {
+        hasTriggeredRef.current = true;
+        setShowLeadPopup(true);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [slug]);
 
   if (!blog || !ContentComponent) {
     return (
@@ -108,6 +139,15 @@ export default function BlogPost() {
           </div>
         </div>
       </section>
+
+      {showLeadPopup && (
+        <BlogLeadPopup
+          blogSlug={slug}
+          blogTitle={blog.title}
+          onClose={() => setShowLeadPopup(false)}
+          onSubmitted={() => setShowLeadPopup(false)}
+        />
+      )}
     </main>
   );
 }
