@@ -83,4 +83,16 @@ export const blogs = [
     category: "Startup Finance · Hiring · Book Closure",
     date: "July 2026",
   },
+  {
+    slug: "gst-reconciliation-30-minutes",
+    tag: "GST Reconciliation · ITC Matching · GSTR-2B · CA Firms",
+    title: "GST Reconciliation Takes Your Team 3 Days Every Month.",
+    titleHighlight: "AI Does It in 30 Minutes.",
+    excerpt:
+      "Every month, someone on your team opens the purchase register, downloads GSTR-2B, and starts matching line by line in Excel. Hundreds of entries. Vendor chases. ITC judgement calls at midnight. It doesn't have to be this way — and you don't have to bet a single live filing to find out.",
+    author: "ScaleupCFO Team",
+    readTime: "8 min read",
+    category: "GST · ITC · GSTR-2B · CA Firms",
+    date: "July 2026",
+  },
 ];
