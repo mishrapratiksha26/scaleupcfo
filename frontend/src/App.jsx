@@ -15,6 +15,7 @@ import BlogsPage from "./pages/blogs";
 import BlogPostPage from "./pages/blogpost";
 import ResourcesPage from "./pages/resources";
 import AiReadinessGuidePage from "./pages/aiReadinessGuide";
+import GstReconciliationResourcePage from "./pages/gstReconciliationResource";
 import { initTallyFormTracking } from "./utils/analytics"; // import your helper
 
 export default function App() {
@@ -62,6 +63,7 @@ useEffect(() => {
         <Route path="/blogs/:slug" element={<BlogPostPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/resources/ai-readiness-guide" element={<AiReadinessGuidePage />} />
+        <Route path="/resources/gst-reconciliation-30-minutes" element={<GstReconciliationResourcePage />} />
       </Routes>
     </Router>
   );

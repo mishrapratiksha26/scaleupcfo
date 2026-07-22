@@ -350,7 +350,6 @@ export default function FinanceOpsWithoutAFinanceTeam() {
           <Link to="/blogs/gap-between-finding-and-fixing-mismatch"><span className="sl-dot"></span>You Found the Mismatch. Now What?</Link>
           <Link to="/blogs/why-book-closure-is-slow"><span className="sl-dot"></span>Why Does Month-End Book Closure Take So Long? It's Not Your Team.</Link>
           <Link to="/blogs/investor-mis-not-ready"><span className="sl-dot"></span>Investor Asked for MIS at 9pm. Your Books Weren't Ready.</Link>
-          <Link to="/blogs/gst-reconciliation-30-minutes"><span className="sl-dot"></span>GST Reconciliation Takes Your Team 3 Days Every Month. AI Does It in 30 Minutes.</Link>
         </div>
       </div>
 

@@ -10,4 +10,12 @@ export const resources = [
     href: "/resources/ai-readiness-guide",
     tag: "Guide · AI Readiness",
   },
+  {
+    slug: "gst-reconciliation-30-minutes",
+    title: "GST Reconciliation Takes 3 Days. AI Does It in 30 Minutes.",
+    description:
+      "Catching the mismatch is the easy 10%. Closing every non-reconciled item before the deadline is the other 90% — here's exactly how AI runs the full GST cycle for CA firms.",
+    href: "/resources/gst-reconciliation-30-minutes",
+    tag: "GST · ITC · GSTR-2B · CA Firms",
+  },
 ];

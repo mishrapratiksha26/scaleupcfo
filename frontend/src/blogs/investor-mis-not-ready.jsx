@@ -373,7 +373,6 @@ export default function InvestorMisNotReady() {
           <Link to="/blogs/cfo-cash-position-real-time"><span className="sl-dot"></span>"What's Our Cash Position Right Now?" — Why Your CFO Doesn't Have a Real Answer</Link>
           <Link to="/blogs/sales-reconciliation-layers"><span className="sl-dot"></span>Why Sales Reconciliation Has So Many Layers — And How to Remove Them</Link>
           <Link to="/blogs/finance-ops-without-a-finance-team"><span className="sl-dot"></span>Your Startup Doesn't Need a Finance Team. It Needs a Finance Layer.</Link>
-          <Link to="/blogs/gst-reconciliation-30-minutes"><span className="sl-dot"></span>GST Reconciliation Takes Your Team 3 Days Every Month. AI Does It in 30 Minutes.</Link>
         </div>
       </div>
 
