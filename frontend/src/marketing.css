@@ -628,6 +628,90 @@ section.features-detail.product-section {
 .blog-post-body .callout-green p { color: #1F2937; }
 .blog-post-body .callout-green strong { color: #16A34A; }
 
+/* forest callout (darker teal accent) */
+.blog-post-body .callout-forest { background: rgba(19,78,74,0.06); border-left-color: #134E4A; }
+.blog-post-body .callout-forest p { color: #1F2937; }
+.blog-post-body .callout-forest strong { color: #134E4A; }
+
+/* ── GST RECONCILIATION BLOG STYLES ── */
+
+/* workflow / closing-loop section pill */
+.blog-post-body .pill-workflow { background: rgba(19,78,74,0.1); color: #134E4A; }
+
+/* pain list (icon + card rows) */
+.blog-post-body .pain-list { list-style: none; padding: 0; margin: 1.5rem 0; display: flex; flex-direction: column; gap: 0.6rem; }
+.blog-post-body .pain-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.93rem;
+  color: #374151;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  line-height: 1.5;
+}
+.blog-post-body .pain-list .icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
+
+/* use-case tree (buckets → lanes → terminal) */
+.blog-post-body .tree { margin: 2rem 0; display: flex; flex-direction: column; gap: 0.85rem; }
+.blog-post-body .tree-source {
+  background: #134E4A; color: #fff;
+  border-radius: 0.6rem; padding: 0.9rem 1.25rem; text-align: center;
+}
+.blog-post-body .ts-label { display: block; font-size: 1rem; font-weight: 700; }
+.blog-post-body .ts-sub { display: block; font-size: 0.76rem; color: #99F6E4; margin-top: 0.2rem; }
+.blog-post-body .tree-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.6rem; }
+@media (max-width: 560px) { .blog-post-body .tree-split { grid-template-columns: 1fr; } }
+.blog-post-body .tree-pill {
+  font-size: 0.78rem; font-weight: 600; padding: 0.6rem 0.85rem;
+  border-radius: 0.5rem; text-align: center; line-height: 1.35;
+}
+.blog-post-body .tree-pill.reconciled { background: rgba(22,163,74,0.08); color: #16A34A; border: 1px solid rgba(22,163,74,0.25); }
+.blog-post-body .tree-pill.nonrecon { background: rgba(220,38,38,0.06); color: #DC2626; border: 1px solid rgba(220,38,38,0.2); }
+
+.blog-post-body .tree-buckets { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.6rem; }
+@media (max-width: 780px) { .blog-post-body .tree-buckets { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .blog-post-body .tree-buckets { grid-template-columns: 1fr; } }
+.blog-post-body .tbucket {
+  background: #FFFFFF; border: 1px solid #E5E7EB;
+  border-radius: 0.55rem; padding: 0.85rem 0.9rem;
+  border-top: 3px solid #E5E7EB;
+  display: flex; flex-direction: column; gap: 0.35rem;
+}
+.blog-post-body .tb-chase { border-top-color: #0F766E; }
+.blog-post-body .tb-internal { border-top-color: #134E4A; }
+.blog-post-body .tb-force { border-top-color: #DC2626; }
+.blog-post-body .tb-tag {
+  font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; color: #6B7280;
+}
+.blog-post-body .tb-title { font-size: 0.85rem; font-weight: 700; color: #1F2937; line-height: 1.2; }
+.blog-post-body .tb-body { font-size: 0.74rem; color: #374151; margin: 0; line-height: 1.45; flex: 1; }
+.blog-post-body .tb-route { font-size: 0.72rem; font-weight: 700; margin-top: 0.2rem; }
+.blog-post-body .route-chase { color: #0F766E; }
+.blog-post-body .route-internal { color: #134E4A; }
+.blog-post-body .route-force { color: #DC2626; }
+
+.blog-post-body .tree-lanes { display: flex; flex-direction: column; gap: 0.4rem; }
+.blog-post-body .tl-chip {
+  font-size: 0.8rem; color: #374151; line-height: 1.4;
+  padding: 0.6rem 0.9rem; border-radius: 0.45rem; background: #F9FAFB;
+  border-left: 3px solid #E5E7EB;
+}
+.blog-post-body .tl-chip.lane-chase { border-left-color: #0F766E; }
+.blog-post-body .tl-chip.lane-internal { border-left-color: #134E4A; }
+.blog-post-body .tl-chip.lane-force { border-left-color: #DC2626; }
+.blog-post-body .tl-chip strong { color: #1F2937; }
+
+.blog-post-body .tree-terminal {
+  background: rgba(22,163,74,0.06); border: 1px solid rgba(22,163,74,0.25);
+  border-radius: 0.6rem; padding: 0.9rem 1.25rem; text-align: center;
+}
+.blog-post-body .tt-label { display: block; font-size: 0.92rem; font-weight: 700; color: #16A34A; }
+.blog-post-body .tt-sub { display: block; font-size: 0.76rem; color: #374151; margin-top: 0.25rem; }
+
 /* ── CFO CASH POSITION BLOG STYLES ── */
 
 /* scene card (monday morning dialogue) */

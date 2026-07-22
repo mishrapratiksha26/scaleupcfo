@@ -11,7 +11,6 @@ import CfoCashPositionRealTime from "../blogs/cfo-cash-position-real-time";
 import SalesReconciliationLayers from "../blogs/sales-reconciliation-layers";
 import InvestorMisNotReady from "../blogs/investor-mis-not-ready";
 import FinanceOpsWithoutAFinanceTeam from "../blogs/finance-ops-without-a-finance-team";
-import GstReconciliation30Minutes from "../blogs/gst-reconciliation-30-minutes";
 import CalBookingButton from "../components/DemoBookingButton";
 
 const contentMap = {
@@ -22,7 +21,6 @@ const contentMap = {
   "sales-reconciliation-layers": SalesReconciliationLayers,
   "investor-mis-not-ready": InvestorMisNotReady,
   "finance-ops-without-a-finance-team": FinanceOpsWithoutAFinanceTeam,
-  "gst-reconciliation-30-minutes": GstReconciliation30Minutes,
 };
 
 const LEAD_POPUP_SCROLL_THRESHOLD = 0.2; // show once ~1/5 of the page has been scrolled
